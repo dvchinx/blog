@@ -124,33 +124,6 @@ npm run build
 
 Los archivos compilados estarán en `dist/`
 
-## 🐳 Docker
-
-### Build de la imagen
-
-```bash
-docker build -t personal-blog .
-```
-
-### Ejecutar container
-
-```bash
-docker run -p 80:80 personal-blog
-```
-
-## 🌐 Deployment
-
-El blog se despliega automáticamente con Docker Compose:
-
-```bash
-cd deploy
-docker-compose up -d blog
-```
-
-El servicio estará disponible en:
-- Desarrollo: `http://localhost:5173`
-- Producción: `https://blog.jesusflorez.cloud`
-
 ## 📚 Tecnologías
 
 - **React 18**: Librería de UI
@@ -161,44 +134,6 @@ El servicio estará disponible en:
 - **gray-matter**: Parser de frontmatter YAML
 - **Docker**: Containerización
 - **Nginx**: Web server en producción
-
-## 🎨 Personalización
-
-### Colores y temas
-
-Edita las variables CSS en src/styles/index.css:
-
-```css
-:root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --accent-color: #646cff;
-  /* ... más variables */
-}
-```
-
-### Posts por página
-
-Cambia `POSTS_PER_PAGE` en src/components/PostList.jsx:
-
-```javascript
-const POSTS_PER_PAGE = 9; // Cambia este número
-```
-
-## 🔧 Troubleshooting
-
-### Los posts no aparecen
-
-1. Verifica que los posts estén en `src/posts/YYYY/MM/`
-2. Asegúrate que tienen la extensión `.md`
-3. Revisa que el frontmatter YAML esté bien formateado
-4. Recarga la página (Vite debe recargar automáticamente)
-
-### Error al renderizar Markdown
-
-1. Verifica que no haya errores en el frontmatter
-2. Asegúrate que los bloques de código estén bien cerrados
-3. Revisa la consola del navegador para errores específicos
 
 ## 📄 Licencia
 

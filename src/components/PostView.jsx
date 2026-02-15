@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import { loadPost } from '../utils/postsLoader'
 import '../styles/PostView.css'
 
@@ -46,7 +47,7 @@ function PostView() {
   }
 
   return (
-    <article className="post-view">
+    <article className={`post-view post-view-${post.metadata.categoria || 'tech'}`}>
       <Link to="/" className="back-link">← Volver al blog</Link>
       
       {post.metadata.imagenPortada && (
@@ -90,6 +91,7 @@ function PostView() {
       <div className="post-content">
         <ReactMarkdown 
           remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
           components={{
             h1: ({node, ...props}) => <h2 {...props} />,
             h2: ({node, ...props}) => <h3 {...props} />,

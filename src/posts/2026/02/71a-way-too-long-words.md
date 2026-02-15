@@ -6,6 +6,7 @@ fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Codeforces Beta Round 65 (Div 2)"
 imagenPortada: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
+categoria: "coding"
 ---
 
 # A. Way too long words

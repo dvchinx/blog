@@ -10,7 +10,7 @@ function Footer() {
         <div className="footer-links">
           <a href="https://github.com/dvchinx" target="_blank" rel="noopener noreferrer"><b>Autor</b></a>
           <a href="https://github.com/dvchinx/blog" target="_blank" rel="noopener noreferrer"><b>Contribuir</b></a>
-          <a href="https://jesusflorez.cloud/portfolio" target="_blank" rel="noopener noreferrer"><b>Suite</b></a>
+          <a href="https://jesusflorez.cloud" target="_blank" rel="noopener noreferrer"><b>Suite</b></a>
         </div>
       </div>
     </footer>

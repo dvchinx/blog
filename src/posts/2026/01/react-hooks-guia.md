@@ -6,6 +6,7 @@ fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Todo lo que necesitas saber sobre React Hooks para escribir componentes funcionales modernos y eficientes."
 imagenPortada: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop"
 etiquetas: ["React", "JavaScript", "Frontend"]
+categoria: "tech"
 ---
 
 # React Hooks: Una Guía Completa

@@ -6,6 +6,7 @@ fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Aprende a construir una arquitectura de microservicios robusta utilizando Spring Boot y las mejores prácticas."
 imagenPortada: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop"
 etiquetas: ["Spring Boot", "Microservices", "Backend"]
+categoria: "tech"
 ---
 
 # Microservicios con Spring Boot

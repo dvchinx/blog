@@ -9,6 +9,7 @@ function PostList() {
   const [searchTerm, setSearchTerm] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState('all')
   
   const POSTS_PER_PAGE = 9
 
@@ -29,10 +30,21 @@ function PostList() {
   }, [])
 
   useEffect(() => {
-    const filtered = searchPosts(allPosts, searchTerm)
+    let filtered = allPosts
+    
+    // Filtrar por categoría
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(post => post.metadata.categoria === selectedCategory)
+    }
+    
+    // Aplicar búsqueda
+    if (searchTerm) {
+      filtered = searchPosts(filtered, searchTerm)
+    }
+    
     setDisplayedPosts(filtered)
     setCurrentPage(1)
-  }, [searchTerm, allPosts])
+  }, [searchTerm, allPosts, selectedCategory])
 
   const totalPages = Math.ceil(displayedPosts.length / POSTS_PER_PAGE)
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE
@@ -59,6 +71,30 @@ function PostList() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
         />
+        
+        <div className="category-filters">
+          <button
+            className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+            onClick={() => setSelectedCategory('all')}
+          >
+            <span className="category-icon">📚</span>
+            Todos
+          </button>
+          <button
+            className={`category-button ${selectedCategory === 'tech' ? 'active' : ''}`}
+            onClick={() => setSelectedCategory('tech')}
+          >
+            <span className="category-icon">💡</span>
+            Artículos de Tecnología
+          </button>
+          <button
+            className={`category-button ${selectedCategory === 'coding' ? 'active' : ''}`}
+            onClick={() => setSelectedCategory('coding')}
+          >
+            <span className="category-icon">🏆</span>
+            Ejercicios de Programación
+          </button>
+        </div>
       </div>
 
       {displayedPosts.length === 0 ? (
@@ -72,8 +108,21 @@ function PostList() {
               <Link
                 key={post.metadata.path}
                 to={post.metadata.path}
-                className="post-card"
+                className={`post-card post-card-${post.metadata.categoria || 'tech'}`}
               >
+                <div className="post-category-badge">
+                  {post.metadata.categoria === 'coding' ? (
+                    <>
+                      <span className="badge-icon">🏆</span>
+                      <span className="badge-text">ICPC</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="badge-icon">💡</span>
+                      <span className="badge-text">TECH</span>
+                    </>
+                  )}
+                </div>
                 {post.metadata.imagenPortada && (
                   <div className="post-card-image">
                     <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} />

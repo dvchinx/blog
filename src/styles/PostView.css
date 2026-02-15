@@ -60,6 +60,55 @@
   border: 1px solid rgba(100, 108, 255, 0.3);
 }
 
+/* Coding Posts - Orange/Red Theme */
+.post-view-coding .tag-view {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.post-view-coding .back-link {
+  color: #f97316;
+}
+
+.post-view-coding .back-link:hover {
+  background-color: rgba(249, 115, 22, 0.1);
+}
+
+.post-view-coding .post-cover-image {
+  border: 2px solid rgba(249, 115, 22, 0.3);
+}
+
+.post-view-coding .post-header {
+  border-bottom-color: rgba(249, 115, 22, 0.3);
+}
+
+.post-view-coding .post-content a {
+  color: #f97316;
+}
+
+.post-view-coding .post-content a:hover {
+  color: #fb923c;
+}
+
+.post-view-coding .post-content blockquote {
+  border-left-color: #f97316;
+}
+
+.post-view-coding .post-content .inline-code {
+  color: #fb923c;
+  background-color: rgba(249, 115, 22, 0.1);
+}
+
+.post-view-coding .post-content th {
+  background-color: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.post-view-coding .post-content td {
+  border-color: rgba(249, 115, 22, 0.2);
+}
+
 .post-title {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -215,6 +264,97 @@
   margin: 2rem 0;
 }
 
+/* Solution Details - Collapsible Section */
+.post-content details {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+  border: 2px solid rgba(249, 115, 22, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  transition: all 0.3s ease;
+}
+
+.post-content details[open] {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.2);
+}
+
+.post-content details summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fb923c;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.post-content details summary:hover {
+  color: #f97316;
+  background-color: rgba(249, 115, 22, 0.1);
+}
+
+.post-content details summary::-webkit-details-marker {
+  display: none;
+}
+
+.post-content details summary::before {
+  content: '🔒';
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.post-content details[open] summary::before {
+  content: '🔓';
+  transform: rotate(0deg);
+}
+
+.post-content details summary::after {
+  content: 'Haz clic para ver la solución';
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: auto;
+  font-style: italic;
+}
+
+.post-content details[open] summary::after {
+  content: 'Ocultar solución';
+}
+
+.post-content details > *:not(summary) {
+  margin-top: 1rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Code inside details */
+.post-content details pre {
+  margin-top: 1rem;
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.post-content details .code-block {
+  color: #a9b1d6;
+}
+
 .error-container {
   text-align: center;
   padding: 4rem 2rem;
@@ -264,5 +404,21 @@
   .author-avatar {
     width: 50px;
     height: 50px;
+  }
+
+  .post-content details {
+    padding: 1rem;
+  }
+
+  .post-content details summary {
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .post-content details summary::after {
+    flex-basis: 100%;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
   }
 }

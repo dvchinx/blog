@@ -6,6 +6,7 @@ fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Descubre cómo TDD puede mejorar la calidad de tu código y acelerar tu desarrollo con ejemplos prácticos."
 imagenPortada: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop"
 etiquetas: ["Testing", "TDD", "Best Practices"]
+categoria: "tech"
 ---
 
 # Introducción a Test-Driven Development

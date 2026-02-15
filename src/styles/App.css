@@ -6,66 +6,6 @@
   overflow-x: hidden;
 }
 
-.background-spheres {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.sphere {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.6;
-  animation: float 20s ease-in-out infinite;
-}
-
-.sphere-1 {
-  width: 600px;
-  height: 600px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  top: -200px;
-  left: -200px;
-  animation-duration: 25s;
-}
-
-.sphere-2 {
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  bottom: -150px;
-  right: -150px;
-  animation-duration: 30s;
-  animation-delay: -10s;
-}
-
-.sphere-3 {
-  width: 450px;
-  height: 450px;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  top: 40%;
-  right: 10%;
-  animation-duration: 35s;
-  animation-delay: -20s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -30px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
 .main-content {
   flex: 1;
   max-width: 1400px;
@@ -79,24 +19,5 @@
 @media (max-width: 768px) {
   .main-content {
     padding: 1rem;
-  }
-  
-  .sphere-1 {
-    width: 400px;
-    height: 400px;
-    top: -150px;
-    left: -150px;
-  }
-  
-  .sphere-2 {
-    width: 350px;
-    height: 350px;
-    bottom: -100px;
-    right: -100px;
-  }
-  
-  .sphere-3 {
-    width: 300px;
-    height: 300px;
   }
 }

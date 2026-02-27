@@ -4,7 +4,7 @@ fecha: "2026-02-27"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "VK Cup 2012 Qualification Round 1"
-imagenPortada: "https://i.imgur.com/V41Ezdq.png?w=800&h=500&fit=crop"
+imagenPortada: "https://i.imgur.com/PYYiXRA.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
 ---

@@ -9,7 +9,7 @@ etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
 ---
 
-# A. Way too long words
+# A. Bit++
 
 > time limit per test: 1 second
 

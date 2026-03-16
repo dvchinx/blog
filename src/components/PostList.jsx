@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { loadPosts, searchPosts } from '../utils/postsLoader'
+import { setHomeSeo } from '../utils/seo'
 import '../styles/PostList.css'
 
 function PostList() {
@@ -14,6 +15,8 @@ function PostList() {
   const POSTS_PER_PAGE = 9
 
   useEffect(() => {
+    setHomeSeo()
+
     async function fetchPosts() {
       try {
         const posts = await loadPosts()
@@ -63,7 +66,7 @@ function PostList() {
   return (
     <div className="post-list-container">
       <div className="search-section">
-        <h2>Explora el Blog</h2>
+        <h1>Programacion competitiva y tecnologia</h1>
         <input
           type="text"
           placeholder="Buscar posts..."

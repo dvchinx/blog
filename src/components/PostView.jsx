@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import { loadPost } from '../utils/postsLoader'
+import { setPostSeo } from '../utils/seo'
 import '../styles/PostView.css'
 
 function PostView() {
@@ -31,6 +32,12 @@ function PostView() {
 
     fetchPost()
   }, [year, month, slug])
+
+  useEffect(() => {
+    if (post) {
+      setPostSeo(post)
+    }
+  }, [post])
 
   if (loading) {
     return <div className="loading">Cargando post...</div>
@@ -93,16 +100,16 @@ function PostView() {
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: ({node, ...props}) => <h2 {...props} />,
-            h2: ({node, ...props}) => <h3 {...props} />,
-            h3: ({node, ...props}) => <h4 {...props} />,
-            code: ({node, inline, ...props}) => 
+            h1: ({...props}) => <h2 {...props} />,
+            h2: ({...props}) => <h3 {...props} />,
+            h3: ({...props}) => <h4 {...props} />,
+            code: ({inline, ...props}) => 
               inline ? 
                 <code className="inline-code" {...props} /> : 
                 <code className="code-block" {...props} />,
-            pre: ({node, ...props}) => <pre className="pre-block" {...props} />,
-            a: ({node, ...props}) => <a target="_blank" rel="noopener noreferrer" {...props} />,
-            img: ({node, ...props}) => <img loading="lazy" {...props} />
+            pre: ({...props}) => <pre className="pre-block" {...props} />,
+            a: ({...props}) => <a target="_blank" rel="noopener noreferrer" {...props} />,
+            img: ({...props}) => <img loading="lazy" {...props} />
           }}
         >
           {post.content}

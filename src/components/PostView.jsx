@@ -3,22 +3,28 @@ import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
-import { loadPost } from '../utils/postsLoader'
+import { loadPost, loadPosts, getRelatedPosts } from '../utils/postsLoader'
 import { setPostSeo } from '../utils/seo'
 import '../styles/PostView.css'
 
 function PostView() {
   const { year, month, slug } = useParams()
   const [post, setPost] = useState(null)
+  const [relatedPosts, setRelatedPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useEffect(() => {
     async function fetchPost() {
       try {
-        const postData = await loadPost(year, month, slug)
+        const [postData, postsCatalog] = await Promise.all([
+          loadPost(year, month, slug),
+          loadPosts()
+        ])
+
         if (postData) {
           setPost(postData)
+          setRelatedPosts(getRelatedPosts(postsCatalog, postData, 3))
         } else {
           setError(true)
         }
@@ -115,6 +121,43 @@ function PostView() {
           {post.content}
         </ReactMarkdown>
       </div>
+
+      {relatedPosts.length > 0 && (
+        <section className="related-posts" aria-label="Articulos relacionados">
+          <h2 className="related-posts-title">Articulos relacionados</h2>
+          <div className="related-posts-grid">
+            {relatedPosts.map((relatedPost) => (
+              <Link
+                key={relatedPost.metadata.path}
+                to={relatedPost.metadata.path}
+                className="related-post-card"
+              >
+                {relatedPost.metadata.imagenPortada && (
+                  <img
+                    src={relatedPost.metadata.imagenPortada}
+                    alt={relatedPost.metadata.titulo}
+                    className="related-post-image"
+                    loading="lazy"
+                  />
+                )}
+                <div className="related-post-body">
+                  <h3>{relatedPost.metadata.titulo}</h3>
+                  {relatedPost.metadata.descripcion && (
+                    <p>{relatedPost.metadata.descripcion}</p>
+                  )}
+                  <span className="related-post-date">
+                    {new Date(relatedPost.metadata.fecha).toLocaleDateString('es-ES', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </article>
   )
 }

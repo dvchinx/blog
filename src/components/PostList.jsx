@@ -11,7 +11,7 @@ function PostList() {
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('all')
-  
+
   const POSTS_PER_PAGE = 9
 
   useEffect(() => {
@@ -28,23 +28,23 @@ function PostList() {
         setLoading(false)
       }
     }
-    
+
     fetchPosts()
   }, [])
 
   useEffect(() => {
     let filtered = allPosts
-    
+
     // Filtrar por categoría
     if (selectedCategory !== 'all') {
       filtered = filtered.filter(post => post.metadata.categoria === selectedCategory)
     }
-    
+
     // Aplicar búsqueda
     if (searchTerm) {
       filtered = searchPosts(filtered, searchTerm)
     }
-    
+
     setDisplayedPosts(filtered)
     setCurrentPage(1)
   }, [searchTerm, allPosts, selectedCategory])
@@ -66,7 +66,7 @@ function PostList() {
   return (
     <div className="post-list-container">
       <div className="search-section">
-        <h1>Programacion competitiva y tecnologia</h1>
+        <h1>Programación competitiva y tecnología</h1>
         <input
           type="text"
           placeholder="Buscar posts..."
@@ -74,7 +74,7 @@ function PostList() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
         />
-        
+
         <div className="category-filters">
           <button
             className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
@@ -171,7 +171,7 @@ function PostList() {
               >
                 ← Anterior
               </button>
-              
+
               <div className="pagination-numbers">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                   <button

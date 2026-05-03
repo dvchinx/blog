@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://blog.jesusflorez.cloud/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -10,60 +12,154 @@
     <loc>https://blog.jesusflorez.cloud/2026/01/introduccion-tdd</loc>
     <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Introducción a Test-Driven Development (TDD)</image:title>
+      <image:caption>Descubre cómo TDD puede mejorar la calidad de tu código y acelerar tu desarrollo con ejemplos prácticos.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/01/microservicios-spring-boot</loc>
     <lastmod>2026-01-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Microservicios con Spring Boot</image:title>
+      <image:caption>Aprende a construir una arquitectura de microservicios robusta utilizando Spring Boot y las mejores prácticas.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/01/react-hooks-guia</loc>
     <lastmod>2026-01-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>React Hooks: Una Guía Completa</image:title>
+      <image:caption>Todo lo que necesitas saber sobre React Hooks para escribir componentes funcionales modernos y eficientes.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/02/158a-next-round</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/PYYiXRA.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>158A - Next Round</image:title>
+      <image:caption>VK Cup 2012 Qualification Round 1</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/02/231a-team</loc>
     <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/IIWAVGY.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>231A - Team</image:title>
+      <image:caption>Codeforces Round 143 (Div 2)</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/02/282a-bitplusplus</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/V41Ezdq.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>282A - Bit++</image:title>
+      <image:caption>Codeforces Round 173 (Div 2)</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/02/4a-watermelon</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/YxWXlzs.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>4A - Watermelon</image:title>
+      <image:caption>Codeforces Beta Round 4 (Div. 2 Only)</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/02/71a-way-too-long-words</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/gTKjVJi.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>71A - Way too long words</image:title>
+      <image:caption>Codeforces Beta Round 65 (Div 2)</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/03/B-R1-2026-robin</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/xrcKuDA.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>B - Round Robin Scheduling</image:title>
+      <image:caption>Ejercicio B - CCPL R1 2026</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/03/inverse-factorial</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/GBn69X9.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Inverse Factorial</image:title>
+      <image:caption>CCPL R2 2026 (Kattis)</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/03/tipos-variables</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Tipos Primitivos vs Wrappers: Diferencias Clave</image:title>
+      <image:caption>Comprende las diferencias fundamentales entre tipos primitivos y wrappers, y cuándo usar cada uno en tu código.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/04/arquitectura-capas</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arquitectura por Capas</image:title>
+      <image:caption>Aprende qué es la arquitectura por capas, cómo se organiza y por qué sigue siendo una forma útil de estructurar aplicaciones mantenibles.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/04/arquitecutra-cliente-servidor</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arquitectura Cliente-Servidor</image:title>
+      <image:caption>Comprende cómo funciona la arquitectura cliente-servidor, sus ventajas, limitaciones y buenas prácticas para implementarla en sistemas modernos.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/04/arquitecutra-monolitica</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arquitectura Monolitica</image:title>
+      <image:caption>Descubre qué es la arquitectura monolítica, sus ventajas, limitaciones y cuándo conviene usarla en proyectos reales.</image:caption>
+    </image:image>
   </url>
 </urlset>

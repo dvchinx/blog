@@ -7,6 +7,8 @@ const repoRoot = process.cwd()
 const postsRoot = path.join(repoRoot, 'src', 'posts')
 const outputPath = path.join(repoRoot, 'public', 'sitemap.xml')
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
 function collectMarkdownFiles(dirPath, acc = []) {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true })
 
@@ -52,45 +54,76 @@ function resolveLastMod(frontmatterDate, fallbackMtime) {
   return fallbackMtime.toISOString().split('T')[0]
 }
 
+function isAbsoluteUrl(src) {
+  return typeof src === 'string' && (src.startsWith('http://') || src.startsWith('https://'))
+}
+
+function absoluteImage(src) {
+  if (!src) return null
+  if (isAbsoluteUrl(src)) return src
+  return `${siteUrl}${src.startsWith('/') ? '' : '/'}${src}`
+}
+
+// ─── Build URL list ───────────────────────────────────────────────────────────
+
 const markdownFiles = collectMarkdownFiles(postsRoot)
 
-const urls = [
-  {
-    loc: `${siteUrl}/`,
-    changefreq: 'daily',
-    priority: '1.0',
-    lastmod: new Date().toISOString().split('T')[0]
-  }
-]
-
-for (const filePath of markdownFiles) {
+// Parse all posts to determine the most recent publication date for the home page
+const postEntries = markdownFiles.map((filePath) => {
   const content = fs.readFileSync(filePath, 'utf8')
   const stat = fs.statSync(filePath)
   const { data } = matter(content)
 
-  urls.push({
+  return {
+    filePath,
+    stat,
+    data,
     loc: `${siteUrl}${toSitePath(filePath)}`,
-    changefreq: 'weekly',
-    priority: '0.8',
-    lastmod: resolveLastMod(data.fecha, stat.mtime)
-  })
-}
+    lastmod: resolveLastMod(data.fecha, stat.mtime),
+    priority: data.categoria === 'tech' ? '0.9' : '0.8'
+  }
+})
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
-  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  urls
-    .map((url) => {
-      return [
-        '  <url>',
-        `    <loc>${escapeXml(url.loc)}</loc>`,
-        `    <lastmod>${url.lastmod}</lastmod>`,
-        `    <changefreq>${url.changefreq}</changefreq>`,
-        `    <priority>${url.priority}</priority>`,
-        '  </url>'
-      ].join('\n')
-    })
-    .join('\n') +
+// Sort entries by date desc to find the most recent for the home lastmod
+const sortedByDate = [...postEntries].sort((a, b) => {
+  return new Date(b.lastmod) - new Date(a.lastmod)
+})
+
+const homeLastMod = sortedByDate.length > 0 ? sortedByDate[0].lastmod : new Date().toISOString().split('T')[0]
+
+// ─── Build XML ────────────────────────────────────────────────────────────────
+
+const homeEntry = `  <url>
+    <loc>${escapeXml(`${siteUrl}/`)}</loc>
+    <lastmod>${homeLastMod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>`
+
+const postXmlEntries = postEntries.map(({ data, loc, lastmod, priority }) => {
+  const image = absoluteImage(data.imagenPortada)
+  const title = data.titulo ? escapeXml(data.titulo) : null
+  const description = data.descripcion ? escapeXml(data.descripcion) : null
+
+  const imageBlock = image
+    ? `\n    <image:image>\n      <image:loc>${escapeXml(image)}</image:loc>${title ? `\n      <image:title>${title}</image:title>` : ''}${description ? `\n      <image:caption>${description}</image:caption>` : ''}\n    </image:image>`
+    : ''
+
+  return `  <url>
+    <loc>${escapeXml(loc)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${priority}</priority>${imageBlock}
+  </url>`
+})
+
+const xml =
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+  `<urlset\n` +
+  `  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
+  `  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
+  [homeEntry, ...postXmlEntries].join('\n') +
   `\n</urlset>\n`
 
 fs.writeFileSync(outputPath, xml, 'utf8')
-console.log(`sitemap.xml generated with ${urls.length} URLs.`)
+console.log(`✅  sitemap.xml generated — ${1 + postEntries.length} URLs (${postEntries.length} posts)`)

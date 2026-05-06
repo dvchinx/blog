@@ -1,6 +1,6 @@
 ---
 titulo: "Arquitectura por Componentes"
-fecha: "2026-06-05"
+fecha: "2026-05-06"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Una introducción a los principios, ventajas y buenas prácticas de la arquitectura por componentes aplicada al desarrollo de software."

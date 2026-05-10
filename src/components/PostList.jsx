@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { loadPosts, searchPosts } from '../utils/postsLoader'
 import { setHomeSeo } from '../utils/seo'
 import '../styles/PostList.css'
 
 function PostList() {
+  const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const [allPosts, setAllPosts] = useState([])
   const [displayedPosts, setDisplayedPosts] = useState([])
+  const [searchInput, setSearchInput] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
@@ -16,6 +19,16 @@ function PostList() {
 
   useEffect(() => {
     setHomeSeo()
+
+    // Leer parámetro ?q= de la URL
+    const queryParam = searchParams.get('q')
+    if (queryParam) {
+      setSearchInput(queryParam)
+      setSearchTerm(queryParam)
+    } else {
+      setSearchInput('')
+      setSearchTerm('')
+    }
 
     async function fetchPosts() {
       try {
@@ -30,7 +43,22 @@ function PostList() {
     }
 
     fetchPosts()
-  }, [])
+  }, [searchParams])
+
+  const handleSearch = () => {
+    const trimmedQuery = searchInput.trim()
+    if (trimmedQuery) {
+      navigate(`/?q=${encodeURIComponent(trimmedQuery)}`)
+    } else {
+      navigate('/')
+    }
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
 
   useEffect(() => {
     let filtered = allPosts
@@ -67,13 +95,19 @@ function PostList() {
     <div className="post-list-container">
       <div className="search-section">
         <h1>Programación competitiva y tecnología</h1>
-        <input
-          type="text"
-          placeholder="Buscar posts..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
-        />
+        <div className="search-bar-container">
+          <input
+            type="text"
+            placeholder="Buscar posts..."
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyPress={handleKeyPress}
+            className="search-input"
+          />
+          <button onClick={handleSearch} className="search-btn">
+            Buscar
+          </button>
+        </div>
 
         <div className="category-filters">
           <button

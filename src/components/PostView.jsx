@@ -3,9 +3,39 @@ import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism'
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { loadPost, loadPosts, getRelatedPosts } from '../utils/postsLoader'
 import { setPostSeo } from '../utils/seo'
 import '../styles/PostView.css'
+
+function detectCodeLanguage(code) {
+  if (/^\s*(import |export |const |let |var |function |class |async function|\(|\{)/m.test(code)) {
+    return 'javascript'
+  }
+
+  if (/^\s*(def |class |from |import |print\(|if __name__ == ['"]__main__['"])/m.test(code)) {
+    return 'python'
+  }
+
+  if (/^\s*(public class |public static void main|System\.out\.println|package )/m.test(code)) {
+    return 'java'
+  }
+
+  if (/^\s*(#include|using namespace |int main\(|cout <<)/m.test(code)) {
+    return 'cpp'
+  }
+
+  if (/^\s*[-\w]+:\s*.+$/m.test(code) || /^\s*[-\w]+:\s*$/m.test(code)) {
+    return 'yaml'
+  }
+
+  if (/^\s*(\$ |npm |yarn |pnpm |git |cd |ls |mkdir |curl )/m.test(code)) {
+    return 'bash'
+  }
+
+  return 'text'
+}
 
 function PostView() {
   const { year, month, slug } = useParams()
@@ -106,14 +136,48 @@ function PostView() {
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
+            pre: ({ children }) => <>{children}</>,
             h1: ({...props}) => <h2 {...props} />,
             h2: ({...props}) => <h3 {...props} />,
             h3: ({...props}) => <h4 {...props} />,
-            code: ({inline, ...props}) => 
-              inline ? 
-                <code className="inline-code" {...props} /> : 
-                <code className="code-block" {...props} />,
-            pre: ({...props}) => <pre className="pre-block" {...props} />,
+            code: ({inline, className, children, ...props}) => {
+              const match = /language-(\w+)/.exec(className || '')
+              const code = String(children).replace(/\n$/, '')
+              const hasLineBreaks = code.includes('\n')
+              
+              // Si es inline o no tiene saltos de línea, mostrar como código inline
+              if (inline || !hasLineBreaks) {
+                return <code className="inline-code" {...props}>{children}</code>
+              }
+
+              // Si es bloque de código con saltos de línea, usar SyntaxHighlighter
+              const language = match?.[1] || detectCodeLanguage(code)
+              return (
+                <SyntaxHighlighter
+                  language={language}
+                  style={vscDarkPlus}
+                  PreTag="div"
+                  customStyle={{
+                    margin: '1.75rem 0',
+                    padding: '1.25rem 1.5rem',
+                    borderRadius: 'var(--radius)',
+                    border: '1px solid #2d2d2d',
+                    background: '#1e1e1e',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.7,
+                    overflowX: 'auto'
+                  }}
+                  codeTagProps={{
+                    style: {
+                      fontFamily: "'JetBrains Mono', 'Fira Code', 'Courier New', monospace"
+                    }
+                  }}
+                  {...props}
+                >
+                  {code}
+                </SyntaxHighlighter>
+              )
+            },
             a: ({...props}) => <a target="_blank" rel="noopener noreferrer" {...props} />,
             img: ({...props}) => <img loading="lazy" {...props} />
           }}

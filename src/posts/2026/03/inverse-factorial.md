@@ -33,31 +33,25 @@ of digits of n! is at most 10^6.
 ### Output
 The value of n
 
-### Example 1
+### Example 1               
 
-#### Input                 
+| Input  | 
+|--------|
+| 120    |
 
-```
-120
-```
+| Output  | 
+|--------|
+| 5      |
 
-#### Output  
-```
-5
-```
+### Example 2               
 
-### Example 2
+| Input  | 
+|--------|
+| 51090942171709440000      |
 
-#### Input                 
-
-```
-51090942171709440000
-```
-
-#### Output  
-```
-22
-```
+| Input  | 
+|--------|
+| 22     |
 
 ### Solution
 

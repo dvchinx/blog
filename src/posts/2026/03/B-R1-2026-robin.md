@@ -33,27 +33,24 @@ T1 through TN.
 Output N lines, the i-th of which contains an integer representing the time elapsed when
 task i has been processed.
 
-### Example
+### Example             
 
-#### Input                 
+| Input  | 
+|--------|
+| 5      |
+| 8      |
+| 1      |
+| 3      |
+| 3      |
+| 8      | 
 
-```
-5
-8
-1
-3
-3
-8
-```
-
-#### Output  
-```
-22
-2
-11
-12
-23
-```
+| Output |
+|--------|
+| 22     | 
+| 2      |
+| 11     |
+| 12     |
+| 23     |
 
 ### Solution
 

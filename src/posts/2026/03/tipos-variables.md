@@ -18,6 +18,7 @@ En programación orientada a objetos, especialmente en lenguajes como Java, exis
 Los tipos primitivos son los tipos de datos más básicos del lenguaje. No son objetos, sino valores simples almacenados directamente en memoria.
 
 En Java, los 8 tipos primitivos son:
+
 - **Enteros**: `byte`, `short`, `int`, `long`
 - **Punto flotante**: `float`, `double`
 - **Carácter**: `char`
@@ -94,8 +95,8 @@ int unboxed = autoboxed; // unboxing: Integer → int
 
 ## Conclusión
 
-Aunque el autoboxing y unboxing automático facilitan el intercambio entre primitivos y wrappers, conocer sus diferencias es crucial para escribir código eficiente y evitar errores sutiles como `NullPointerException` o comparaciones incorrectas.
+Aunque el autoboxing y unboxing automático facilitan el intercambio entre primitivos y wrappers, conocer sus diferencias es crucial para escribir código eficiente y evitar errores sutiles como **NullPointerException** o comparaciones incorrectas.
 
 La regla general: usa primitivos por defecto, y wrappers solo cuando realmente los necesites.
 
-¿Has tenido problemas con primitivos vs wrappers en tus proyectos? Comparte tu experiencia en los comentarios.
+¿Has tenido problemas con primitivos vs wrappers en tus proyectos?

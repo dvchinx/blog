@@ -1,5 +1,5 @@
 ---
-titulo: "B - Round Robin Scheduling"
+titulo: "CCPL R1 - B. Round Robin Scheduling"
 fecha: "2026-03-06"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"

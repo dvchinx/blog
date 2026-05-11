@@ -30,6 +30,20 @@ function PostList() {
       setSearchTerm('')
     }
 
+    // Leer parámetro ?categoria= de la URL y mapear al código interno
+    const categoriaParam = searchParams.get('categoria')
+    if (categoriaParam) {
+      const mapSlugToCode = (slug) => {
+        if (!slug) return 'all'
+        if (slug === 'tecnologia') return 'tech'
+        if (slug === 'programacion-competitiva') return 'coding'
+        return 'all'
+      }
+      setSelectedCategory(mapSlugToCode(categoriaParam))
+    } else {
+      setSelectedCategory('all')
+    }
+
     async function fetchPosts() {
       try {
         const posts = await loadPosts()
@@ -47,10 +61,16 @@ function PostList() {
 
   const handleSearch = () => {
     const trimmedQuery = searchInput.trim()
+    const currentCategoria = searchParams.get('categoria')
     if (trimmedQuery) {
-      navigate(`/?q=${encodeURIComponent(trimmedQuery)}`)
+      const catPart = currentCategoria ? `&categoria=${encodeURIComponent(currentCategoria)}` : ''
+      navigate(`/?q=${encodeURIComponent(trimmedQuery)}${catPart}`)
     } else {
-      navigate('/')
+      if (currentCategoria) {
+        navigate(`/?categoria=${encodeURIComponent(currentCategoria)}`)
+      } else {
+        navigate('/')
+      }
     }
   }
 
@@ -110,27 +130,55 @@ function PostList() {
         </div>
 
         <div className="category-filters">
-          <button
-            className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('all')}
-          >
-            <span className="category-icon">📚</span>
-            Todos
-          </button>
-          <button
-            className={`category-button ${selectedCategory === 'tech' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('tech')}
-          >
-            <span className="category-icon">💡</span>
-            Artículos de Tecnología
-          </button>
-          <button
-            className={`category-button ${selectedCategory === 'coding' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('coding')}
-          >
-            <span className="category-icon">🏆</span>
-            Ejercicios de Programación
-          </button>
+          {(() => {
+            const slugFor = (code) => {
+              if (code === 'tech') return 'tecnologia'
+              if (code === 'coding') return 'programacion-competitiva'
+              return ''
+            }
+
+            const handleCategoryClick = (code) => {
+              const currentQ = searchParams.get('q')
+              const slug = slugFor(code)
+              setSelectedCategory(code)
+              if (code === 'all') {
+                if (currentQ) navigate(`/?q=${encodeURIComponent(currentQ)}`)
+                else navigate('/')
+              } else {
+                const qPart = currentQ ? `q=${encodeURIComponent(currentQ)}&` : ''
+                navigate(`/?${qPart}categoria=${encodeURIComponent(slug)}`)
+              }
+            }
+
+            return (
+              <>
+                <a
+                  className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+                  href={searchParams.get('q') ? `https://blog.jesusflorez.cloud/?q=${encodeURIComponent(searchParams.get('q'))}` : 'https://blog.jesusflorez.cloud/'}
+                  onClick={(e) => { e.preventDefault(); handleCategoryClick('all') }}
+                >
+                  <span className="category-icon">📚</span>
+                  Todos
+                </a>
+                <a
+                  className={`category-button ${selectedCategory === 'tech' ? 'active' : ''}`}
+                  href={`https://blog.jesusflorez.cloud/?${searchParams.get('q') ? `q=${encodeURIComponent(searchParams.get('q'))}&` : ''}categoria=${encodeURIComponent(slugFor('tech'))}`}
+                  onClick={(e) => { e.preventDefault(); handleCategoryClick('tech') }}
+                >
+                  <span className="category-icon">💡</span>
+                  Artículos de Tecnología
+                </a>
+                <a
+                  className={`category-button ${selectedCategory === 'coding' ? 'active' : ''}`}
+                  href={`https://blog.jesusflorez.cloud/?${searchParams.get('q') ? `q=${encodeURIComponent(searchParams.get('q'))}&` : ''}categoria=${encodeURIComponent(slugFor('coding'))}`}
+                  onClick={(e) => { e.preventDefault(); handleCategoryClick('coding') }}
+                >
+                  <span className="category-icon">🏆</span>
+                  Ejercicios de Programación
+                </a>
+              </>
+            )
+          })()}
         </div>
       </div>
 

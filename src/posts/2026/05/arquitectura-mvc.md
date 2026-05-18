@@ -7,6 +7,7 @@ descripcion: "Comprende cómo funciona la arquitectura MVC, sus ventajas, limita
 imagenPortada: "https://images.unsplash.com/photo-1570215171323-4ec328f3f5fa?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
+keywords: "MVC, Arquitectura, Patrón de diseño, Separación de responsabilidades, Model-View-Controller"
 ---
 
 # Arquitectura MVC

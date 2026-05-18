@@ -7,6 +7,7 @@ descripcion: "Aprende a construir una arquitectura de microservicios robusta uti
 imagenPortada: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop"
 etiquetas: ["Spring Boot", "Microservices", "Backend"]
 categoria: "tech"
+keywords: "Spring Boot, Microservicios, Backend, Arquitectura, Java, Aplicaciones distribuidas"
 ---
 
 # Microservicios con Spring Boot

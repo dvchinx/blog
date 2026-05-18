@@ -7,6 +7,7 @@ descripcion: "CCPL R2 2026 (Kattis)"
 imagenPortada: "https://i.imgur.com/GBn69X9.png?w=800&h=500&fit=crop"
 etiquetas: ["CCPL", "Kattis"]
 categoria: "coding"
+keywords: "CCPL, Kattis, Algoritmos, Programación competitiva, Factorial inverso"
 ---
 
 # Inverse Factorial

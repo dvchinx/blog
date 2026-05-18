@@ -7,6 +7,7 @@ descripcion: "Ejercicio B - CCPL R4 2026"
 imagenPortada: "https://i.imgur.com/TZe28SI.png?w=1000&h=500&fit=crop"
 etiquetas: ["CCPL"]
 categoria: "coding"
+keywords: "CCPL, Codeforces, Algoritmos, Programación competitiva, Bytelandian Gold Coins"
 ---
 
 # B. Bytelandian Gold Coins

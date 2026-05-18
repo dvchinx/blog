@@ -7,6 +7,7 @@ descripcion: "Una introducción a los principios, ventajas y buenas prácticas d
 imagenPortada: "https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?w=800&h=500&fit=crop)"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
+keywords: "Arquitectura, Componentes, Diseño de software, Reutilización de componentes, Encapsulación"
 ---
 
 # Arquitectura por Componentes

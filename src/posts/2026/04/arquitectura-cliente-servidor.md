@@ -7,6 +7,7 @@ descripcion: "Comprende cómo funciona la arquitectura cliente-servidor, sus ven
 imagenPortada: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
+keywords: "Arquitectura, Cliente-Servidor, Sistemas distribuidos, Redes, Comunicación de procesos"
 ---
 
 # Arquitectura Cliente-Servidor

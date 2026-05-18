@@ -7,6 +7,7 @@ descripcion: "Descubre qué es la arquitectura monolítica, sus ventajas, limita
 imagenPortada: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
+keywords: "Arquitectura, Monolito, Diseño de software, Aplicaciones empresariales, Arquitectura monolítica"
 ---
 
 # Arquitectura Monolítica

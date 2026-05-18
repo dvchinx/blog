@@ -7,6 +7,7 @@ descripcion: "VK Cup 2012 Qualification Round 1"
 imagenPortada: "https://i.imgur.com/PYYiXRA.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
+keywords: "Codeforces, Algoritmos, Programación competitiva, Next Round, Resolución de problemas"
 ---
 
 # A. Next Round

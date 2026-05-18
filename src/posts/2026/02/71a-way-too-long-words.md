@@ -7,6 +7,7 @@ descripcion: "Codeforces Beta Round 65 (Div 2)"
 imagenPortada: "https://i.imgur.com/gTKjVJi.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
+keywords: "Codeforces, Algoritmos, Programación competitiva, Manipulación de strings, Way too long words"
 ---
 
 # A. Way too long words

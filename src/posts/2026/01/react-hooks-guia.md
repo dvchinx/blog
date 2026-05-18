@@ -7,6 +7,7 @@ descripcion: "Todo lo que necesitas saber sobre React Hooks para escribir compon
 imagenPortada: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop"
 etiquetas: ["React", "JavaScript", "Frontend"]
 categoria: "tech"
+keywords: "React, Hooks, Frontend, JavaScript, Componentes funcionales, useMemo, useCallback, useState, useEffect"
 ---
 
 # React Hooks: Una Guía Completa

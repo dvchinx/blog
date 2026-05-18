@@ -7,6 +7,7 @@ descripcion: "Aprende qué es la arquitectura por capas, cómo se organiza y por
 imagenPortada: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
+keywords: "Arquitectura, Capas, Diseño de software, Separación de responsabilidades, Arquitectura en capas"
 ---
 
 # Arquitectura por Capas

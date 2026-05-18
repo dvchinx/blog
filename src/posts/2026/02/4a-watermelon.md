@@ -7,6 +7,7 @@ descripcion: "Codeforces Beta Round 4 (Div. 2 Only)"
 imagenPortada: "https://i.imgur.com/YxWXlzs.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
+keywords: "Codeforces, Algoritmos, Programación competitiva, Watermelon, Resolución de problemas"
 ---
 
 # A. Watermelon

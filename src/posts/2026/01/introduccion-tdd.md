@@ -7,6 +7,7 @@ descripcion: "Descubre cómo TDD puede mejorar la calidad de tu código y aceler
 imagenPortada: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop"
 etiquetas: ["Testing", "TDD", "Best Practices"]
 categoria: "tech"
+keywords: "TDD, Test-Driven Development, Pruebas unitarias, Testing, Metodología de desarrollo, Calidad de código"
 ---
 
 # Introducción a Test-Driven Development

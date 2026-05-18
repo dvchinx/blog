@@ -7,6 +7,7 @@ descripcion: "Codeforces Round 143 (Div 2)"
 imagenPortada: "https://i.imgur.com/IIWAVGY.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
+keywords: "Codeforces, Algoritmos, Programación competitiva, Team, Resolución de problemas"
 ---
 
 # A. Team

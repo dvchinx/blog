@@ -7,6 +7,7 @@ descripcion: "Comprende las diferencias fundamentales entre tipos primitivos y w
 imagenPortada: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Java", "Best Practices"]
 categoria: "tech"
+keywords: "Java, Tipos primitivos, Wrappers, Clases wrapper, OOP, Programación orientada a objetos"
 ---
 
 # Tipos Primitivos vs Wrappers

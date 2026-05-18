@@ -7,6 +7,7 @@ descripcion: "Ejercicio B - CCPL R1 2026"
 imagenPortada: "https://i.imgur.com/xrcKuDA.png?w=800&h=500&fit=crop"
 etiquetas: ["CCPL"]
 categoria: "coding"
+keywords: "CCPL, Algoritmos, Programación competitiva, Round Robin, Scheduling, Planificación"
 ---
 
 # B. Round Robin Scheduling

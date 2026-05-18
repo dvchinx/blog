@@ -8,6 +8,7 @@ descripcion: "Ejercicio A - CCPL R11 2025"
 imagenPortada: "https://i.imgur.com/OEH9VDX.png?w=1000&h=500&fit=crop"
 etiquetas: ["CCPL", "UVa", "Sliding Window"]
 categoria: "coding"
+keywords: "CCPL, UVa, Algoritmos, Sliding Window, Ventana deslizante, Document Analyzer"
 ---
 
 # A. Document Analyzer — Ejercicio y Solución

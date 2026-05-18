@@ -163,7 +163,7 @@ export function setPostSeo(post) {
   const section =
     metadata.categoria === 'coding' ? 'Programación competitiva' : 'Tecnología'
   const wordCount = estimateWordCount(content)
-  const keywords = tags.join(', ')
+  const keywords = metadata.keywords || tags.join(', ')
 
   document.title = title
   setCanonical(canonical)
@@ -234,7 +234,7 @@ export function setPostSeo(post) {
       wordCount,
       inLanguage: 'es',
       articleSection: section,
-      keywords: tags.join(', '),
+      keywords,
       image: {
         '@type': 'ImageObject',
         url: image,

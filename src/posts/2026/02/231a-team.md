@@ -1,5 +1,6 @@
 ---
 titulo: "231A - Team"
+seoTitulo: "Team (Codeforces 231A) — solución, explicación y código"
 fecha: "2026-02-20"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Codeforces Round 143 (Div 2)"
 imagenPortada: "https://i.imgur.com/IIWAVGY.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
-keywords: "Codeforces, Algoritmos, Programación competitiva, Team, Resolución de problemas"
+keywords: "Team, Codeforces 231A, solución, programación competitiva, algoritmos, conteo de decisiones"
 ---
 
 # A. Team

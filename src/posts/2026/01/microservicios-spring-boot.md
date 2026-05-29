@@ -1,5 +1,6 @@
 ---
 titulo: "Microservicios con Spring Boot"
+seoTitulo: "Microservicios con Spring Boot: guía práctica y arquitectura"
 fecha: "2026-01-08"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Aprende a construir una arquitectura de microservicios robusta uti
 imagenPortada: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop"
 etiquetas: ["Spring Boot", "Microservices", "Backend"]
 categoria: "tech"
-keywords: "Spring Boot, Microservicios, Backend, Arquitectura, Java, Aplicaciones distribuidas"
+keywords: "microservicios, Spring Boot, arquitectura de microservicios, Java, REST, resiliencia, comunicación entre servicios, Docker, Kubernetes"
 ---
 
 # Microservicios con Spring Boot

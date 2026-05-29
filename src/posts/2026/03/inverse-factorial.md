@@ -1,5 +1,6 @@
 ---
 titulo: "Inverse Factorial"
+seoTitulo: "Inverse Factorial — solución (Kattis) y explicación algorítmica"
 fecha: "2026-03-23"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "CCPL R2 2026 (Kattis)"
 imagenPortada: "https://i.imgur.com/GBn69X9.png?w=800&h=500&fit=crop"
 etiquetas: ["CCPL", "Kattis"]
 categoria: "coding"
-keywords: "CCPL, Kattis, Algoritmos, Programación competitiva, Factorial inverso"
+keywords: "inverse factorial, Kattis, CCPL, solución, algoritmos, programación competitiva, factorial inverso"
 ---
 
 # Inverse Factorial

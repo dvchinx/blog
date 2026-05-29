@@ -1,5 +1,6 @@
 ---
 titulo: "Arquitectura Monolitica"
+seoTitulo: "Arquitectura monolítica: características, ventajas y cuándo usarla"
 fecha: "2026-04-24"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Descubre qué es la arquitectura monolítica, sus ventajas, limita
 imagenPortada: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
-keywords: "Arquitectura, Monolito, Diseño de software, Aplicaciones empresariales, Arquitectura monolítica"
+keywords: "arquitectura monolítica, monolito, diseño de software, escalabilidad, monolithic architecture, pros y contras"
 ---
 
 # Arquitectura Monolítica

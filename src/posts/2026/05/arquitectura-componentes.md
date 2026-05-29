@@ -1,5 +1,6 @@
 ---
 titulo: "Arquitectura por Componentes"
+seoTitulo: "Arquitectura por Componentes: diseño, reutilización y encapsulación"
 fecha: "2026-05-06"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Una introducción a los principios, ventajas y buenas prácticas d
 imagenPortada: "https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?w=800&h=500&fit=crop)"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
-keywords: "Arquitectura, Componentes, Diseño de software, Reutilización de componentes, Encapsulación"
+keywords: "arquitectura por componentes, diseño de componentes, reutilización, encapsulación, micro frontends, modularidad, design systems"
 ---
 
 # Arquitectura por Componentes

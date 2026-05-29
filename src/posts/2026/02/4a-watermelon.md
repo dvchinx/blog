@@ -1,5 +1,6 @@
 ---
 titulo: "4A - Watermelon"
+seoTitulo: "Watermelon (Codeforces 4A) — solución y explicación de Codeforces"
 fecha: "2026-02-13"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Codeforces Beta Round 4 (Div. 2 Only)"
 imagenPortada: "https://i.imgur.com/YxWXlzs.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
-keywords: "Codeforces, Algoritmos, Programación competitiva, Watermelon, Resolución de problemas"
+keywords: "Watermelon, Codeforces 4A, solución, programación competitiva, paridad, algoritmos sencillos"
 ---
 
 # A. Watermelon

@@ -1,5 +1,6 @@
 ---
 titulo: "CCPL R1 - B. Round Robin Scheduling"
+seoTitulo: "Round Robin Scheduling — solución, explicación y algoritmos"
 fecha: "2026-03-06"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Ejercicio B - CCPL R1 2026"
 imagenPortada: "https://i.imgur.com/xrcKuDA.png?w=800&h=500&fit=crop"
 etiquetas: ["CCPL"]
 categoria: "coding"
-keywords: "CCPL, Algoritmos, Programación competitiva, Round Robin, Scheduling, Planificación"
+keywords: "round robin scheduling, CCPL, solución, algoritmos, planificación, programación competitiva"
 ---
 
 # B. Round Robin Scheduling

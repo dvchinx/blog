@@ -1,5 +1,5 @@
 ---
-titulo: "112B - Petya and Square"
+titulo: "Codeforces 112B - Petya and Square"
 seoTitulo: "Solución de 112B. Petya and Square (CodeForces) en Python"
 fecha: "2026-05-25"
 nombreAutor: "Jesús Flórez"

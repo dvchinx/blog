@@ -1,5 +1,6 @@
 ---
 titulo: "Arquitectura por Capas"
+seoTitulo: "Arquitectura por capas: separación de responsabilidades y diseño en capas"
 fecha: "2026-04-29"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Aprende qué es la arquitectura por capas, cómo se organiza y por
 imagenPortada: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
-keywords: "Arquitectura, Capas, Diseño de software, Separación de responsabilidades, Arquitectura en capas"
+keywords: "arquitectura por capas, diseño por capas, separación de responsabilidades, multilayer architecture, capas presentación negocio datos"
 ---
 
 # Arquitectura por Capas

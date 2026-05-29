@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Arquitectura Cliente-Servidor"
+seoTitulo: "Arquitectura Cliente-Servidor: conceptos clave y comunicación entre procesos"
 fecha: "2026-04-26"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Comprende cómo funciona la arquitectura cliente-servidor, sus ven
 imagenPortada: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
-keywords: "Arquitectura, Cliente-Servidor, Sistemas distribuidos, Redes, Comunicación de procesos"
+keywords: "arquitectura cliente-servidor, cliente servidor, sistemas distribuidos, comunicación entre procesos, redes, diseño de software"
 ---
 
 # Arquitectura Cliente-Servidor

@@ -1,5 +1,6 @@
 ---
 titulo: "71A - Way too long words"
+seoTitulo: "Way too long words (Codeforces 71A) — solución y explicación de manipulación de strings"
 fecha: "2026-02-15"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Codeforces Beta Round 65 (Div 2)"
 imagenPortada: "https://i.imgur.com/gTKjVJi.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
-keywords: "Codeforces, Algoritmos, Programación competitiva, Manipulación de strings, Way too long words"
+keywords: "Way too long words, Codeforces 71A, solución, manipulación de strings, abreviación de palabras, programación competitiva"
 ---
 
 # A. Way too long words

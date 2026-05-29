@@ -1,5 +1,6 @@
 ---
 titulo: "282A - Bit++"
+seoTitulo: "Bit++ (Codeforces 282A) — solución y explicación de operadores bit a bit"
 fecha: "2026-02-24"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Codeforces Round 173 (Div 2)"
 imagenPortada: "https://i.imgur.com/V41Ezdq.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
-keywords: "Codeforces, Algoritmos, Programación competitiva, Bit++, Operadores bit a bit"
+keywords: "Bit++, Codeforces 282A, solución, operadores, programación competitiva, algoritmos sencillos"
 ---
 
 # A. Bit++

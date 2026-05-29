@@ -1,5 +1,6 @@
 ---
 titulo: "158A - Next Round"
+seoTitulo: "Next Round (Codeforces 158A) — solución, explicación y código en Python/JS"
 fecha: "2026-02-27"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "VK Cup 2012 Qualification Round 1"
 imagenPortada: "https://i.imgur.com/PYYiXRA.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "800 elo"]
 categoria: "coding"
-keywords: "Codeforces, Algoritmos, Programación competitiva, Next Round, Resolución de problemas"
+keywords: "Next Round, Codeforces 158A, solución, programación competitiva, algoritmos, conteo de participantes"
 ---
 
 # A. Next Round

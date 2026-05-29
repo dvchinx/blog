@@ -1,5 +1,6 @@
 ---
 titulo: "React Hooks: Una Guía Completa"
+seoTitulo: "React Hooks — guía completa: useState, useEffect, useMemo y buenas prácticas"
 fecha: "2026-01-10"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Todo lo que necesitas saber sobre React Hooks para escribir compon
 imagenPortada: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop"
 etiquetas: ["React", "JavaScript", "Frontend"]
 categoria: "tech"
-keywords: "React, Hooks, Frontend, JavaScript, Componentes funcionales, useMemo, useCallback, useState, useEffect"
+keywords: "React Hooks, guía React Hooks, useState, useEffect, useMemo, useCallback, rendimiento React, patrones Hooks, componentes funcionales, JavaScript, frontend"
 ---
 
 # React Hooks: Una Guía Completa

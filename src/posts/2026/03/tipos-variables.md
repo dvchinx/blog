@@ -1,5 +1,6 @@
 ---
 titulo: "Tipos Primitivos vs Wrappers: Diferencias Clave"
+seoTitulo: "Tipos primitivos vs wrappers en Java: diferencias y buenas prácticas"
 fecha: "2026-03-08"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Comprende las diferencias fundamentales entre tipos primitivos y w
 imagenPortada: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Java", "Best Practices"]
 categoria: "tech"
-keywords: "Java, Tipos primitivos, Wrappers, Clases wrapper, OOP, Programación orientada a objetos"
+keywords: "tipos primitivos Java, wrappers, Integer vs int, autoboxing, buenas prácticas, rendimiento, programación Java"
 ---
 
 # Tipos Primitivos vs Wrappers

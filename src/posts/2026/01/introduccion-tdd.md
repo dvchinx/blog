@@ -1,5 +1,6 @@
 ---
 titulo: "Introducción a Test-Driven Development (TDD)"
+seoTitulo: "Introducción a TDD: Test-Driven Development, ciclo Red-Green-Refactor y ejemplos"
 fecha: "2026-01-12"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Descubre cómo TDD puede mejorar la calidad de tu código y aceler
 imagenPortada: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=500&fit=crop"
 etiquetas: ["Testing", "TDD", "Best Practices"]
 categoria: "tech"
-keywords: "TDD, Test-Driven Development, Pruebas unitarias, Testing, Metodología de desarrollo, Calidad de código"
+keywords: "TDD, Test-Driven Development, pruebas unitarias, red-green-refactor, desarrollo guiado por pruebas, calidad de código, testing"
 ---
 
 # Introducción a Test-Driven Development

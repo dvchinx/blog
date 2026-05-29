@@ -1,5 +1,6 @@
 ---
 titulo: "Arquitectura MVC"
+seoTitulo: "Arquitectura MVC: guía completa, ventajas y buenas prácticas"
 fecha: "2026-05-13"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Comprende cómo funciona la arquitectura MVC, sus ventajas, limita
 imagenPortada: "https://images.unsplash.com/photo-1570215171323-4ec328f3f5fa?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software"]
 categoria: "tech"
-keywords: "MVC, Arquitectura, Patrón de diseño, Separación de responsabilidades, Model-View-Controller"
+keywords: "Arquitectura MVC, patrón MVC, Model-View-Controller, diseño de software, separación de responsabilidades, buenas prácticas MVC, arquitectura web"
 ---
 
 # Arquitectura MVC

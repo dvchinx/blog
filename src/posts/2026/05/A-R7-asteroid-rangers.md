@@ -1,5 +1,6 @@
 ---
 titulo: "CCPL R7 - A. Asteroid Rangers"
+seoTitulo: "Asteroid Rangers — solución A (CCPL R7) y análisis de algoritmos"
 fecha: "2026-05-15"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Ejercicio A - CCPL R7 2025"
 imagenPortada: "https://i.imgur.com/Ou7N1uO.png?w=1000&h=500&fit=crop"
 etiquetas: ["CCPL"]
 categoria: "coding"
-keywords: "CCPL, Codeforces, Algoritmos, Programación competitiva, Asteroid Rangers, Estructura de datos"
+keywords: "Asteroid Rangers, CCPL R7, solución, algoritmos, programación competitiva, geometría computacional, estructuras de datos"
 ---
 
 # A. Asteroid Rangers

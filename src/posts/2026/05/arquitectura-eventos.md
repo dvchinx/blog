@@ -1,5 +1,6 @@
 ---
 titulo: "Arquitectura Orientada a Eventos (EDA)"
+seoTitulo: "Arquitectura orientada a eventos (EDA): qué es, ventajas y patrones"
 fecha: "2026-05-28"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Aprende qué es la arquitectura orientada a eventos, cómo funcion
 imagenPortada: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop"
 etiquetas: ["Programming", "Architecture", "Software", "Event-Driven"]
 categoria: "tech"
-keywords: "Arquitectura, Eventos, Event-Driven, Diseño de software, Desacoplamiento, Publicador-Suscriptor, Message Broker"
+keywords: "Arquitectura orientada a eventos, EDA, event-driven architecture, Kafka, RabbitMQ, message broker, desacoplamiento, diseño de sistemas"
 ---
 
 # Arquitectura Orientada a Eventos

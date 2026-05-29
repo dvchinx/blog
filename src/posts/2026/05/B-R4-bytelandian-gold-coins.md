@@ -1,5 +1,6 @@
 ---
 titulo: "CCPL R4 - B. Bytelandian Gold Coins"
+seoTitulo: "Bytelandian Gold Coins — solución B (CCPL R4) y análisis de programación dinámica"
 fecha: "2026-05-12"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
@@ -7,7 +8,7 @@ descripcion: "Ejercicio B - CCPL R4 2026"
 imagenPortada: "https://i.imgur.com/TZe28SI.png?w=1000&h=500&fit=crop"
 etiquetas: ["CCPL"]
 categoria: "coding"
-keywords: "CCPL, Codeforces, Algoritmos, Programación competitiva, Bytelandian Gold Coins"
+keywords: "Bytelandian Gold Coins, CCPL R4, programación dinámica, solución, algoritmos, programación competitiva"
 ---
 
 # B. Bytelandian Gold Coins

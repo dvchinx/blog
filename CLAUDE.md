@@ -34,6 +34,7 @@ Posts live in `/src/posts/YYYY/MM/slug.md` with required frontmatter:
 ```yaml
 ---
 titulo: "Title"
+seoTitulo: "SEO title"
 fecha: "2026-02-20"
 nombreAutor: "Author Name"
 categoria: "tech"  # or "coding"

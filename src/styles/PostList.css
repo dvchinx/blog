@@ -132,7 +132,8 @@
 }
 
 .category-icon {
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* ─── Divider ────────────────────────────────────────── */
@@ -190,7 +191,8 @@
 }
 
 .badge-icon {
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 .badge-text {

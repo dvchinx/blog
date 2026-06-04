@@ -157,7 +157,12 @@ function PostList() {
                   href={searchParams.get('q') ? `https://blog.jesusflorez.cloud/?q=${encodeURIComponent(searchParams.get('q'))}` : 'https://blog.jesusflorez.cloud/'}
                   onClick={(e) => { e.preventDefault(); handleCategoryClick('all') }}
                 >
-                  <span className="category-icon">📚</span>
+                  <span className="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                  </span>
                   Todos
                 </a>
                 <a
@@ -165,7 +170,13 @@ function PostList() {
                   href={`https://blog.jesusflorez.cloud/?${searchParams.get('q') ? `q=${encodeURIComponent(searchParams.get('q'))}&` : ''}categoria=${encodeURIComponent(slugFor('tech'))}`}
                   onClick={(e) => { e.preventDefault(); handleCategoryClick('tech') }}
                 >
-                  <span className="category-icon">💡</span>
+                  <span className="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                      <path d="M9 18h6"/>
+                      <path d="M10 22h4"/>
+                    </svg>
+                  </span>
                   Artículos de Tecnología
                 </a>
                 <a
@@ -173,7 +184,16 @@ function PostList() {
                   href={`https://blog.jesusflorez.cloud/?${searchParams.get('q') ? `q=${encodeURIComponent(searchParams.get('q'))}&` : ''}categoria=${encodeURIComponent(slugFor('coding'))}`}
                   onClick={(e) => { e.preventDefault(); handleCategoryClick('coding') }}
                 >
-                  <span className="category-icon">🏆</span>
+                  <span className="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                      <path d="M4 22h16"/>
+                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                    </svg>
+                  </span>
                   Ejercicios de Programación
                 </a>
               </>
@@ -198,12 +218,27 @@ function PostList() {
                 <div className="post-category-badge">
                   {post.metadata.categoria === 'coding' ? (
                     <>
-                      <span className="badge-icon">🏆</span>
+                      <span className="badge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                          <path d="M4 22h16"/>
+                          <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                          <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                          <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                        </svg>
+                      </span>
                       <span className="badge-text">ICPC</span>
                     </>
                   ) : (
                     <>
-                      <span className="badge-icon">💡</span>
+                      <span className="badge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                          <path d="M9 18h6"/>
+                          <path d="M10 22h4"/>
+                        </svg>
+                      </span>
                       <span className="badge-text">TECH</span>
                     </>
                   )}

@@ -1,5 +1,5 @@
 ---
-titulo: "Testing en Spring Boot: JUnit 5, Mockito y MockMvc"
+titulo: "Testing en Spring Boot: JUnit 5 y Mockito"
 seoTitulo: "Testing en Spring Boot: guía práctica con JUnit 5, Mockito y MockMvc"
 fecha: "2026-06-05"
 nombreAutor: "Jesús Flórez"

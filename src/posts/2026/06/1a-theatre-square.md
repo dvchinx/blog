@@ -1,11 +1,11 @@
 ---
 titulo: "Codeforces 1A - Theatre Square"
 seoTitulo: "Solución de 1A. Theatre Square (CodeForces) en Python"
-fecha: "2026-06-15"
+fecha: "2026-06-17"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "El problema más icónico de CodeForces — pavimentar una plaza con losas cuadradas."
-imagenPortada: "https://i.imgur.com/AHkk8Dq.png?w=800&h=500&fit=crop"
+imagenPortada: "https://i.imgur.com/WMSC9wH.png?w=800&h=500&fit=crop"
 etiquetas: ["CodeForces", "1000 elo", "Matemáticas", "Implementación"]
 categoria: "coding"
 keywords: "Codeforces 1A, Theatre Square, losas, plaza, ceil, techo, matemáticas, programación competitiva, Python, solución"

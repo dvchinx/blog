@@ -1,7 +1,7 @@
 ---
 titulo: "CQRS: separar lecturas y escrituras para escalar mejor"
 seoTitulo: "CQRS explicado: qué es Command Query Responsibility Segregation y cuándo usarlo"
-fecha: "2026-06-26"
+fecha: "2026-06-27"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Aprende qué es CQRS, cómo separa las operaciones de lectura y escritura en un sistema, cuándo tiene sentido aplicarlo y qué ventajas ofrece frente a un modelo CRUD tradicional."
@@ -44,14 +44,12 @@ Imagina una aplicación de gestión de pedidos. En el modelo CRUD clásico, la m
 Con CQRS, el flujo se divide:
 
 **Lado de comandos:**
-```
-Cliente → PlacerPedidoCommand → PedidoCommandHandler → (valida, aplica reglas) → PedidoRepository → base de datos de escritura
-```
+
+> Cliente → PlacerPedidoCommand → PedidoCommandHandler → (valida, aplica reglas) → PedidoRepository → base de datos de escritura
 
 **Lado de consultas:**
-```
-Cliente → GetPedidosDelClienteQuery → PedidoQueryHandler → ReadModel → base de datos de lectura (optimizada)
-```
+
+> Cliente → GetPedidosDelClienteQuery → PedidoQueryHandler → ReadModel → base de datos de lectura (optimizada)
 
 El `PedidoCommandHandler` trabaja con el agregado `Pedido` completo, con todas sus invariantes y validaciones. El `PedidoQueryHandler` trabaja con una proyección específica —por ejemplo `PedidoResumenDTO`— que contiene exactamente los campos que necesita la pantalla de listado, sin cargar relaciones innecesarias.
 
@@ -61,9 +59,7 @@ Si las bases de datos de lectura y escritura son distintas, algo tiene que mante
 
 Cuando el `PedidoCommandHandler` procesa un comando y lo persiste con éxito, emite un evento: `PedidoCreado`, `PedidoActualizado`, `PedidoCancelado`. Un componente separado —un proyector o manejador de eventos— escucha esos eventos y actualiza el modelo de lectura.
 
-```
-PedidoCreado (evento) → PedidoProjector → actualiza tabla pedidos_resumen (lectura)
-```
+> PedidoCreado (evento) → PedidoProjector → actualiza tabla pedidos_resumen (lectura)
 
 Esta sincronización puede ser síncrona (en la misma transacción, si lectura y escritura están en la misma base de datos) o asíncrona (mediante un bus de mensajes, si están separadas). La sincronización asíncrona introduce **consistencia eventual**: durante un instante, el lado de lectura puede estar desactualizado respecto al de escritura. La mayoría de los sistemas pueden tolerar esto sin problema.
 

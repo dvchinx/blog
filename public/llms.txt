@@ -1,0 +1,71 @@
+# Blog de Jesús Flórez
+
+> Blog técnico sobre programación competitiva (ICPC, CCPL, Codeforces) y tecnología (Java, Python, Spring Boot, React, arquitectura de software) orientado a la comunidad LATAM.
+
+Autor: Jesús Flórez (https://jesusflorez.cloud)
+Sitio: https://blog.jesusflorez.cloud
+Idioma: Español
+
+## Tecnología
+
+- [Arranque de julio en IA: Sonnet 5, Sol en Cerebras y Grok 4 en la puerta](https://blog.jesusflorez.cloud/2026/07/noticias-ia-julio-2026): Julio arranca con el lanzamiento de Claude Sonnet 5 como modelo por defecto para todos los usuarios, la preview de GPT-5.6 Sol en Cerebras a 750 tokens por segundo, Grok 4 anunciado para después del 4 de julio, y Google aplazando Gemini 3.5 Pro al mes en curso.
+- [Patrones de Microservicios: Circuit Breaker, Saga y API Gateway](https://blog.jesusflorez.cloud/2026/06/patrones-microservicios): Aprende tres patrones fundamentales para arquitecturas de microservicios: Circuit Breaker para tolerancia a fallos, Saga para transacciones distribuidas y API Gateway para gestionar el acceso a servicios.
+- [Spring Data Redis: más allá de la caché](https://blog.jesusflorez.cloud/2026/06/spring-data-redis): Aprende a usar Spring Data Redis más allá de @Cacheable: operaciones directas con RedisTemplate, sorted sets, pub/sub, bloqueos distribuidos y repositorios Redis.
+- [Domain-Driven Design: modelar el software desde el negocio](https://blog.jesusflorez.cloud/2026/06/domain-driven-design): Aprende qué es Domain-Driven Design, por qué pone el negocio en el centro del diseño y cómo sus conceptos clave — entidades, agregados, repositorios y bounded contexts — se traducen en código más expresivo y mantenible.
+- [CQRS: separar lecturas y escrituras para escalar mejor](https://blog.jesusflorez.cloud/2026/06/cqrs-arquitectura): Aprende qué es CQRS, cómo separa las operaciones de lectura y escritura en un sistema, cuándo tiene sentido aplicarlo y qué ventajas ofrece frente a un modelo CRUD tradicional.
+- [IA en la recta final de junio: G7, IPOs y control de exportaciones](https://blog.jesusflorez.cloud/2026/06/noticias-ia-cierre-junio-2026): La segunda mitad de junio estuvo marcada por el G7 en Évian con los CEOs de los tres grandes laboratorios de IA, las presentaciones confidenciales de S-1 de Anthropic y OpenAI ante la SEC, controles de exportación sobre Fable 5, y el lanzamiento de Gemini Omni y GPT-5.5-Cyber.
+- [Spring Boot con Apache Kafka: mensajería orientada a eventos](https://blog.jesusflorez.cloud/2026/06/spring-kafka): Aprende a integrar Apache Kafka en una aplicación Spring Boot: configura productores, consumidores, manejo de errores y serialización con ejemplos prácticos.
+- [Clean Code: principios para escribir código que se entiende](https://blog.jesusflorez.cloud/2026/06/clean-code): Aprende los principios de Clean Code: cómo nombrar bien, escribir funciones cortas, eliminar comentarios innecesarios y estructurar el código para que sea fácil de leer y mantener.
+- [Spring Batch: procesamiento de datos en lotes con Spring Boot](https://blog.jesusflorez.cloud/2026/06/spring-batch): Aprende a construir pipelines de procesamiento batch con Spring Batch: Jobs, Steps, chunk-oriented processing, ItemReader, ItemProcessor, ItemWriter y manejo de errores.
+- [Patrones de Diseño en Java: Observer, Decorator y Adapter](https://blog.jesusflorez.cloud/2026/06/patrones-diseno-observer-decorator-adapter): Aprende a aplicar tres patrones de diseño fundamentales en Java: Observer para notificaciones reactivas, Decorator para extender comportamiento sin herencia, y Adapter para integrar interfaces incompatibles.
+- [Spring REST Clients: RestTemplate, WebClient y RestClient](https://blog.jesusflorez.cloud/2026/06/spring-rest-clients): Aprende a consumir APIs REST en Spring Boot con RestTemplate, WebClient reactivo y el nuevo RestClient de Spring 6.1. Cuándo usar cada uno, configuración, manejo de errores y buenas prácticas.
+- [Spring Transaction Management: @Transactional a fondo](https://blog.jesusflorez.cloud/2026/06/spring-transaction-management): Domina la gestión de transacciones en Spring Boot: propagación, niveles de aislamiento, rollback, transacciones programáticas y errores comunes que debes evitar.
+- [Arquitectura Hexagonal: Ports and Adapters en la práctica](https://blog.jesusflorez.cloud/2026/06/arquitectura-hexagonal): Aprende qué es la Arquitectura Hexagonal (Ports and Adapters), por qué separa la lógica de negocio de los detalles técnicos y cómo implementarla en Java con un ejemplo concreto.
+- [Por qué Anthropic retiró Claude Fable 5: el hackeo que cambió el debate sobre la IA](https://blog.jesusflorez.cloud/2026/06/fable-5-retirado): Cuatro días después de su lanzamiento, Anthropic retiró Claude Fable 5 de acceso general tras un incidente de seguridad coordinado. Esto es lo que sabemos y lo que implica para el futuro de la IA de frontera.
+- [Principios SOLID con ejemplos prácticos](https://blog.jesusflorez.cloud/2026/06/principios-solid): Aprende qué son los principios SOLID, qué problema resuelve cada uno y cómo aplicarlos para diseñar software más limpio, flexible y fácil de mantener.
+- [Claude Fable 5: el modelo más poderoso de Anthropic ya es de acceso público](https://blog.jesusflorez.cloud/2026/06/claude-fable-5): Anthropic lanzó Claude Fable 5 el 9 de junio de 2026: el primer modelo de clase Mythos disponible para el público general. Supera a todos los modelos anteriores en benchmarks de ingeniería de software, visión y razonamiento científico, con nuevos clasificadores de seguridad para su lanzamiento responsable.
+- [Spring WebFlux: programación reactiva con Spring Boot](https://blog.jesusflorez.cloud/2026/06/spring-webflux): Aprende qué es Spring WebFlux, cómo funciona la programación reactiva con Mono y Flux, y cuándo tiene sentido usarla en lugar del modelo tradicional bloqueante.
+- [Spring AOP: aspectos para código limpio y transversal](https://blog.jesusflorez.cloud/2026/06/spring-aop): Aprende a usar Spring AOP para separar responsabilidades transversales como logging, auditoría y métricas del código de negocio. Cubre pointcuts, advices, @Around, @Before, @AfterReturning y casos de uso reales.
+- [Spring Cache Abstraction: caché declarativa en Spring Boot](https://blog.jesusflorez.cloud/2026/06/spring-cache-abstraction): Aprende a usar la abstracción de caché de Spring Boot: almacena resultados con @Cacheable, actualiza entradas con @CachePut, invalida con @CacheEvict e integra Redis o EhCache como proveedor.
+- [Spring Boot Actuator: monitoreo y observabilidad en producción](https://blog.jesusflorez.cloud/2026/06/spring-boot-actuator): Aprende a usar Spring Boot Actuator para exponer endpoints de salud, métricas e información del sistema. Cubre configuración, seguridad de endpoints, integración con Micrometer y Prometheus, y personalización de health checks.
+- [Validación en Spring Boot con Bean Validation](https://blog.jesusflorez.cloud/2026/06/spring-boot-validation): Aprende a validar entradas en Spring Boot usando la API de Bean Validation: restricciones estándar, validación en controladores y servicios, mensajes personalizados y cómo crear tus propias anotaciones de validación.
+- [Manejo de excepciones en Spring Boot con @ControllerAdvice](https://blog.jesusflorez.cloud/2026/06/spring-exception-handling): Aprende a centralizar el manejo de excepciones en Spring Boot usando @ControllerAdvice y @ExceptionHandler. Cubre excepciones de dominio, validación de entrada, errores HTTP personalizados y estructura de respuestas de error consistente.
+- [Testing en Spring Boot: JUnit 5 y Mockito](https://blog.jesusflorez.cloud/2026/06/testing-spring-boot): Aprende a escribir pruebas unitarias e de integración en Spring Boot usando JUnit 5, Mockito para mocking y MockMvc para la capa web. Cubre @WebMvcTest, @DataJpaTest y @SpringBootTest.
+- [Patrones de Diseño en Java: Builder, Factory Method y Strategy](https://blog.jesusflorez.cloud/2026/06/patrones-diseno-java): Aprende a aplicar tres patrones de diseño esenciales en Java: Builder para construcción de objetos complejos, Factory Method para delegar la creación, y Strategy para comportamientos intercambiables.
+- [Spring Data JPA: persistencia sin boilerplate](https://blog.jesusflorez.cloud/2026/06/spring-data-jpa): Aprende a usar Spring Data JPA para gestionar la capa de persistencia en Spring Boot: repositorios, queries derivadas, JPQL personalizado y paginación.
+- [Lo más importante en IA: junio de 2026](https://blog.jesusflorez.cloud/2026/06/noticias-ia-junio-2026): Apple prepara la mayor renovación de Siri en su historia para WWDC 2026, Anthropic lanza agentes gestionados y cambia su modelo de facturación, y OpenAI avanza hacia su IPO con GPT-5.5 como experiencia por defecto.
+- [Autenticación con Spring Security y JWT](https://blog.jesusflorez.cloud/2026/05/spring-security-jwt): Aprende a implementar autenticación stateless en Spring Boot usando Spring Security y JSON Web Tokens. Desde la configuración básica hasta el filtro de validación.
+- [Lo más importante en IA: mayo de 2026](https://blog.jesusflorez.cloud/2026/05/noticias-ia-mayo-2026): Google transforma su buscador con Gemini 3.5 Flash, Anthropic firma alianzas millonarias con PwC y KPMG, y OpenAI lanza GPT-5.5. Un mes cargado de movimientos en el mundo de la IA.
+- [Arquitectura Orientada a Eventos (EDA)](https://blog.jesusflorez.cloud/2026/05/arquitectura-eventos): Aprende qué es la arquitectura orientada a eventos, cómo funciona y cuándo es la mejor opción para sistemas que necesitan responder a cambios en tiempo real.
+- [Arquitectura MVC](https://blog.jesusflorez.cloud/2026/05/arquitectura-mvc): Comprende cómo funciona la arquitectura MVC, sus ventajas, limitaciones y buenas prácticas para aplicarla en aplicaciones mantenibles.
+- [Arquitectura por Componentes](https://blog.jesusflorez.cloud/2026/05/arquitectura-componentes): Una introducción a los principios, ventajas y buenas prácticas de la arquitectura por componentes aplicada al desarrollo de software.
+- [Arquitectura por Capas](https://blog.jesusflorez.cloud/2026/04/arquitectura-capas): Aprende qué es la arquitectura por capas, cómo se organiza y por qué sigue siendo una forma útil de estructurar aplicaciones mantenibles.
+- [Arquitectura Cliente-Servidor](https://blog.jesusflorez.cloud/2026/04/arquitectura-cliente-servidor): Comprende cómo funciona la arquitectura cliente-servidor, sus ventajas, limitaciones y buenas prácticas para implementarla en sistemas modernos.
+- [Arquitectura Monolitica](https://blog.jesusflorez.cloud/2026/04/arquitectura-monolitica): Descubre qué es la arquitectura monolítica, sus ventajas, limitaciones y cuándo conviene usarla en proyectos reales.
+- [Tipos Primitivos vs Wrappers: Diferencias Clave](https://blog.jesusflorez.cloud/2026/03/tipos-variables): Comprende las diferencias fundamentales entre tipos primitivos y wrappers, y cuándo usar cada uno en tu código.
+- [Introducción a Test-Driven Development (TDD)](https://blog.jesusflorez.cloud/2026/01/introduccion-tdd): Descubre cómo TDD puede mejorar la calidad de tu código y acelerar tu desarrollo con ejemplos prácticos.
+- [React Hooks: Una Guía Completa](https://blog.jesusflorez.cloud/2026/01/react-hooks-guia): Todo lo que necesitas saber sobre React Hooks para escribir componentes funcionales modernos y eficientes.
+- [Microservicios con Spring Boot](https://blog.jesusflorez.cloud/2026/01/microservicios-spring-boot): Aprende a construir una arquitectura de microservicios robusta utilizando Spring Boot y las mejores prácticas.
+
+## Programación competitiva
+
+- [Codeforces 489B - BerSU Ball](https://blog.jesusflorez.cloud/2026/06/489b-bersu-ball): Codeforces Round 277.5 (Div 2)
+- [Codeforces 1A - Theatre Square](https://blog.jesusflorez.cloud/2026/06/1a-theatre-square): El problema más icónico de CodeForces — pavimentar una plaza con losas cuadradas.
+- [Codeforces 1352B - Same Parity Summands](https://blog.jesusflorez.cloud/2026/06/1352b-same-parity-summands): Codeforces Round 643 (Div. 2)
+- [Codeforces 362E - Petya and Pipes](https://blog.jesusflorez.cloud/2026/06/362e-petya-and-pipes): Codeforces Round 212 (Div 2)
+- [Codeforces 111D - Petya and Coloring](https://blog.jesusflorez.cloud/2026/06/111d-petya-and-coloring): Codeforces Beta Round 85 (Div 1 Only)
+- [Codeforces 112B - Petya and Square](https://blog.jesusflorez.cloud/2026/05/112b-petya-and-square): Codeforces Beta Round 85 (Div 2 Only)
+- [CCPL R11 - D. Dominoes Magic Squares](https://blog.jesusflorez.cloud/2026/05/D-R11-dominoes-magic-squares): Ejercicio D - CCPL R11 2025
+- [CCPL R11 - C. Counting Chaos](https://blog.jesusflorez.cloud/2026/05/C-R11-counting-chaos): Ejercicio C - CCPL R11 2025
+- [CCPL R11 - B. Cordon Bleu](https://blog.jesusflorez.cloud/2026/05/B-R11-cordon-bleu): Ejercicio B - CCPL R11 2025
+- [CCPL R11 - A. Document Analyzer](https://blog.jesusflorez.cloud/2026/05/A-R11-document-analyzer): Ejercicio A - CCPL R11 2025
+- [CCPL R7 - A. Asteroid Rangers](https://blog.jesusflorez.cloud/2026/05/A-R7-asteroid-rangers): Ejercicio A - CCPL R7 2025
+- [CCPL R4 - B. Bytelandian Gold Coins](https://blog.jesusflorez.cloud/2026/05/B-R4-bytelandian-gold-coins): Ejercicio B - CCPL R4 2026
+- [Inverse Factorial](https://blog.jesusflorez.cloud/2026/03/inverse-factorial): CCPL R2 2026 (Kattis)
+- [CCPL R1 - B. Round Robin Scheduling](https://blog.jesusflorez.cloud/2026/03/B-R1-round-robin-scheduling): Ejercicio B - CCPL R1 2026
+- [158A - Next Round](https://blog.jesusflorez.cloud/2026/02/158a-next-round): VK Cup 2012 Qualification Round 1
+- [282A - Bit++](https://blog.jesusflorez.cloud/2026/02/282a-bitplusplus): Codeforces Round 173 (Div 2)
+- [231A - Team](https://blog.jesusflorez.cloud/2026/02/231a-team): Codeforces Round 143 (Div 2)
+- [71A - Way too long words](https://blog.jesusflorez.cloud/2026/02/71a-way-too-long-words): Codeforces Beta Round 65 (Div 2)
+- [4A - Watermelon](https://blog.jesusflorez.cloud/2026/02/4a-watermelon): Codeforces Beta Round 4 (Div. 2 Only)
+

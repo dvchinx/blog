@@ -18,7 +18,6 @@
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -32,7 +31,8 @@
   opacity: 0.7;
 }
 
-.logo h1 {
+.logo-text {
+  margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -41,103 +41,12 @@
   background: none;
 }
 
-/* ─── Search Bar ───────────────────────────────────────── */
-.search-bar-header {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  flex: 1;
-  max-width: 350px;
-  margin: 0 2rem;
-}
-
-.search-input-header {
-  flex: 1;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 0.875rem;
-  font-family: inherit;
-  transition: all 0.2s ease;
-  color: var(--text-primary);
-}
-
-.search-input-header::placeholder {
-  color: var(--text-secondary);
-}
-
-.search-input-header:focus {
-  outline: none;
-  border-color: var(--text-primary);
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0 2px rgba(0, 100, 200, 0.1);
-}
-
-.search-button {
-  padding: 0.5rem 1rem;
-  background-color: var(--text-primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.search-button:hover {
-  background-color: var(--text-secondary);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.search-button:active {
-  transform: translateY(0);
-}
-
-.nav {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.nav-link {
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: 0.875rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.nav-link:hover {
-  color: var(--text-primary);
-  border-color: var(--border-color);
-  background-color: var(--bg-hover);
-}
-
 @media (max-width: 768px) {
   .header {
     padding: 0 1.25rem;
   }
 
-  .logo h1 {
+  .logo-text {
     font-size: 0.95rem;
-  }
-
-  .search-bar-header {
-    display: none;
-  }
-
-  .nav {
-    gap: 0.25rem;
-  }
-
-  .nav-link {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.82rem;
   }
 }

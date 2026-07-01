@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Blog de Jesús Flórez</title>
+    <link>https://blog.jesusflorez.cloud/</link>
+    <description>Artículos sobre programación competitiva, ICPC, CCPL, Python, Java y tecnología para LATAM.</description>
+    <language>es</language>
+    <lastBuildDate>Wed, 01 Jul 2026 16:50:23 GMT</lastBuildDate>
+    <atom:link href="https://blog.jesusflorez.cloud/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arranque de julio en IA: Sonnet 5, Sol en Cerebras y Grok 4 en la puerta</title>
+      <link>https://blog.jesusflorez.cloud/2026/07/noticias-ia-julio-2026</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/07/noticias-ia-julio-2026</guid>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Julio arranca con el lanzamiento de Claude Sonnet 5 como modelo por defecto para todos los usuarios, la preview de GPT-5.6 Sol en Cerebras a 750 tokens por segundo, Grok 4 anunciado para después del 4 de julio, y Google aplazando Gemini 3.5 Pro al mes en curso.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Patrones de Microservicios: Circuit Breaker, Saga y API Gateway</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/patrones-microservicios</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/patrones-microservicios</guid>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Aprende tres patrones fundamentales para arquitecturas de microservicios: Circuit Breaker para tolerancia a fallos, Saga para transacciones distribuidas y API Gateway para gestionar el acceso a servicios.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Data Redis: más allá de la caché</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-data-redis</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-data-redis</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a usar Spring Data Redis más allá de @Cacheable: operaciones directas con RedisTemplate, sorted sets, pub/sub, bloqueos distribuidos y repositorios Redis.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Domain-Driven Design: modelar el software desde el negocio</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/domain-driven-design</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/domain-driven-design</guid>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es Domain-Driven Design, por qué pone el negocio en el centro del diseño y cómo sus conceptos clave — entidades, agregados, repositorios y bounded contexts — se traducen en código más expresivo y mantenible.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CQRS: separar lecturas y escrituras para escalar mejor</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/cqrs-arquitectura</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/cqrs-arquitectura</guid>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es CQRS, cómo separa las operaciones de lectura y escritura en un sistema, cuándo tiene sentido aplicarlo y qué ventajas ofrece frente a un modelo CRUD tradicional.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>IA en la recta final de junio: G7, IPOs y control de exportaciones</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/noticias-ia-cierre-junio-2026</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/noticias-ia-cierre-junio-2026</guid>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+      <description>La segunda mitad de junio estuvo marcada por el G7 en Évian con los CEOs de los tres grandes laboratorios de IA, las presentaciones confidenciales de S-1 de Anthropic y OpenAI ante la SEC, controles de exportación sobre Fable 5, y el lanzamiento de Gemini Omni y GPT-5.5-Cyber.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Boot con Apache Kafka: mensajería orientada a eventos</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-kafka</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-kafka</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a integrar Apache Kafka en una aplicación Spring Boot: configura productores, consumidores, manejo de errores y serialización con ejemplos prácticos.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Clean Code: principios para escribir código que se entiende</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/clean-code</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/clean-code</guid>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende los principios de Clean Code: cómo nombrar bien, escribir funciones cortas, eliminar comentarios innecesarios y estructurar el código para que sea fácil de leer y mantener.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Batch: procesamiento de datos en lotes con Spring Boot</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-batch</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-batch</guid>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a construir pipelines de procesamiento batch con Spring Batch: Jobs, Steps, chunk-oriented processing, ItemReader, ItemProcessor, ItemWriter y manejo de errores.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Patrones de Diseño en Java: Observer, Decorator y Adapter</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/patrones-diseno-observer-decorator-adapter</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/patrones-diseno-observer-decorator-adapter</guid>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a aplicar tres patrones de diseño fundamentales en Java: Observer para notificaciones reactivas, Decorator para extender comportamiento sin herencia, y Adapter para integrar interfaces incompatibles.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Codeforces 489B - BerSU Ball</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/489b-bersu-ball</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/489b-bersu-ball</guid>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Codeforces Round 277.5 (Div 2)</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring REST Clients: RestTemplate, WebClient y RestClient</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-rest-clients</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-rest-clients</guid>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a consumir APIs REST en Spring Boot con RestTemplate, WebClient reactivo y el nuevo RestClient de Spring 6.1. Cuándo usar cada uno, configuración, manejo de errores y buenas prácticas.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Codeforces 1A - Theatre Square</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/1a-theatre-square</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/1a-theatre-square</guid>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate>
+      <description>El problema más icónico de CodeForces — pavimentar una plaza con losas cuadradas.</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Codeforces 1352B - Same Parity Summands</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/1352b-same-parity-summands</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/1352b-same-parity-summands</guid>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Codeforces Round 643 (Div. 2)</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Transaction Management: @Transactional a fondo</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-transaction-management</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-transaction-management</guid>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Domina la gestión de transacciones en Spring Boot: propagación, niveles de aislamiento, rollback, transacciones programáticas y errores comunes que debes evitar.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura Hexagonal: Ports and Adapters en la práctica</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/arquitectura-hexagonal</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/arquitectura-hexagonal</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es la Arquitectura Hexagonal (Ports and Adapters), por qué separa la lógica de negocio de los detalles técnicos y cómo implementarla en Java con un ejemplo concreto.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Por qué Anthropic retiró Claude Fable 5: el hackeo que cambió el debate sobre la IA</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/fable-5-retirado</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/fable-5-retirado</guid>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Cuatro días después de su lanzamiento, Anthropic retiró Claude Fable 5 de acceso general tras un incidente de seguridad coordinado. Esto es lo que sabemos y lo que implica para el futuro de la IA de frontera.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Principios SOLID con ejemplos prácticos</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/principios-solid</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/principios-solid</guid>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué son los principios SOLID, qué problema resuelve cada uno y cómo aplicarlos para diseñar software más limpio, flexible y fácil de mantener.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Claude Fable 5: el modelo más poderoso de Anthropic ya es de acceso público</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/claude-fable-5</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/claude-fable-5</guid>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Anthropic lanzó Claude Fable 5 el 9 de junio de 2026: el primer modelo de clase Mythos disponible para el público general. Supera a todos los modelos anteriores en benchmarks de ingeniería de software, visión y razonamiento científico, con nuevos clasificadores de seguridad para su lanzamiento responsable.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Codeforces 362E - Petya and Pipes</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/362e-petya-and-pipes</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/362e-petya-and-pipes</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Codeforces Round 212 (Div 2)</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring WebFlux: programación reactiva con Spring Boot</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-webflux</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-webflux</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es Spring WebFlux, cómo funciona la programación reactiva con Mono y Flux, y cuándo tiene sentido usarla en lugar del modelo tradicional bloqueante.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring AOP: aspectos para código limpio y transversal</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-aop</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-aop</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a usar Spring AOP para separar responsabilidades transversales como logging, auditoría y métricas del código de negocio. Cubre pointcuts, advices, @Around, @Before, @AfterReturning y casos de uso reales.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Cache Abstraction: caché declarativa en Spring Boot</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-cache-abstraction</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-cache-abstraction</guid>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a usar la abstracción de caché de Spring Boot: almacena resultados con @Cacheable, actualiza entradas con @CachePut, invalida con @CacheEvict e integra Redis o EhCache como proveedor.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Boot Actuator: monitoreo y observabilidad en producción</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-boot-actuator</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-boot-actuator</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a usar Spring Boot Actuator para exponer endpoints de salud, métricas e información del sistema. Cubre configuración, seguridad de endpoints, integración con Micrometer y Prometheus, y personalización de health checks.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Validación en Spring Boot con Bean Validation</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-boot-validation</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-boot-validation</guid>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a validar entradas en Spring Boot usando la API de Bean Validation: restricciones estándar, validación en controladores y servicios, mensajes personalizados y cómo crear tus propias anotaciones de validación.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Manejo de excepciones en Spring Boot con @ControllerAdvice</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-exception-handling</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-exception-handling</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a centralizar el manejo de excepciones en Spring Boot usando @ControllerAdvice y @ExceptionHandler. Cubre excepciones de dominio, validación de entrada, errores HTTP personalizados y estructura de respuestas de error consistente.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Testing en Spring Boot: JUnit 5 y Mockito</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/testing-spring-boot</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/testing-spring-boot</guid>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a escribir pruebas unitarias e de integración en Spring Boot usando JUnit 5, Mockito para mocking y MockMvc para la capa web. Cubre @WebMvcTest, @DataJpaTest y @SpringBootTest.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Patrones de Diseño en Java: Builder, Factory Method y Strategy</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/patrones-diseno-java</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/patrones-diseno-java</guid>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a aplicar tres patrones de diseño esenciales en Java: Builder para construcción de objetos complejos, Factory Method para delegar la creación, y Strategy para comportamientos intercambiables.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Codeforces 111D - Petya and Coloring</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/111d-petya-and-coloring</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/111d-petya-and-coloring</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Codeforces Beta Round 85 (Div 1 Only)</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Spring Data JPA: persistencia sin boilerplate</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/spring-data-jpa</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/spring-data-jpa</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a usar Spring Data JPA para gestionar la capa de persistencia en Spring Boot: repositorios, queries derivadas, JPQL personalizado y paginación.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Lo más importante en IA: junio de 2026</title>
+      <link>https://blog.jesusflorez.cloud/2026/06/noticias-ia-junio-2026</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/06/noticias-ia-junio-2026</guid>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Apple prepara la mayor renovación de Siri en su historia para WWDC 2026, Anthropic lanza agentes gestionados y cambia su modelo de facturación, y OpenAI avanza hacia su IPO con GPT-5.5 como experiencia por defecto.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Autenticación con Spring Security y JWT</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/spring-security-jwt</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/spring-security-jwt</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Aprende a implementar autenticación stateless en Spring Boot usando Spring Security y JSON Web Tokens. Desde la configuración básica hasta el filtro de validación.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Lo más importante en IA: mayo de 2026</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/noticias-ia-mayo-2026</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/noticias-ia-mayo-2026</guid>
+      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+      <description>Google transforma su buscador con Gemini 3.5 Flash, Anthropic firma alianzas millonarias con PwC y KPMG, y OpenAI lanza GPT-5.5. Un mes cargado de movimientos en el mundo de la IA.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura Orientada a Eventos (EDA)</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/arquitectura-eventos</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/arquitectura-eventos</guid>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es la arquitectura orientada a eventos, cómo funciona y cuándo es la mejor opción para sistemas que necesitan responder a cambios en tiempo real.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Codeforces 112B - Petya and Square</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/112b-petya-and-square</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/112b-petya-and-square</guid>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <description>Codeforces Beta Round 85 (Div 2 Only)</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R11 - D. Dominoes Magic Squares</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/D-R11-dominoes-magic-squares</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/D-R11-dominoes-magic-squares</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio D - CCPL R11 2025</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R11 - C. Counting Chaos</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/C-R11-counting-chaos</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/C-R11-counting-chaos</guid>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio C - CCPL R11 2025</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R11 - B. Cordon Bleu</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/B-R11-cordon-bleu</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/B-R11-cordon-bleu</guid>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio B - CCPL R11 2025</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R11 - A. Document Analyzer</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/A-R11-document-analyzer</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/A-R11-document-analyzer</guid>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio A - CCPL R11 2025</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R7 - A. Asteroid Rangers</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/A-R7-asteroid-rangers</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/A-R7-asteroid-rangers</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio A - CCPL R7 2025</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura MVC</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/arquitectura-mvc</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/arquitectura-mvc</guid>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <description>Comprende cómo funciona la arquitectura MVC, sus ventajas, limitaciones y buenas prácticas para aplicarla en aplicaciones mantenibles.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R4 - B. Bytelandian Gold Coins</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/B-R4-bytelandian-gold-coins</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/B-R4-bytelandian-gold-coins</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio B - CCPL R4 2026</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura por Componentes</title>
+      <link>https://blog.jesusflorez.cloud/2026/05/arquitectura-componentes</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/05/arquitectura-componentes</guid>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <description>Una introducción a los principios, ventajas y buenas prácticas de la arquitectura por componentes aplicada al desarrollo de software.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura por Capas</title>
+      <link>https://blog.jesusflorez.cloud/2026/04/arquitectura-capas</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/04/arquitectura-capas</guid>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Aprende qué es la arquitectura por capas, cómo se organiza y por qué sigue siendo una forma útil de estructurar aplicaciones mantenibles.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura Cliente-Servidor</title>
+      <link>https://blog.jesusflorez.cloud/2026/04/arquitectura-cliente-servidor</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/04/arquitectura-cliente-servidor</guid>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Comprende cómo funciona la arquitectura cliente-servidor, sus ventajas, limitaciones y buenas prácticas para implementarla en sistemas modernos.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Arquitectura Monolitica</title>
+      <link>https://blog.jesusflorez.cloud/2026/04/arquitectura-monolitica</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/04/arquitectura-monolitica</guid>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Descubre qué es la arquitectura monolítica, sus ventajas, limitaciones y cuándo conviene usarla en proyectos reales.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Inverse Factorial</title>
+      <link>https://blog.jesusflorez.cloud/2026/03/inverse-factorial</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/03/inverse-factorial</guid>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <description>CCPL R2 2026 (Kattis)</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>Tipos Primitivos vs Wrappers: Diferencias Clave</title>
+      <link>https://blog.jesusflorez.cloud/2026/03/tipos-variables</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/03/tipos-variables</guid>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Comprende las diferencias fundamentales entre tipos primitivos y wrappers, y cuándo usar cada uno en tu código.</description>
+      <category>Tecnología</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>CCPL R1 - B. Round Robin Scheduling</title>
+      <link>https://blog.jesusflorez.cloud/2026/03/B-R1-round-robin-scheduling</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/03/B-R1-round-robin-scheduling</guid>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Ejercicio B - CCPL R1 2026</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+    <item>
+      <title>158A - Next Round</title>
+      <link>https://blog.jesusflorez.cloud/2026/02/158a-next-round</link>
+      <guid isPermaLink="true">https://blog.jesusflorez.cloud/2026/02/158a-next-round</guid>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <description>VK Cup 2012 Qualification Round 1</description>
+      <category>Programación competitiva</category>
+      <dc:creator>Jesús Flórez</dc:creator>
+    </item>
+  </channel>
+</rss>

@@ -7,35 +7,8 @@ import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { loadPost, loadPosts, getRelatedPosts } from '../utils/postsLoader'
 import { setPostSeo } from '../utils/seo'
+import { detectCodeLanguage } from '../utils/detectCodeLanguage'
 import '../styles/PostView.css'
-
-function detectCodeLanguage(code) {
-  if (/^\s*(import |export |const |let |var |function |class |async function|\(|\{)/m.test(code)) {
-    return 'javascript'
-  }
-
-  if (/^\s*(def |class |from |import |print\(|if __name__ == ['"]__main__['"])/m.test(code)) {
-    return 'python'
-  }
-
-  if (/^\s*(public class |public static void main|System\.out\.println|package )/m.test(code)) {
-    return 'java'
-  }
-
-  if (/^\s*(#include|using namespace |int main\(|cout <<)/m.test(code)) {
-    return 'cpp'
-  }
-
-  if (/^\s*[-\w]+:\s*.+$/m.test(code) || /^\s*[-\w]+:\s*$/m.test(code)) {
-    return 'yaml'
-  }
-
-  if (/^\s*(\$ |npm |yarn |pnpm |git |cd |ls |mkdir |curl )/m.test(code)) {
-    return 'bash'
-  }
-
-  return 'text'
-}
 
 function PostView() {
   const { year, month, slug } = useParams()
@@ -89,13 +62,23 @@ function PostView() {
     )
   }
 
+  const categoriaSlug = post.metadata.categoria === 'coding' ? 'programacion-competitiva' : 'tecnologia'
+  const categoriaLabel = post.metadata.categoria === 'coding' ? 'Programación competitiva' : 'Tecnología'
+
   return (
     <article className={`post-view post-view-${post.metadata.categoria || 'tech'}`}>
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><Link to="/">Blog</Link></li>
+          <li><Link to={`/?categoria=${categoriaSlug}`}>{categoriaLabel}</Link></li>
+          <li aria-current="page">{post.metadata.titulo}</li>
+        </ol>
+      </nav>
       <Link to="/" className="back-link">← Volver al blog</Link>
-      
+
       {post.metadata.imagenPortada && (
         <div className="post-cover-image">
-          <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} />
+          <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} width="1200" height="360" />
         </div>
       )}
       
@@ -112,14 +95,16 @@ function PostView() {
         
         <div className="post-author-info">
           {post.metadata.fotoAutor && (
-            <img 
-              src={post.metadata.fotoAutor} 
+            <img
+              src={post.metadata.fotoAutor}
               alt={post.metadata.nombreAutor}
               className="author-avatar"
+              width="40"
+              height="40"
             />
           )}
           <div className="author-details">
-            <span className="author-name">{post.metadata.nombreAutor}</span>
+            <Link to="/autor/jesus-florez" className="author-name">{post.metadata.nombreAutor}</Link>
             <time className="post-date">
               {new Date(post.metadata.fecha).toLocaleDateString('es-ES', {
                 year: 'numeric',
@@ -202,6 +187,8 @@ function PostView() {
                     alt={relatedPost.metadata.titulo}
                     className="related-post-image"
                     loading="lazy"
+                    width="300"
+                    height="120"
                   />
                 )}
                 <div className="related-post-body">

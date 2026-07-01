@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/generate-sitemap.mjs",
+    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/generate-feed.mjs && node scripts/generate-llms-txt.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

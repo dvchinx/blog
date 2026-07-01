@@ -1,11 +1,25 @@
 import { useState, useEffect } from 'react'
-import { Link, useSearchParams, useNavigate } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom'
 import { loadPosts, searchPosts } from '../utils/postsLoader'
-import { setHomeSeo } from '../utils/seo'
+import { setHomeSeo, setCategorySeo } from '../utils/seo'
 import '../styles/PostList.css'
+
+const CATEGORY_LABELS = {
+  all: 'Programación competitiva y tecnología',
+  tech: 'Artículos de Tecnología',
+  coding: 'Programación Competitiva'
+}
+
+function mapSlugToCode(slug) {
+  if (!slug) return 'all'
+  if (slug === 'tecnologia') return 'tech'
+  if (slug === 'programacion-competitiva') return 'coding'
+  return 'all'
+}
 
 function PostList() {
   const [searchParams] = useSearchParams()
+  const { categoriaSlug } = useParams()
   const navigate = useNavigate()
   const [allPosts, setAllPosts] = useState([])
   const [displayedPosts, setDisplayedPosts] = useState([])
@@ -18,8 +32,6 @@ function PostList() {
   const POSTS_PER_PAGE = 9
 
   useEffect(() => {
-    setHomeSeo()
-
     // Leer parámetro ?q= de la URL
     const queryParam = searchParams.get('q')
     if (queryParam) {
@@ -30,18 +42,24 @@ function PostList() {
       setSearchTerm('')
     }
 
-    // Leer parámetro ?categoria= de la URL y mapear al código interno
-    const categoriaParam = searchParams.get('categoria')
-    if (categoriaParam) {
-      const mapSlugToCode = (slug) => {
-        if (!slug) return 'all'
-        if (slug === 'tecnologia') return 'tech'
-        if (slug === 'programacion-competitiva') return 'coding'
-        return 'all'
-      }
-      setSelectedCategory(mapSlugToCode(categoriaParam))
+    // La categoría puede venir de la ruta /categoria/:slug (preferida, indexable)
+    // o del parámetro legacy ?categoria= (compatibilidad con enlaces antiguos)
+    const categoriaParam = categoriaSlug || searchParams.get('categoria')
+    const category = mapSlugToCode(categoriaParam)
+    setSelectedCategory(category)
+
+    // Canonicalizar enlaces antiguos ?categoria=... hacia la nueva ruta /categoria/:slug
+    if (!categoriaSlug && searchParams.get('categoria') && category !== 'all') {
+      const slug = category === 'tech' ? 'tecnologia' : 'programacion-competitiva'
+      const q = searchParams.get('q')
+      navigate(`/categoria/${slug}${q ? `?q=${encodeURIComponent(q)}` : ''}`, { replace: true })
+      return
+    }
+
+    if (category === 'all') {
+      setHomeSeo()
     } else {
-      setSelectedCategory('all')
+      setCategorySeo(category)
     }
 
     async function fetchPosts() {
@@ -57,21 +75,15 @@ function PostList() {
     }
 
     fetchPosts()
-  }, [searchParams])
+  }, [searchParams, categoriaSlug, navigate])
 
   const handleSearch = () => {
     const trimmedQuery = searchInput.trim()
-    const currentCategoria = searchParams.get('categoria')
-    if (trimmedQuery) {
-      const catPart = currentCategoria ? `&categoria=${encodeURIComponent(currentCategoria)}` : ''
-      navigate(`/?q=${encodeURIComponent(trimmedQuery)}${catPart}`)
-    } else {
-      if (currentCategoria) {
-        navigate(`/?categoria=${encodeURIComponent(currentCategoria)}`)
-      } else {
-        navigate('/')
-      }
-    }
+    const basePath = selectedCategory === 'all'
+      ? '/'
+      : `/categoria/${selectedCategory === 'tech' ? 'tecnologia' : 'programacion-competitiva'}`
+
+    navigate(trimmedQuery ? `${basePath}?q=${encodeURIComponent(trimmedQuery)}` : basePath)
   }
 
   const handleKeyPress = (e) => {
@@ -114,7 +126,7 @@ function PostList() {
   return (
     <div className="post-list-container">
       <div className="search-section">
-        <h1>Programación competitiva y tecnología</h1>
+        <h1>{CATEGORY_LABELS[selectedCategory]}</h1>
         <div className="search-bar-container">
           <input
             type="text"
@@ -137,24 +149,25 @@ function PostList() {
               return ''
             }
 
+            const pathFor = (code) => (code === 'all' ? '/' : `/categoria/${slugFor(code)}`)
+
             const handleCategoryClick = (code) => {
               const currentQ = searchParams.get('q')
-              const slug = slugFor(code)
-              setSelectedCategory(code)
-              if (code === 'all') {
-                if (currentQ) navigate(`/?q=${encodeURIComponent(currentQ)}`)
-                else navigate('/')
-              } else {
-                const qPart = currentQ ? `q=${encodeURIComponent(currentQ)}&` : ''
-                navigate(`/?${qPart}categoria=${encodeURIComponent(slug)}`)
-              }
+              const qPart = currentQ ? `?q=${encodeURIComponent(currentQ)}` : ''
+              navigate(`${pathFor(code)}${qPart}`)
+            }
+
+            const hrefFor = (code) => {
+              const currentQ = searchParams.get('q')
+              const qPart = currentQ ? `?q=${encodeURIComponent(currentQ)}` : ''
+              return `https://blog.jesusflorez.cloud${pathFor(code)}${qPart}`
             }
 
             return (
               <>
                 <a
                   className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
-                  href={searchParams.get('q') ? `https://blog.jesusflorez.cloud/?q=${encodeURIComponent(searchParams.get('q'))}` : 'https://blog.jesusflorez.cloud/'}
+                  href={hrefFor('all')}
                   onClick={(e) => { e.preventDefault(); handleCategoryClick('all') }}
                 >
                   <span className="category-icon">
@@ -167,7 +180,7 @@ function PostList() {
                 </a>
                 <a
                   className={`category-button ${selectedCategory === 'tech' ? 'active' : ''}`}
-                  href={`https://blog.jesusflorez.cloud/?${searchParams.get('q') ? `q=${encodeURIComponent(searchParams.get('q'))}&` : ''}categoria=${encodeURIComponent(slugFor('tech'))}`}
+                  href={hrefFor('tech')}
                   onClick={(e) => { e.preventDefault(); handleCategoryClick('tech') }}
                 >
                   <span className="category-icon">
@@ -181,7 +194,7 @@ function PostList() {
                 </a>
                 <a
                   className={`category-button ${selectedCategory === 'coding' ? 'active' : ''}`}
-                  href={`https://blog.jesusflorez.cloud/?${searchParams.get('q') ? `q=${encodeURIComponent(searchParams.get('q'))}&` : ''}categoria=${encodeURIComponent(slugFor('coding'))}`}
+                  href={hrefFor('coding')}
                   onClick={(e) => { e.preventDefault(); handleCategoryClick('coding') }}
                 >
                   <span className="category-icon">
@@ -245,7 +258,7 @@ function PostList() {
                 </div>
                 {post.metadata.imagenPortada && (
                   <div className="post-card-image">
-                    <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} />
+                    <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} loading="lazy" width="400" height="200" />
                   </div>
                 )}
                 <div className="post-card-content">
@@ -262,7 +275,7 @@ function PostList() {
                   )}
                   <div className="post-meta">
                     {post.metadata.fotoAutor && (
-                      <img src={post.metadata.fotoAutor} alt={post.metadata.nombreAutor} className="author-avatar-small" />
+                      <img src={post.metadata.fotoAutor} alt={post.metadata.nombreAutor} className="author-avatar-small" width="24" height="24" />
                     )}
                     <span className="post-author">{post.metadata.nombreAutor}</span>
                     <span className="post-date-separator">•</span>

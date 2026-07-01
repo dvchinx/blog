@@ -1,7 +1,7 @@
-const SITE_URL = 'https://blog.jesusflorez.cloud'
-const SITE_NAME = 'Blog de Jesús Flórez'
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`
-const AUTHOR_URL = 'https://jesusflorez.cloud'
+export const SITE_URL = 'https://blog.jesusflorez.cloud'
+export const SITE_NAME = 'Blog de Jesús Flórez'
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`
+export const AUTHOR_URL = 'https://jesusflorez.cloud'
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -144,11 +144,140 @@ export function setHomeSeo() {
   })
 }
 
+// ─── Author page SEO ──────────────────────────────────────────────────────────
+
+export function setAuthorSeo() {
+  const title = `Jesús Flórez | ${SITE_NAME}`
+  const description =
+    'Jesús Flórez — desarrollador de software y autor del blog, especializado en programación competitiva y tecnología para LATAM.'
+  const canonical = `${SITE_URL}/autor/jesus-florez`
+
+  document.title = title
+  setCanonical(canonical)
+
+  upsertMeta('meta[name="description"]', { name: 'description', content: description })
+  upsertMeta('meta[name="robots"]', {
+    name: 'robots',
+    content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+  })
+
+  upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'profile' })
+  upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: SITE_NAME })
+  upsertMeta('meta[property="og:title"]', { property: 'og:title', content: title })
+  upsertMeta('meta[property="og:description"]', { property: 'og:description', content: description })
+  upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonical })
+  upsertMeta('meta[property="og:image"]', { property: 'og:image', content: `${SITE_URL}/authors/jesus-florez.jpeg` })
+
+  removeMeta('meta[property="article:published_time"]')
+  removeMeta('meta[property="article:modified_time"]')
+  removeMeta('meta[property="article:author"]')
+  removeMeta('meta[property="article:section"]')
+
+  upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary' })
+  upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: title })
+  upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description })
+
+  setJsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: canonical,
+    mainEntity: {
+      '@type': 'Person',
+      name: 'Jesús Flórez',
+      url: AUTHOR_URL,
+      image: `${SITE_URL}/authors/jesus-florez.jpeg`,
+      jobTitle: 'Desarrollador de software',
+      sameAs: [
+        'https://github.com/dvchinx',
+        'https://www.linkedin.com/in/dvchinx/',
+        AUTHOR_URL
+      ]
+    }
+  })
+}
+
+// ─── Category page SEO ────────────────────────────────────────────────────────
+
+export const CATEGORY_INFO = {
+  tech: {
+    slug: 'tecnologia',
+    label: 'Tecnología',
+    title: `Artículos de Tecnología | ${SITE_NAME}`,
+    description:
+      'Artículos de tecnología: Java, Python, Spring Boot, React y arquitectura de software para desarrolladores LATAM.'
+  },
+  coding: {
+    slug: 'programacion-competitiva',
+    label: 'Programación Competitiva',
+    title: `Programación Competitiva | ${SITE_NAME}`,
+    description:
+      'Ejercicios y soluciones de programación competitiva: ICPC, CCPL, Codeforces y algoritmos explicados paso a paso.'
+  }
+}
+
+export function setCategorySeo(categoriaCode) {
+  const info = CATEGORY_INFO[categoriaCode]
+  if (!info) return setHomeSeo()
+
+  const canonical = `${SITE_URL}/categoria/${info.slug}`
+
+  document.title = info.title
+  setCanonical(canonical)
+
+  upsertMeta('meta[name="description"]', { name: 'description', content: info.description })
+  upsertMeta('meta[name="robots"]', {
+    name: 'robots',
+    content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+  })
+
+  upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
+  upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: SITE_NAME })
+  upsertMeta('meta[property="og:title"]', { property: 'og:title', content: info.title })
+  upsertMeta('meta[property="og:description"]', { property: 'og:description', content: info.description })
+  upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonical })
+  upsertMeta('meta[property="og:image"]', { property: 'og:image', content: DEFAULT_OG_IMAGE })
+
+  removeMeta('meta[property="article:published_time"]')
+  removeMeta('meta[property="article:modified_time"]')
+  removeMeta('meta[property="article:author"]')
+  removeMeta('meta[property="article:section"]')
+
+  upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' })
+  upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: info.title })
+  upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: info.description })
+  upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: DEFAULT_OG_IMAGE })
+
+  setJsonLd([
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: info.title,
+      description: info.description,
+      url: canonical,
+      isPartOf: {
+        '@type': 'Blog',
+        name: SITE_NAME,
+        url: `${SITE_URL}/`
+      }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Blog', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: info.label, item: canonical }
+      ]
+    }
+  ])
+}
+
 // ─── Post page SEO ────────────────────────────────────────────────────────────
 
-export function setPostSeo(post) {
-  if (!post) return
-
+/**
+ * Pure computation of all SEO data for a post — no DOM access.
+ * Shared between the client (setPostSeo) and the build-time prerender script.
+ */
+export function buildPostSeoData(post) {
   const { metadata, content } = post
 
   const title = `${metadata.titulo} | ${SITE_NAME}`
@@ -164,6 +293,95 @@ export function setPostSeo(post) {
     metadata.categoria === 'coding' ? 'Programación competitiva' : 'Tecnología'
   const wordCount = estimateWordCount(content)
   const keywords = metadata.keywords || tags.join(', ')
+
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': canonical,
+      headline: metadata.titulo,
+      description,
+      url: canonical,
+      datePublished,
+      dateModified,
+      wordCount,
+      inLanguage: 'es',
+      articleSection: section,
+      keywords,
+      image: {
+        '@type': 'ImageObject',
+        url: image,
+        width: 1200,
+        height: 630
+      },
+      author: {
+        '@type': 'Person',
+        name: author,
+        url: `${SITE_URL}/autor/jesus-florez`
+      },
+      publisher: {
+        '@type': 'Person',
+        name: 'Jesús Flórez',
+        url: AUTHOR_URL
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': canonical
+      },
+      isPartOf: {
+        '@type': 'Blog',
+        name: SITE_NAME,
+        url: `${SITE_URL}/`
+      }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Blog', item: `${SITE_URL}/` },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: section,
+          item: `${SITE_URL}/categoria/${metadata.categoria === 'coding' ? 'programacion-competitiva' : 'tecnologia'}`
+        },
+        { '@type': 'ListItem', position: 3, name: metadata.titulo, item: canonical }
+      ]
+    }
+  ]
+
+  return {
+    title,
+    description,
+    canonical,
+    image,
+    author,
+    datePublished,
+    dateModified,
+    tags,
+    section,
+    wordCount,
+    keywords,
+    jsonLd
+  }
+}
+
+export function setPostSeo(post) {
+  if (!post) return
+
+  const { metadata } = post
+  const {
+    title,
+    description,
+    canonical,
+    image,
+    author,
+    datePublished,
+    dateModified,
+    section,
+    keywords,
+    jsonLd
+  } = buildPostSeoData(post)
 
   document.title = title
   setCanonical(canonical)
@@ -220,72 +438,8 @@ export function setPostSeo(post) {
     content: metadata.titulo
   })
 
-  // JSON-LD — BlogPosting + BreadcrumbList
-  setJsonLd([
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      '@id': canonical,
-      headline: metadata.titulo,
-      description,
-      url: canonical,
-      datePublished,
-      dateModified,
-      wordCount,
-      inLanguage: 'es',
-      articleSection: section,
-      keywords,
-      image: {
-        '@type': 'ImageObject',
-        url: image,
-        width: 1200,
-        height: 630
-      },
-      author: {
-        '@type': 'Person',
-        name: author,
-        url: AUTHOR_URL
-      },
-      publisher: {
-        '@type': 'Person',
-        name: 'Jesús Flórez',
-        url: AUTHOR_URL
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': canonical
-      },
-      isPartOf: {
-        '@type': 'Blog',
-        name: SITE_NAME,
-        url: `${SITE_URL}/`
-      }
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Blog',
-          item: `${SITE_URL}/`
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: section,
-          item: `${SITE_URL}/?categoria=${metadata.categoria || 'tech'}`
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: metadata.titulo,
-          item: canonical
-        }
-      ]
-    }
-  ])
+  // JSON-LD — BlogPosting + BreadcrumbList (already computed in buildPostSeoData)
+  setJsonLd(jsonLd)
 }
 
 export const seoConfig = {

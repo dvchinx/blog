@@ -119,6 +119,35 @@ function PostList() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const getPageNumbers = (current, total) => {
+    const siblingCount = 1
+    const totalVisible = siblingCount * 2 + 5 // primera, última, actual, 2 elipsis
+
+    if (total <= totalVisible) {
+      return Array.from({ length: total }, (_, i) => i + 1)
+    }
+
+    const leftSibling = Math.max(current - siblingCount, 1)
+    const rightSibling = Math.min(current + siblingCount, total)
+
+    const showLeftEllipsis = leftSibling > 2
+    const showRightEllipsis = rightSibling < total - 1
+
+    const pages = [1]
+
+    if (showLeftEllipsis) pages.push('left-ellipsis')
+
+    for (let page = Math.max(leftSibling, 2); page <= Math.min(rightSibling, total - 1); page++) {
+      pages.push(page)
+    }
+
+    if (showRightEllipsis) pages.push('right-ellipsis')
+
+    pages.push(total)
+
+    return pages
+  }
+
   if (loading) {
     return <div className="loading">Cargando posts...</div>
   }
@@ -303,15 +332,23 @@ function PostList() {
               </button>
 
               <div className="pagination-numbers">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`pagination-number ${currentPage === page ? 'active' : ''}`}
-                  >
-                    {page}
-                  </button>
-                ))}
+                {getPageNumbers(currentPage, totalPages).map((page, index) =>
+                  typeof page === 'number' ? (
+                    <button
+                      key={page}
+                      onClick={() => handlePageChange(page)}
+                      className={`pagination-number ${currentPage === page ? 'active' : ''}`}
+                      aria-current={currentPage === page ? 'page' : undefined}
+                      aria-label={`Página ${page}`}
+                    >
+                      {page}
+                    </button>
+                  ) : (
+                    <span key={`${page}-${index}`} className="pagination-ellipsis">
+                      …
+                    </span>
+                  )
+                )}
               </div>
 
               <button

@@ -402,6 +402,17 @@
   color: #ffffff;
 }
 
+.pagination-ellipsis {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
 /* ─── No Posts ───────────────────────────────────────── */
 .no-posts {
   text-align: center;

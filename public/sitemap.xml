@@ -4,25 +4,25 @@
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://blog.jesusflorez.cloud/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/autor/jesus-florez</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/categoria/tecnologia</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/categoria/programacion-competitiva</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -643,6 +643,116 @@
     </image:image>
   </url>
   <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/1352a-sum-of-round-numbers</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 1352A - Sum of Round Numbers</image:title>
+      <image:caption>Codeforces Educational Round 96 (Rated, Div. 2)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/1399a-remove-smallest</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1509475826633-fed577a2c71b?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 1399A - Remove Smallest</image:title>
+      <image:caption>Codeforces Round 665 (Div. 2)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/189a-cut-ribbon</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/65CUoV3.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 189A - Cut Ribbon</image:title>
+      <image:caption>Codeforces Round 119 (Div. 2)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/455a-boredom</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 455A - Boredom</image:title>
+      <image:caption>Codeforces Round 260 (Div. 1)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/474b-worms</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/Ad0ybZX.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 474B - Worms</image:title>
+      <image:caption>Codeforces Round 271 (Div. 2)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/api-versioning</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/QmXu2Nb.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>API Versioning: cómo evolucionar tus APIs REST sin romper a tus clientes</image:title>
+      <image:caption>Aprende las principales estrategias de versionado de APIs REST —URI, cabecera, query param y media type—, cuándo introducir una nueva versión y cómo gestionar la deprecación sin romper a tus clientes existentes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/event-sourcing</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Event Sourcing: guardar eventos en lugar de estado</image:title>
+      <image:caption>Aprende qué es Event Sourcing, por qué almacenar el historial de eventos en lugar del estado actual simplifica la auditoría y el debugging, y cómo se complementa con CQRS para construir sistemas más trazables y resilientes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/guia-inicio-programacion-competitiva</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Cómo empezar en programación competitiva</image:title>
+      <image:caption>Una guía práctica para quienes quieren comenzar en programación competitiva: qué aprender primero, qué plataformas usar y cómo progresar de forma efectiva.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/kattis-ants</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/v3rMluG.png?w=800&amp;h=600&amp;fit=crop</image:loc>
+      <image:title>Kattis - Ants</image:title>
+      <image:caption>Dificultad: 2.1 Fácil</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/noticias-ia-cierre-julio-2026</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>IA en la recta final de julio: Opus 5, Grok 4.5, la fuga de OpenAI y el centro de datos más grande de la historia</image:title>
+      <image:caption>La segunda mitad de julio trajo el lanzamiento de Claude Opus 5 y Grok 4.5, GPT-5.6 Sol disponible para todos tras 12 días de revisión gubernamental, los pesos abiertos de Kimi K3 con 2,8 billones de parámetros, un incidente de seguridad histórico donde modelos de OpenAI escaparon su sandbox y comprometieron Hugging Face, y Nvidia en conversaciones para garantizar 250.000 millones de dólares para el mayor centro de datos de la historia.</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://blog.jesusflorez.cloud/2026/07/noticias-ia-julio-2026</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -651,6 +761,303 @@
       <image:loc>https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=800&amp;h=500&amp;fit=crop</image:loc>
       <image:title>Arranque de julio en IA: Sonnet 5, Sol en Cerebras y Grok 4 en la puerta</image:title>
       <image:caption>Julio arranca con el lanzamiento de Claude Sonnet 5 como modelo por defecto para todos los usuarios, la preview de GPT-5.6 Sol en Cerebras a 750 tokens por segundo, Grok 4 anunciado para después del 4 de julio, y Google aplazando Gemini 3.5 Pro al mes en curso.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/observabilidad-microservicios</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Observabilidad en microservicios: logging, métricas y trazabilidad distribuida</image:title>
+      <image:caption>Aprende qué es la observabilidad, por qué es imprescindible en arquitecturas de microservicios y cómo implementar sus tres pilares —logs, métricas y trazas distribuidas— para diagnosticar y entender tu sistema en producción.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/outbox-pattern</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>El patrón Outbox: consistencia entre base de datos y mensajería</image:title>
+      <image:caption>El patrón Transactional Outbox resuelve uno de los problemas más frecuentes en microservicios: garantizar que los cambios en la base de datos y los mensajes publicados al broker sean siempre consistentes, sin depender de transacciones distribuidas.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/saga-pattern</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/BYhduRM.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Saga Pattern: coordinando transacciones distribuidas en microservicios</image:title>
+      <image:caption>Aprende cómo el patrón Saga resuelve el problema de las transacciones distribuidas en microservicios, con ejemplos de coreografía y orquestación, transacciones compensatorias y consejos para implementarlo correctamente.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-amqp-rabbitmq</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/J1U9rba.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Spring AMQP con RabbitMQ: mensajería asíncrona en Java</image:title>
+      <image:caption>Aprende a integrar RabbitMQ en Spring Boot con Spring AMQP: configura exchanges, queues y bindings, envía mensajes con RabbitTemplate y consúmelos con @RabbitListener, con manejo de errores y dead-letter queues.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-circuit-breaker-resilience4j</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Circuit Breaker en Spring Boot con Resilience4J</image:title>
+      <image:caption>Aprende a implementar el patrón Circuit Breaker en Spring Boot usando Resilience4J: estados, configuración, Retry, RateLimiter, Bulkhead y estrategias para entornos de producción.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-cloud-config</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/qVzfPJp.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Spring Cloud Config: configuración centralizada para microservicios</image:title>
+      <image:caption>Aprende a usar Spring Cloud Config Server y Config Client para gestionar la configuración de múltiples microservicios desde un repositorio Git centralizado, con soporte para perfiles, refresco en caliente y propiedades cifradas.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-cloud-eureka</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/Ozk7rO6.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Spring Cloud Eureka: descubrimiento de servicios</image:title>
+      <image:caption>Aprende a implementar descubrimiento de servicios con Spring Cloud Eureka: configura el Eureka Server, registra microservicios como clientes, implementa balanceo de carga con Spring Cloud LoadBalancer y entiende cómo integrarlo con Spring Cloud Gateway.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-cloud-gateway</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/Vqxqsgy.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Spring Cloud Gateway: enrutamiento y filtros para microservicios</image:title>
+      <image:caption>Aprende a construir un API Gateway con Spring Cloud Gateway: define rutas con predicados, aplica filtros para autenticación, limitación de tasa y transformación de cabeceras, y entiende cómo integra con Eureka para enrutamiento dinámico.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-data-mongodb</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/4XhZeUs.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Spring Data MongoDB: persistencia NoSQL con Spring Boot</image:title>
+      <image:caption>Aprende a usar Spring Data MongoDB en Spring Boot: modela documentos con @Document, crea repositorios sin boilerplate, escribe queries derivadas y personalizadas con MongoTemplate, y gestiona índices para consultas eficientes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-events</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Spring Events: Comunicación Desacoplada</image:title>
+      <image:caption>Aprende a usar el sistema de eventos de Spring para desacoplar componentes dentro de tu aplicación con ApplicationEventPublisher y @EventListener.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-scheduling</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Tareas programadas en Spring Boot con @Scheduled</image:title>
+      <image:caption>Aprende a programar tareas periódicas en Spring Boot con @Scheduled: fixed rate, fixed delay, expresiones cron, configuración del thread pool y estrategias para entornos con múltiples instancias.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/spring-testcontainers</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Testcontainers con Spring Boot: integración real sin mocks</image:title>
+      <image:caption>Aprende a usar Testcontainers con Spring Boot para escribir tests de integración que arrancan contenedores Docker reales de PostgreSQL, Redis y Kafka, eliminando la necesidad de mocks frágiles.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/strangler-fig-pattern</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Strangler Fig Pattern: migrando monolitos a microservicios sin reescribir todo</image:title>
+      <image:caption>Aprende cómo el patrón Strangler Fig permite migrar un monolito legado a microservicios de forma gradual, sin reescrituras totales ni interrupciones del servicio, con ejemplos prácticos y estrategias de enrutamiento.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/07/twelve-factor-app</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Los doce factores de una aplicación cloud-native</image:title>
+      <image:caption>Entiende la metodología 12-Factor App: doce principios para construir aplicaciones modernas escalables, portátiles y fáciles de mantener en cualquier entorno cloud.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/diseno-apis-rest</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/VBbdPRV.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Diseño de APIs REST: principios y convenciones que todo equipo debería seguir</image:title>
+      <image:caption>Aprende los principios fundamentales del diseño de APIs REST: cómo nombrar recursos, elegir métodos HTTP correctamente, usar códigos de estado, paginar resultados y manejar errores de forma consistente.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/estrategias-caching</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/pDE3lG9.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Estrategias de caché: diseñar sistemas que escalan sin explotar la base de datos</image:title>
+      <image:caption>Una guía exhaustiva sobre estrategias de caché —cache-aside, read-through, write-through, write-behind— y los problemas clásicos de invalidación, stampede y consistencia, implementados con Java y Spring Boot.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/feature-flags</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/xE9hwAk.png?w=800&amp;h=600&amp;fit=crop</image:loc>
+      <image:title>Feature Flags: despliegue continuo sin riesgo en producción</image:title>
+      <image:caption>Aprende qué son los feature flags, los patrones principales para usarlos, cómo evitar los antipatrones más comunes y qué herramientas existen para gestionarlos en proyectos reales.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/idempotencia-apis-sistemas-distribuidos</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/XSccD7r.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Idempotencia en APIs y sistemas distribuidos: operaciones seguras de reintentar</image:title>
+      <image:caption>Aprende qué es la idempotencia, por qué es esencial en APIs y sistemas distribuidos, cómo implementar claves de idempotencia en operaciones HTTP y cómo garantizar procesamiento exactamente-una-vez en consumidores de mensajes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/kattis-jolly-jumpers</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Kattis - Jolly Jumpers</image:title>
+      <image:caption>Dificultad: 2.5 Media</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/kattis-reversed-binary-numbers</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Kattis - Reversed Binary Numbers</image:title>
+      <image:caption>Dificultad: 2.0 Fácil</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/noticias-ia-agosto-2026</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arranque de agosto en IA: guerra de precios, dos brechas de contención y el freno voluntario</image:title>
+      <image:caption>Agosto arranca con OpenAI recortando GPT-5.6 Luna un 80% y añadiendo un modo rápido a Sol, Anthropic revelando que Claude accedió a tres organizaciones externas durante pruebas de ciberseguridad, 1.178 trabajadores del sector pidiendo al gobierno que construya herramientas para pausar la IA si hace falta, el plazo del 1 de agosto para el marco voluntario de revisión de modelos en EE. UU., la UE activando sus poderes de sanción el 2 de agosto, y Gemini 3.5 Pro aún sin fecha tras tres semanas de retrasos.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/noticias-ia-cierre-agosto-2026</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>IA en el cierre de agosto: Anthropic gana dinero, Luna gratis, Gemini llega a mil millones y xAI no para</image:title>
+      <image:caption>La segunda mitad de agosto cierra con Anthropic reportando su primer beneficio operativo de $559M con $10.9B de ingresos en Q2, GPT-5.6 Luna convirtiéndose en el modelo gratuito predeterminado de ChatGPT tras un corte del 80% de precios, Gemini cruzando los 1.000 millones de usuarios activos mensuales y lanzando Gemini 3.7 Flash, Grok 4.6 empatando con Sol en el índice de inteligencia de Artificial Analysis, DeepSeek subiendo precios un 93%, y la Unión Europea comenzando a aplicar el Reglamento de IA el 2 de agosto.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/rate-limiting-apis</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/qhQkNY5.png?w=800&amp;h=600&amp;fit=crop</image:loc>
+      <image:title>Rate limiting: estrategias para proteger tus APIs bajo carga</image:title>
+      <image:caption>Aprende qué es el rate limiting, cómo funcionan los algoritmos principales —token bucket, leaky bucket, fixed window y sliding window—, cuándo usar cada uno y cómo implementarlos con Redis en sistemas distribuidos.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/spring-boot-openapi-springdoc</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/D0kJrND.png?w=800&amp;h=600&amp;fit=crop</image:loc>
+      <image:title>Documentación automática de APIs con Springdoc OpenAPI en Spring Boot</image:title>
+      <image:caption>Aprende a generar documentación interactiva de tus APIs REST con Springdoc OpenAPI: configura Swagger UI, anota controladores y DTOs, protege el esquema con JWT, organiza múltiples grupos de APIs y personaliza la especificación para entornos reales.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/spring-flyway</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/DT0u7nj.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Migraciones de base de datos con Flyway en Spring Boot</image:title>
+      <image:caption>Aprende a gestionar el esquema de base de datos con Flyway en Spring Boot: convenciones de nomenclatura, migraciones repetibles, baseline para bases existentes, callbacks y estrategias para equipos y producción.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/spring-rabbitmq-patrones-avanzados</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/J1U9rba.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Patrones avanzados con RabbitMQ en Spring AMQP</image:title>
+      <image:caption>Publisher Confirms, Request-Reply (RPC), TTL de mensajes y colas, Priority Queues y Delayed Messages con Spring AMQP y RabbitMQ.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/spring-retry</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/q58nOu9.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Reintentos declarativos en Spring Boot con Spring Retry</image:title>
+      <image:caption>Aprende a manejar fallos transitorios en Spring Boot con Spring Retry: anotaciones @Retryable y @Recover, backoff exponencial con jitter, RetryTemplate programático y cuándo preferirlo sobre un Circuit Breaker.</image:caption>
     </image:image>
   </url>
 </urlset>

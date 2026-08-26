@@ -196,6 +196,43 @@ export function setAuthorSeo() {
   })
 }
 
+// ─── Not Found (404) SEO ──────────────────────────────────────────────────────
+
+export const NOT_FOUND_TITLE = `Página no encontrada | ${SITE_NAME}`
+export const NOT_FOUND_DESCRIPTION =
+  'La página que buscas no existe. Vuelve al inicio para explorar los artículos publicados.'
+
+/**
+ * A 404 must never be indexed. nginx serves this page with a real 404 status,
+ * and the noindex tag keeps it out of the index if it is reached some other way.
+ */
+export function setNotFoundSeo() {
+  document.title = NOT_FOUND_TITLE
+
+  upsertMeta('meta[name="description"]', { name: 'description', content: NOT_FOUND_DESCRIPTION })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: 'noindex, follow' })
+
+  // A 404 has no canonical URL of its own — leaving a stale one would tell
+  // Google this is a duplicate of whatever page was rendered before.
+  const canonical = document.head.querySelector('link[rel="canonical"]')
+  if (canonical) canonical.remove()
+
+  upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
+  upsertMeta('meta[property="og:title"]', { property: 'og:title', content: NOT_FOUND_TITLE })
+  upsertMeta('meta[property="og:description"]', {
+    property: 'og:description',
+    content: NOT_FOUND_DESCRIPTION
+  })
+
+  removeMeta('meta[property="article:published_time"]')
+  removeMeta('meta[property="article:modified_time"]')
+  removeMeta('meta[property="article:author"]')
+  removeMeta('meta[property="article:section"]')
+
+  const jsonLd = document.getElementById('seo-json-ld')
+  if (jsonLd) jsonLd.remove()
+}
+
 // ─── Category page SEO ────────────────────────────────────────────────────────
 
 export const CATEGORY_INFO = {

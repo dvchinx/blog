@@ -26,7 +26,9 @@ import {
   SITE_URL,
   SITE_NAME,
   AUTHOR_URL,
-  DEFAULT_OG_IMAGE
+  DEFAULT_OG_IMAGE,
+  NOT_FOUND_TITLE,
+  NOT_FOUND_DESCRIPTION
 } from '../src/utils/seo.js'
 
 const e = React.createElement
@@ -101,6 +103,15 @@ function applyHead(html, seo) {
     out = out.replace('</head>', `${extraTags}\n  </head>`)
   }
 
+  // A 404 carries no canonical and no structured data — either one would
+  // invite Google to index it as a duplicate of a real page.
+  if (seo.noindex) {
+    out = setTagContent(out, 'name="robots"', 'noindex, follow')
+    out = out.replace(/\s*<link rel="canonical" href="[^"]*" \/>/, '')
+    out = out.replace(/\s*<script type="application\/ld\+json" id="seo-json-ld">[\s\S]*?<\/script>/, '')
+    return out
+  }
+
   out = out.replace(
     /<script type="application\/ld\+json" id="seo-json-ld">[\s\S]*?<\/script>/,
     `<script type="application/ld+json" id="seo-json-ld">\n      ${JSON.stringify(seo.jsonLd)}\n    </script>`
@@ -113,10 +124,21 @@ function setRootContent(html, bodyHtml) {
   return html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`)
 }
 
+/**
+ * Writes each route as a flat `<ruta>.html` file — never `<ruta>/index.html`.
+ * A directory would make nginx 301 the canonical URL to its trailing-slash
+ * variant, which Google reports as "Página con redirección" and refuses to
+ * index. nginx resolves these via `try_files $uri $uri.html`.
+ */
 function writePage(routePath, html) {
-  const dir = routePath === '/' ? distDir : path.join(distDir, routePath.replace(/^\//, ''))
-  fs.mkdirSync(dir, { recursive: true })
-  fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8')
+  if (routePath === '/') {
+    fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf8')
+    return
+  }
+
+  const filePath = path.join(distDir, `${routePath.replace(/^\//, '')}.html`)
+  fs.mkdirSync(path.dirname(filePath), { recursive: true })
+  fs.writeFileSync(filePath, html, 'utf8')
 }
 
 // ─── Markdown → static article HTML (mirrors PostView's renderer) ───────────
@@ -313,6 +335,33 @@ function buildAuthorPage() {
   writePage('/autor/jesus-florez', html)
 }
 
+/**
+ * Static 404 body, served by nginx via `error_page 404 /404.html` with a real
+ * 404 status. Mirrors src/components/NotFound.jsx.
+ */
+function buildNotFoundPage() {
+  const seo = {
+    title: NOT_FOUND_TITLE,
+    description: NOT_FOUND_DESCRIPTION,
+    image: DEFAULT_OG_IMAGE,
+    noindex: true
+  }
+
+  const body = `<div class="not-found-page">
+    <p class="not-found-code">404</p>
+    <h1>Esta página no existe</h1>
+    <p class="not-found-message">El enlace que seguiste está roto o el artículo cambió de dirección. Puedes volver al inicio o buscar lo que necesitas entre los artículos publicados.</p>
+    <div class="not-found-actions">
+      <a href="/">← Volver al blog</a>
+      <a href="/categoria/tecnologia">Tecnología</a>
+      <a href="/categoria/programacion-competitiva">Programación Competitiva</a>
+    </div>
+  </div>`
+
+  const html = setRootContent(applyHead(template, seo), body)
+  writePage('/404', html)
+}
+
 function buildPostPage(post) {
   const seoData = buildPostSeoData(post)
   const { metadata, content } = post
@@ -397,6 +446,7 @@ buildHomePage()
 buildCategoryPage('tech')
 buildCategoryPage('coding')
 buildAuthorPage()
+buildNotFoundPage()
 for (const post of posts) buildPostPage(post)
 
-console.log(`✅  prerendered ${posts.length} posts + home + 2 category pages + author page`)
+console.log(`✅  prerendered ${posts.length} posts + home + 2 category pages + author page + 404`)

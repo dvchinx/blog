@@ -156,4 +156,4 @@ El `Dockerfile` utiliza una compilación multifase para crear una imagen de prod
 
 ## 📄 Licencia
 
-© 2026 Jesús Flórez. Todos los derechos reservados.
+2026 Jesús Flórez. Todos los derechos reservados.

@@ -8,7 +8,7 @@ descripcion: "Aprende qué es gRPC, cómo funcionan los Protocol Buffers, los cu
 imagenPortada: "https://i.imgur.com/0gGKtzp.png?w=800&h=500&fit=crop"
 etiquetas: ["gRPC", "Protocol Buffers", "Microservices", "APIs", "Architecture", "Backend"]
 categoria: "tech"
-keywords: "gRPC, protocol buffers, protobuf, microservicios, gRPC vs REST, streaming gRPC, comunicación entre servicios, RPC, HTTP/2, service mesh, IDL, código generado, gRPC Java, gRPC Python, definición de servicios"
+keywords: "gRPC, protocol buffers, protobuf, microservicios, gRPC vs REST, streaming gRPC, comunicación entre servicios, RPC, HTTP/2, service mesh, IDL, código generado, gRPC Java, gRPC Spring Boot, definición de servicios"
 ---
 
 # gRPC y Protocol Buffers: comunicación eficiente entre microservicios
@@ -109,58 +109,99 @@ Una vez ejecutado `protoc` con el plugin de gRPC, el compilador genera el códig
 
 Esta es una de las diferencias más importantes de gRPC respecto a REST: soporta cuatro modos de comunicación distintos, todos sobre la misma conexión HTTP/2.
 
+Los siguientes ejemplos usan Spring Boot con `grpc-spring-boot-starter`, que integra los stubs generados por Protobuf en el ciclo de vida de Spring mediante la anotación `@GrpcClient`.
+
 ### Llamada unaria
 
 El modelo clásico: el cliente envía una petición, el servidor procesa y devuelve una respuesta. Es el equivalente directo de una llamada a API REST.
 
-```python
-import grpc
-import inventario_pb2
-import inventario_pb2_grpc
+```java
+@Service
+public class InventarioClientService {
 
-def buscar_productos(termino: str):
-    with grpc.insecure_channel('localhost:50051') as channel:
-        stub = inventario_pb2_grpc.InventarioServiceStub(channel)
-        request = inventario_pb2.BusquedaRequest(termino=termino, limite=20)
-        response = stub.BuscarProductos(request)
-        return response.productos
+    @GrpcClient("inventario-service")
+    private InventarioServiceGrpc.InventarioServiceBlockingStub stub;
+
+    public List<Producto> buscarProductos(String termino) {
+        BusquedaRequest request = BusquedaRequest.newBuilder()
+                .setTermino(termino)
+                .setLimite(20)
+                .build();
+
+        BusquedaResponse response = stub.buscarProductos(request);
+        return response.getProductosList();
+    }
+}
 ```
 
 ### Server streaming
 
 El cliente envía una petición y el servidor devuelve un flujo de respuestas. Útil para suscripciones a eventos, transferencia de grandes volúmenes de datos, o notificaciones en tiempo real.
 
-```python
-def escuchar_actualizaciones(categoria: str):
-    with grpc.insecure_channel('localhost:50051') as channel:
-        stub = inventario_pb2_grpc.InventarioServiceStub(channel)
-        request = inventario_pb2.FiltroRequest(categoria=categoria)
+```java
+@Service
+public class InventarioClientService {
 
-        # El servidor va enviando productos uno a uno
-        for producto in stub.StreamProductosActualizados(request):
-            print(f"Actualización: {producto.nombre} → stock {producto.stock}")
+    private static final Logger log = LoggerFactory.getLogger(InventarioClientService.class);
+
+    @GrpcClient("inventario-service")
+    private InventarioServiceGrpc.InventarioServiceBlockingStub stub;
+
+    public void escucharActualizaciones(String categoria) {
+        FiltroRequest request = FiltroRequest.newBuilder()
+                .setCategoria(categoria)
+                .build();
+
+        // El servidor va enviando productos uno a uno
+        Iterator<Producto> productos = stub.streamProductosActualizados(request);
+        productos.forEachRemaining(producto ->
+                log.info("Actualización: {} → stock {}", producto.getNombre(), producto.getStock()));
+    }
+}
 ```
 
 ### Client streaming
 
-El cliente envía múltiples mensajes en un flujo y el servidor responde una sola vez al finalizar. El caso típico es la carga masiva de datos.
+El cliente envía múltiples mensajes en un flujo y el servidor responde una sola vez al finalizar. El caso típico es la carga masiva de datos. A diferencia del stub bloqueante, el client streaming requiere el stub asíncrono y un `StreamObserver`.
 
-```python
-def importar_productos(productos: list):
-    with grpc.insecure_channel('localhost:50051') as channel:
-        stub = inventario_pb2_grpc.InventarioServiceStub(channel)
+```java
+@Service
+public class InventarioClientService {
 
-        def generador():
-            for p in productos:
-                yield inventario_pb2.Producto(
-                    id=p['id'],
-                    nombre=p['nombre'],
-                    precio=p['precio'],
-                    stock=p['stock']
-                )
+    private static final Logger log = LoggerFactory.getLogger(InventarioClientService.class);
 
-        response = stub.ImportarProductos(generador())
-        print(f"Importados: {response.importados}, errores: {response.errores}")
+    @GrpcClient("inventario-service")
+    private InventarioServiceGrpc.InventarioServiceStub asyncStub;
+
+    public void importarProductos(List<Producto> productos) throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+
+        StreamObserver<ImportacionResponse> responseObserver = new StreamObserver<>() {
+            @Override
+            public void onNext(ImportacionResponse response) {
+                log.info("Importados: {}, errores: {}", response.getImportados(), response.getErrores());
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                log.error("Error al importar productos", t);
+                latch.countDown();
+            }
+
+            @Override
+            public void onCompleted() {
+                latch.countDown();
+            }
+        };
+
+        StreamObserver<Producto> requestObserver = asyncStub.importarProductos(responseObserver);
+
+        productos.forEach(requestObserver::onNext);
+
+        requestObserver.onCompleted();
+        latch.await();
+    }
+}
 ```
 
 ### Streaming bidireccional
@@ -224,31 +265,39 @@ En la práctica, muchas arquitecturas usan ambos: REST en el edge (la frontera c
 
 ## Observabilidad y depuración
 
-El precio de la eficiencia binaria es que los mensajes no son legibles directamente. La solución estándar es usar **interceptores** de gRPC para añadir logging, métricas y trazabilidad distribuida de forma transversal, sin mezclarlos con la lógica del servicio.
+El precio de la eficiencia binaria es que los mensajes no son legibles directamente. La solución estándar es usar **interceptores** de gRPC para añadir logging, métricas y trazabilidad distribuida de forma transversal, sin mezclarlos con la lógica del servicio. Con `grpc-spring-boot-starter`, la anotación `@GrpcGlobalServerInterceptor` registra el interceptor automáticamente en todos los servicios expuestos.
 
-```python
-import grpc
-import time
+```java
+@Slf4j
+@GrpcGlobalServerInterceptor
+public class LoggingInterceptor implements ServerInterceptor {
 
-class LoggingInterceptor(grpc.ServerInterceptor):
-    def intercept_service(self, continuation, handler_call_details):
-        start = time.time()
-        method = handler_call_details.method
-        print(f"[gRPC] Llamada recibida: {method}")
+    @Override
+    public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(
+            ServerCall<ReqT, RespT> call,
+            Metadata headers,
+            ServerCallHandler<ReqT, RespT> next) {
 
-        handler = continuation(handler_call_details)
+        long start = System.currentTimeMillis();
+        String method = call.getMethodDescriptor().getFullMethodName();
+        log.info("[gRPC] Llamada recibida: {}", method);
 
-        def intercepted_handler(request, context):
-            try:
-                response = handler.unary_unary(request, context)
-                elapsed = (time.time() - start) * 1000
-                print(f"[gRPC] {method} completado en {elapsed:.1f}ms")
-                return response
-            except Exception as e:
-                print(f"[gRPC] {method} falló: {e}")
-                raise
+        ServerCall<ReqT, RespT> wrappedCall = new ForwardingServerCall.SimpleForwardingServerCall<>(call) {
+            @Override
+            public void close(Status status, Metadata trailers) {
+                long elapsed = System.currentTimeMillis() - start;
+                if (status.isOk()) {
+                    log.info("[gRPC] {} completado en {}ms", method, elapsed);
+                } else {
+                    log.warn("[gRPC] {} falló: {}", method, status.getDescription());
+                }
+                super.close(status, trailers);
+            }
+        };
 
-        return grpc.unary_unary_rpc_method_handler(intercepted_handler)
+        return next.startCall(wrappedCall, headers);
+    }
+}
 ```
 
 Para trazabilidad distribuida, los interceptores de gRPC pueden propagar contexto de OpenTelemetry o W3C TraceContext como metadata en las cabeceras de la llamada, de la misma forma que los filtros HTTP en REST propagan cabeceras de trazabilidad.

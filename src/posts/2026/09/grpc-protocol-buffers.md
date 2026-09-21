@@ -218,18 +218,7 @@ HTTP/1.1 es un protocolo de petición-respuesta serial: cada conexión solo pued
 
 HTTP/2 introduce el concepto de **streams multiplexados**: múltiples peticiones y respuestas independientes pueden viajar sobre la misma conexión TCP simultáneamente, sin bloquearse entre sí. Además, comprime las cabeceras (HPACK) y permite al servidor hacer push de recursos al cliente sin que este los haya solicitado. Para la comunicación entre microservicios, esto significa que una sola conexión persistente puede manejar cientos de llamadas concurrentes, eliminando la latencia de establecimiento de conexión en cada llamada.
 
-```
-HTTP/1.1 (múltiples conexiones TCP):
-  Cliente → [TCP conn 1] → Servidor: GET /productos
-  Cliente → [TCP conn 2] → Servidor: GET /inventario
-  Cliente → [TCP conn 3] → Servidor: POST /pedido
-
-gRPC/HTTP/2 (una sola conexión, múltiples streams):
-  Cliente → [TCP conn] → Servidor
-              ├── Stream 1: BuscarProductos
-              ├── Stream 2: ObtenerInventario
-              └── Stream 3: CrearPedido
-```
+![Comparación entre HTTP/1.1 con múltiples conexiones TCP y gRPC sobre HTTP/2 multiplexando varios streams en una sola conexión](/diagrams/2026/09/grpc-protocol-buffers/Comparaci%C3%B3n%20entre%20HTTP%201.1%20y%20gRPC%20%20sobre%20HTTP%202.png)
 
 ## gRPC vs REST: cuándo usar cada uno
 
@@ -245,23 +234,7 @@ REST también gana en depuración y observabilidad básica: cualquier herramient
 
 En la práctica, muchas arquitecturas usan ambos: REST en el edge (la frontera con clientes externos y el API Gateway) y gRPC para la comunicación interna entre microservicios.
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                     Clientes externos                     │
-│         (navegador, móvil, partners, terceros)           │
-└─────────────────────────┬────────────────────────────────┘
-                          │ REST / HTTP/JSON
-                ┌─────────▼─────────┐
-                │    API Gateway     │
-                └──┬─────┬──────┬───┘
-                   │     │      │
-              gRPC │  gRPC    gRPC
-                   │     │      │
-          ┌────────▼─┐ ┌─▼──────┐ ┌▼─────────┐
-          │ Servicio │ │Servicio│ │ Servicio  │
-          │  Pedidos │ │Catalog │ │Inventario │
-          └──────────┘ └────────┘ └──────────┘
-```
+![Clientes externos hablando REST/HTTP/JSON con el API Gateway, que a su vez se comunica por gRPC con los servicios internos de Pedidos, Catálogo e Inventario](/diagrams/2026/09/grpc-protocol-buffers/Clientes%20usando%20REST%20HTTP%20JSON%20por%20gRPC.png)
 
 ## Observabilidad y depuración
 

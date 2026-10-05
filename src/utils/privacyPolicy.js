@@ -3,14 +3,13 @@
 // Si cambia el contenido, actualizar también `policyVersion` en
 // newsletter/src/config.js: cada suscriptor guarda la versión que aceptó.
 
-export const PRIVACY_CONTACT_EMAIL = 'newsletter@jesusflorez.cloud'
 export const PRIVACY_UPDATED_AT = '5 de octubre de 2026'
 
 export const PRIVACY_SECTIONS = [
   {
     title: 'Responsable del tratamiento',
     paragraphs: [
-      `Jesús Flórez, autor de blog.jesusflorez.cloud, es el responsable de los datos personales recogidos a través del formulario del newsletter. Puedes escribir a ${PRIVACY_CONTACT_EMAIL} para cualquier consulta o reclamo sobre tus datos.`
+      `Jesús Flórez, autor de blog.jesusflorez.cloud, es el responsable de los datos personales recogidos a través del formulario del newsletter. Para cualquier consulta o reclamo sobre tus datos puedes contactarlo por los medios publicados en blog.jesusflorez.cloud/autor/jesus-florez.`
     ]
   },
   {
@@ -41,7 +40,7 @@ export const PRIVACY_SECTIONS = [
     title: 'Tus derechos',
     paragraphs: [
       'Como titular de los datos puedes conocer, actualizar y rectificar tu información, solicitar prueba de la autorización que otorgaste, revocarla, pedir que se supriman tus datos y presentar quejas ante la Superintendencia de Industria y Comercio (SIC).',
-      `Al pie de cada correo encontrarás un enlace para cambiar tus categorías o darte de baja, lo que borra tus datos al instante. Para cualquier otra solicitud escribe a ${PRIVACY_CONTACT_EMAIL}; respondemos consultas en un máximo de 10 días hábiles y reclamos en un máximo de 15 días hábiles, como establece la ley.`
+      `Al pie de cada correo encontrarás un enlace para cambiar tus categorías o darte de baja, lo que borra tus datos al instante. Para cualquier otra solicitud usa los medios de contacto de la página del autor; respondemos consultas en un máximo de 10 días hábiles y reclamos en un máximo de 15 días hábiles, como establece la ley.`
     ]
   },
   {

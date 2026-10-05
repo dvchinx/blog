@@ -233,6 +233,45 @@ export function setNotFoundSeo() {
   if (jsonLd) jsonLd.remove()
 }
 
+// ─── Utility pages (newsletter, privacidad) ───────────────────────────────────
+
+export const PRIVACY_TITLE = 'Política de tratamiento de datos'
+export const PRIVACY_DESCRIPTION =
+  'Cómo se recogen, usan y protegen los datos de quienes se suscriben al newsletter del blog (Ley 1581 de 2012).'
+
+/**
+ * Pages outside the content graph. With `path` the page is indexable and gets
+ * a canonical; without it (newsletter confirm/preferences, reached only through
+ * personal links with a token) it is noindex and carries no canonical.
+ */
+export function setUtilityPageSeo({ title, description, path }) {
+  const fullTitle = `${title} | ${SITE_NAME}`
+  document.title = fullTitle
+
+  upsertMeta('meta[name="description"]', { name: 'description', content: description })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: path ? 'index, follow' : 'noindex, nofollow' })
+
+  if (path) {
+    setCanonical(`${SITE_URL}${path}`)
+  } else {
+    const canonical = document.head.querySelector('link[rel="canonical"]')
+    if (canonical) canonical.remove()
+  }
+
+  upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
+  upsertMeta('meta[property="og:title"]', { property: 'og:title', content: fullTitle })
+  upsertMeta('meta[property="og:description"]', { property: 'og:description', content: description })
+  if (path) upsertMeta('meta[property="og:url"]', { property: 'og:url', content: `${SITE_URL}${path}` })
+
+  removeMeta('meta[property="article:published_time"]')
+  removeMeta('meta[property="article:modified_time"]')
+  removeMeta('meta[property="article:author"]')
+  removeMeta('meta[property="article:section"]')
+
+  const jsonLd = document.getElementById('seo-json-ld')
+  if (jsonLd) jsonLd.remove()
+}
+
 // ─── Category page SEO ────────────────────────────────────────────────────────
 
 export const CATEGORY_INFO = {

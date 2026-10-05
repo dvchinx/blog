@@ -28,8 +28,11 @@ import {
   AUTHOR_URL,
   DEFAULT_OG_IMAGE,
   NOT_FOUND_TITLE,
-  NOT_FOUND_DESCRIPTION
+  NOT_FOUND_DESCRIPTION,
+  PRIVACY_TITLE,
+  PRIVACY_DESCRIPTION
 } from '../src/utils/seo.js'
+import { PRIVACY_SECTIONS, PRIVACY_UPDATED_AT } from '../src/utils/privacyPolicy.js'
 
 const e = React.createElement
 const repoRoot = process.cwd()
@@ -362,6 +365,61 @@ function buildNotFoundPage() {
   writePage('/404', html)
 }
 
+/**
+ * Newsletter pages are reached only through personal links (?token=...).
+ * They must exist as files so nginx answers 200 instead of 404, but they carry
+ * nothing worth indexing: React fills them in on load.
+ */
+function buildNewsletterPage(routePath, title, description) {
+  const seo = {
+    title: `${title} | ${SITE_NAME}`,
+    description,
+    image: DEFAULT_OG_IMAGE,
+    noindex: true
+  }
+
+  const body = `<div class="newsletter-page">
+    <h1>${escapeHtml(title)}</h1>
+    <p class="newsletter-text">Cargando…</p>
+  </div>`
+
+  const html = setRootContent(applyHead(template, seo), body)
+  writePage(routePath, html)
+}
+
+function buildPrivacyPage() {
+  const canonical = `${SITE_URL}/privacidad`
+  const seo = {
+    title: `${PRIVACY_TITLE} | ${SITE_NAME}`,
+    description: PRIVACY_DESCRIPTION,
+    canonical,
+    image: DEFAULT_OG_IMAGE,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: PRIVACY_TITLE,
+      description: PRIVACY_DESCRIPTION,
+      url: canonical,
+      inLanguage: 'es'
+    }
+  }
+
+  const sections = PRIVACY_SECTIONS.map((section) => `<section>
+      <h2>${escapeHtml(section.title)}</h2>
+      ${section.paragraphs.map((text) => `<p>${escapeHtml(text)}</p>`).join('\n      ')}
+    </section>`).join('\n    ')
+
+  const body = `<div class="newsletter-page privacy-page">
+    <a href="/" class="back-link">← Volver al blog</a>
+    <h1>Política de tratamiento de datos personales</h1>
+    <p class="privacy-updated">Última actualización: ${escapeHtml(PRIVACY_UPDATED_AT)}</p>
+    ${sections}
+  </div>`
+
+  const html = setRootContent(applyHead(template, seo), body)
+  writePage('/privacidad', html)
+}
+
 function buildPostPage(post) {
   const seoData = buildPostSeoData(post)
   const { metadata, content } = post
@@ -447,6 +505,9 @@ buildCategoryPage('tech')
 buildCategoryPage('coding')
 buildAuthorPage()
 buildNotFoundPage()
+buildPrivacyPage()
+buildNewsletterPage('/newsletter/confirmar', 'Confirmar suscripción', 'Confirma tu suscripción al resumen semanal del blog.')
+buildNewsletterPage('/newsletter/preferencias', 'Preferencias del newsletter', 'Cambia las categorías de tu suscripción o date de baja.')
 for (const post of posts) buildPostPage(post)
 
-console.log(`✅  prerendered ${posts.length} posts + home + 2 category pages + author page + 404`)
+console.log(`✅  prerendered ${posts.length} posts + home + 2 category pages + author page + privacy + 2 newsletter pages + 404`)

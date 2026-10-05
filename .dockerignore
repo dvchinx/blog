@@ -1,0 +1,6 @@
+node_modules
+dist
+.git
+.claude
+# El servicio de newsletter se construye en su propia imagen (newsletter/Dockerfile)
+newsletter

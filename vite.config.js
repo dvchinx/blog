@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    host: true
+    host: true,
+    proxy: {
+      // Servicio newsletter/ corriendo en local (cd newsletter && npm run dev)
+      '/api/newsletter': 'http://localhost:3002'
+    }
   },
   build: {
     outDir: 'dist',

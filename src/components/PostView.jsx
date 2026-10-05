@@ -8,6 +8,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { loadPost, loadPosts, getRelatedPosts } from '../utils/postsLoader'
 import { setPostSeo } from '../utils/seo'
 import { detectCodeLanguage } from '../utils/detectCodeLanguage'
+import NewsletterForm from './NewsletterForm'
 import '../styles/PostView.css'
 
 function PostView() {
@@ -170,6 +171,12 @@ function PostView() {
           {post.content}
         </ReactMarkdown>
       </div>
+
+      <NewsletterForm
+        key={post.metadata.path}
+        variant="post"
+        defaultCategories={[post.metadata.categoria === 'coding' ? 'coding' : 'tech']}
+      />
 
       {relatedPosts.length > 0 && (
         <section className="related-posts" aria-label="Articulos relacionados">

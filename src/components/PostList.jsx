@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom'
 import { loadPosts, searchPosts } from '../utils/postsLoader'
 import { setHomeSeo, setCategorySeo } from '../utils/seo'
+import NewsletterForm from './NewsletterForm'
 import '../styles/PostList.css'
 
 const CATEGORY_LABELS = {
@@ -362,6 +363,12 @@ function PostList() {
           )}
         </>
       )}
+
+      <NewsletterForm
+        key={selectedCategory}
+        variant="home"
+        defaultCategories={selectedCategory === 'all' ? ['tech', 'coding'] : [selectedCategory]}
+      />
     </div>
   )
 }

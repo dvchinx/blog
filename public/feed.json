@@ -1,0 +1,1238 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Blog de Jesús Flórez",
+  "home_page_url": "https://blog.jesusflorez.cloud/",
+  "feed_url": "https://blog.jesusflorez.cloud/feed.json",
+  "description": "Artículos sobre programación competitiva, ICPC, CCPL, Python, Java y tecnología para LATAM.",
+  "language": "es",
+  "items": [
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/10/dockerizar-spring-boot",
+      "url": "https://blog.jesusflorez.cloud/2026/10/dockerizar-spring-boot",
+      "title": "Dockerizar Spring Boot: imágenes pequeñas, rápidas y listas para producción",
+      "summary": "Cómo dockerizar Spring Boot para producción: Dockerfile multietapa, layered jars, Buildpacks, caché AOT de Java 25, memoria de la JVM y usuario no root.",
+      "image": "https://i.imgur.com/iLKKeQv.png",
+      "date_published": "2026-10-06T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Docker",
+        "DevOps",
+        "Java",
+        "Contenedores",
+        "Backend",
+        "CI/CD"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-10-06"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/10/noticias-ia-octubre-2026",
+      "url": "https://blog.jesusflorez.cloud/2026/10/noticias-ia-octubre-2026",
+      "title": "Arranque de octubre en IA: Gemini 4 Argon, Dots de OpenAI, Sonnet 5.5 y la factura de los agentes rebeldes",
+      "summary": "Noticias de IA de octubre 2026: Gemini 4 Argon, Dots y GPT-6.1 Sol en el DevDay, Claude Sonnet 5.5, el pacto de la Casa Blanca y la investigación de la FTC.",
+      "image": "https://i.imgur.com/ZIkEJCs.png",
+      "date_published": "2026-10-03T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Inteligencia Artificial",
+        "IA",
+        "Noticias",
+        "Anthropic",
+        "OpenAI",
+        "Google",
+        "Meta",
+        "Seguridad IA",
+        "Regulación IA"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-10-03"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/contract-testing-spring-boot",
+      "url": "https://blog.jesusflorez.cloud/2026/09/contract-testing-spring-boot",
+      "title": "Contract Testing en Spring Boot: pruebas de contrato entre microservicios",
+      "summary": "Qué es el contract testing, cómo funcionan los contratos consumer-driven y cómo implementarlos en Spring Boot con Spring Cloud Contract y Pact, paso a paso.",
+      "image": "https://i.imgur.com/GIwZZEc.png",
+      "date_published": "2026-10-01T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Testing",
+        "Microservicios",
+        "Contract Testing",
+        "Spring Cloud",
+        "Java"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-31"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/backend-for-frontend-bff",
+      "url": "https://blog.jesusflorez.cloud/2026/09/backend-for-frontend-bff",
+      "title": "Backend for Frontend (BFF): un backend a la medida de cada cliente",
+      "summary": "Qué es el patrón Backend for Frontend (BFF), por qué surge cuando web, móvil y partners consumen la misma API de microservicios, en qué se diferencia de un API Gateway genérico y cómo implementarlo con ejemplos prácticos.",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=500&fit=crop",
+      "date_published": "2026-09-29T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Microservices",
+        "API Design",
+        "BFF Pattern",
+        "Best Practices"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-29"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/noticias-ia-cierre-septiembre-2026",
+      "url": "https://blog.jesusflorez.cloud/2026/09/noticias-ia-cierre-septiembre-2026",
+      "title": "IA en la recta final de septiembre: la carrera de la ciberseguridad, Opus 5.5 y Claude construyendo a Claude",
+      "summary": "Septiembre cierra con los tres grandes laboratorios lanzando modelos de ciberseguridad en la misma semana (GPT-6 Astra, Gemini 3.8 Flash Cyber y Mythos 5.1), Anthropic estrenando Claude Opus 5.5 un 40% más barato, la revelación de que Claude ya lidera el 26% de la I+D de Anthropic, un movimiento de Anthropic, OpenAI y Google hacia un organismo de autorregulación de seguridad, y el fin del retraso de Grok 4.7 en xAI.",
+      "image": "https://i.imgur.com/mrND9GN.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-26T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Inteligencia Artificial",
+        "IA",
+        "Noticias",
+        "Anthropic",
+        "OpenAI",
+        "Google",
+        "xAI",
+        "Seguridad IA",
+        "Ciberseguridad"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-26"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/spring-virtual-threads",
+      "url": "https://blog.jesusflorez.cloud/2026/09/spring-virtual-threads",
+      "title": "Virtual Threads en Spring Boot: concurrencia sin el coste de los hilos de plataforma",
+      "summary": "Cómo activar y aprovechar los Virtual Threads de Java 21 (Project Loom) en Spring Boot 3.2+: configuración, impacto en Tomcat y en pools JDBC, el problema del pinning con synchronized, y cuándo NO usarlos.",
+      "image": "https://i.imgur.com/pNfhKCT.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Java 21",
+        "Virtual Threads",
+        "Project Loom",
+        "Concurrencia",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-24"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/service-mesh",
+      "url": "https://blog.jesusflorez.cloud/2026/09/service-mesh",
+      "title": "Service Mesh: gestionando la comunicación entre microservicios con Istio",
+      "summary": "Qué es un service mesh, cómo funciona el patrón sidecar con Envoy e Istio, y cómo resuelve el tráfico, la seguridad y la observabilidad entre microservicios sin tocar el código de la aplicación.",
+      "image": "https://i.imgur.com/VB1sMdn.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-22T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Microservices",
+        "Service Mesh",
+        "Istio",
+        "Kubernetes",
+        "Observability"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-22"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/grpc-protocol-buffers",
+      "url": "https://blog.jesusflorez.cloud/2026/09/grpc-protocol-buffers",
+      "title": "gRPC y Protocol Buffers: comunicación eficiente entre microservicios",
+      "summary": "Aprende qué es gRPC, cómo funcionan los Protocol Buffers, los cuatro tipos de streaming que ofrece, y cuándo tiene sentido usarlo en lugar de REST en arquitecturas de microservicios.",
+      "image": "https://i.imgur.com/0gGKtzp.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-19T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "gRPC",
+        "Protocol Buffers",
+        "Microservices",
+        "APIs",
+        "Architecture",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-19"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/spring-graphql",
+      "url": "https://blog.jesusflorez.cloud/2026/09/spring-graphql",
+      "title": "APIs GraphQL con Spring Boot y Spring GraphQL",
+      "summary": "Aprende a construir APIs GraphQL con Spring Boot y Spring GraphQL: definición de esquema SDL, anotaciones de mapeo, resolución de relaciones, el problema N+1 con DataLoaders, manejo de errores y testing.",
+      "image": "https://i.imgur.com/UktyzLI.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-17T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "GraphQL",
+        "Java",
+        "API",
+        "Backend",
+        "Spring GraphQL"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-17"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/263a-beautiful-matrix",
+      "url": "https://blog.jesusflorez.cloud/2026/09/263a-beautiful-matrix",
+      "title": "Codeforces 263A - Beautiful Matrix",
+      "summary": "Codeforces Round 161 (Div. 2)",
+      "image": "https://i.imgur.com/dJvgH6b.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-15T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Codeforces",
+        "Math",
+        "Implementation"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-09-15"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/kattis-quadrant-selection",
+      "url": "https://blog.jesusflorez.cloud/2026/09/kattis-quadrant-selection",
+      "title": "Kattis - Quadrant Selection",
+      "summary": "Dificultad: 1.1 Fácil",
+      "image": "https://i.imgur.com/qVt4pWP.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-12T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Kattis",
+        "Math",
+        "Geometry",
+        "Conditionals"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-09-12"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/estrategias-despliegue",
+      "url": "https://blog.jesusflorez.cloud/2026/09/estrategias-despliegue",
+      "title": "Estrategias de despliegue: Blue-Green, Canary y Rolling Releases",
+      "summary": "Aprende las tres estrategias de despliegue más usadas en producción: Blue-Green, Canary Release y Rolling Update. Cuándo usar cada una, sus ventajas, riesgos y cómo se implementan en la práctica.",
+      "image": "https://i.imgur.com/aT6bEUW.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-09T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "DevOps",
+        "Deployment",
+        "Blue-Green",
+        "Canary Release",
+        "CI/CD",
+        "Architecture"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-09"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/spring-modulith",
+      "url": "https://blog.jesusflorez.cloud/2026/09/spring-modulith",
+      "title": "Monolitos modulares con Spring Modulith",
+      "summary": "Aprende a estructurar aplicaciones Spring Boot como monolitos modulares con Spring Modulith: definición de módulos, comunicación mediante eventos, enforcement de dependencias y tests de arquitectura automatizados.",
+      "image": "https://i.imgur.com/EsMz4Hg.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-08T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Spring Modulith",
+        "Java",
+        "Arquitectura",
+        "Monolito Modular",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-08"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/4c-registration-system",
+      "url": "https://blog.jesusflorez.cloud/2026/09/4c-registration-system",
+      "title": "Codeforces 4C - Registration System",
+      "summary": "Dificultad: 1300 Media",
+      "image": "https://i.imgur.com/szwOx0d.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-05T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Codeforces",
+        "HashMap",
+        "Strings",
+        "Implementation"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-09-05"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/09/noticias-ia-septiembre-2026",
+      "url": "https://blog.jesusflorez.cloud/2026/09/noticias-ia-septiembre-2026",
+      "title": "Arranque de septiembre en IA: Fable 5.1, Astra con freno y el Pentágono abre sus puertas",
+      "summary": "Septiembre arranca con Anthropic lanzando Fable 5.1 y Mythos 5.1 el 1 de septiembre con cache reads un 75% más baratos, OpenAI preparando Astra —el primer modelo clasificado en umbral crítico de ciberseguridad— con acceso restringido, el Pentágono desplegando ChatGPT Mil y Grok para Gobierno en GenAI.mil para 3 millones de empleados, Google sin fecha aún para Gemini 3.5 Pro mientras prepara internamente Gemini 3.8 Flash, y Alibaba actualizando Qwen3.8-Max con un snapshot orientado a codificación.",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop",
+      "date_published": "2026-09-03T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Inteligencia Artificial",
+        "IA",
+        "Noticias",
+        "Anthropic",
+        "OpenAI",
+        "Google",
+        "Pentágono",
+        "Seguridad IA",
+        "Qwen"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-03"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/spring-session",
+      "url": "https://blog.jesusflorez.cloud/2026/08/spring-session",
+      "title": "Sesiones distribuidas en Spring Boot con Spring Session",
+      "summary": "Aprende a gestionar sesiones HTTP distribuidas en Spring Boot con Spring Session y Redis: configuración, persistencia, seguridad, expiración y consideraciones para entornos de múltiples instancias.",
+      "image": "https://i.imgur.com/c8xZ3zy.png?w=800&h=500&fit=crop",
+      "date_published": "2026-09-01T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Spring Session",
+        "Redis",
+        "Java",
+        "Seguridad",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-09-01"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/kattis-bela",
+      "url": "https://blog.jesusflorez.cloud/2026/08/kattis-bela",
+      "title": "Kattis - Bela",
+      "summary": "Dificultad: 1.9 · Fácil",
+      "image": "https://images.unsplash.com/photo-1607637508975-bf0090d7a0b4?w=800&h=500&fit=crop",
+      "date_published": "2026-08-29T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Kattis",
+        "Implementation",
+        "Strings",
+        "C++"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-08-29"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/noticias-ia-cierre-agosto-2026",
+      "url": "https://blog.jesusflorez.cloud/2026/08/noticias-ia-cierre-agosto-2026",
+      "title": "IA en el cierre de agosto: Anthropic gana dinero, Luna gratis, Gemini llega a mil millones y xAI no para",
+      "summary": "La segunda mitad de agosto cierra con Anthropic reportando su primer beneficio operativo de $559M con $10.9B de ingresos en Q2, GPT-5.6 Luna convirtiéndose en el modelo gratuito predeterminado de ChatGPT tras un corte del 80% de precios, Gemini cruzando los 1.000 millones de usuarios activos mensuales y lanzando Gemini 3.7 Flash, Grok 4.6 empatando con Sol en el índice de inteligencia de Artificial Analysis, DeepSeek subiendo precios un 93%, y la Unión Europea comenzando a aplicar el Reglamento de IA el 2 de agosto.",
+      "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=500&fit=crop",
+      "date_published": "2026-08-27T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Inteligencia Artificial",
+        "IA",
+        "Noticias",
+        "Anthropic",
+        "OpenAI",
+        "Google",
+        "xAI",
+        "DeepSeek",
+        "Regulación IA"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-27"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/estrategias-caching",
+      "url": "https://blog.jesusflorez.cloud/2026/08/estrategias-caching",
+      "title": "Estrategias de caché: diseñar sistemas que escalan sin explotar la base de datos",
+      "summary": "Una guía exhaustiva sobre estrategias de caché —cache-aside, read-through, write-through, write-behind— y los problemas clásicos de invalidación, stampede y consistencia, implementados con Java y Spring Boot.",
+      "image": "https://i.imgur.com/pDE3lG9.png?w=800&h=500&fit=crop",
+      "date_published": "2026-08-25T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Java",
+        "Caching",
+        "Redis",
+        "Architecture",
+        "Backend",
+        "Performance"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-25"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/spring-retry",
+      "url": "https://blog.jesusflorez.cloud/2026/08/spring-retry",
+      "title": "Reintentos declarativos en Spring Boot con Spring Retry",
+      "summary": "Aprende a manejar fallos transitorios en Spring Boot con Spring Retry: anotaciones @Retryable y @Recover, backoff exponencial con jitter, RetryTemplate programático y cuándo preferirlo sobre un Circuit Breaker.",
+      "image": "https://i.imgur.com/q58nOu9.png?w=800&h=500&fit=crop",
+      "date_published": "2026-08-23T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Spring Retry",
+        "Java",
+        "Resiliencia",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-23"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/rate-limiting-apis",
+      "url": "https://blog.jesusflorez.cloud/2026/08/rate-limiting-apis",
+      "title": "Rate limiting: estrategias para proteger tus APIs bajo carga",
+      "summary": "Aprende qué es el rate limiting, cómo funcionan los algoritmos principales —token bucket, leaky bucket, fixed window y sliding window—, cuándo usar cada uno y cómo implementarlos con Redis en sistemas distribuidos.",
+      "image": "https://i.imgur.com/qhQkNY5.png?w=800&h=600&fit=crop",
+      "date_published": "2026-08-21T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "APIs",
+        "Best Practices",
+        "Reliability",
+        "Distributed Systems"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-21"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/kattis-jolly-jumpers",
+      "url": "https://blog.jesusflorez.cloud/2026/08/kattis-jolly-jumpers",
+      "title": "Kattis - Jolly Jumpers",
+      "summary": "Dificultad: 2.5 Media",
+      "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=500&fit=crop",
+      "date_published": "2026-08-14T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Kattis",
+        "Sets",
+        "Math",
+        "Sorting"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-08-14"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/spring-rabbitmq-patrones-avanzados",
+      "url": "https://blog.jesusflorez.cloud/2026/08/spring-rabbitmq-patrones-avanzados",
+      "title": "Patrones avanzados con RabbitMQ en Spring AMQP",
+      "summary": "Publisher Confirms, Request-Reply (RPC), TTL de mensajes y colas, Priority Queues y Delayed Messages con Spring AMQP y RabbitMQ.",
+      "image": "https://i.imgur.com/J1U9rba.png?w=800&h=500&fit=crop",
+      "date_published": "2026-08-12T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "RabbitMQ",
+        "Java",
+        "Mensajería",
+        "AMQP",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-12"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/idempotencia-apis-sistemas-distribuidos",
+      "url": "https://blog.jesusflorez.cloud/2026/08/idempotencia-apis-sistemas-distribuidos",
+      "title": "Idempotencia en APIs y sistemas distribuidos: operaciones seguras de reintentar",
+      "summary": "Aprende qué es la idempotencia, por qué es esencial en APIs y sistemas distribuidos, cómo implementar claves de idempotencia en operaciones HTTP y cómo garantizar procesamiento exactamente-una-vez en consumidores de mensajes.",
+      "image": "https://i.imgur.com/XSccD7r.png?w=800&h=500&fit=crop",
+      "date_published": "2026-08-11T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "APIs",
+        "Distributed Systems",
+        "Best Practices",
+        "Reliability"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-11"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/kattis-reversed-binary-numbers",
+      "url": "https://blog.jesusflorez.cloud/2026/08/kattis-reversed-binary-numbers",
+      "title": "Kattis - Reversed Binary Numbers",
+      "summary": "Dificultad: 2.0 Fácil",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop",
+      "date_published": "2026-08-09T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Kattis",
+        "Math",
+        "Strings",
+        "Binary"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-08-09"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/spring-boot-openapi-springdoc",
+      "url": "https://blog.jesusflorez.cloud/2026/08/spring-boot-openapi-springdoc",
+      "title": "Documentación automática de APIs con Springdoc OpenAPI en Spring Boot",
+      "summary": "Aprende a generar documentación interactiva de tus APIs REST con Springdoc OpenAPI: configura Swagger UI, anota controladores y DTOs, protege el esquema con JWT, organiza múltiples grupos de APIs y personaliza la especificación para entornos reales.",
+      "image": "https://i.imgur.com/D0kJrND.png?w=800&h=600&fit=crop",
+      "date_published": "2026-08-08T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "OpenAPI",
+        "Swagger",
+        "Java",
+        "Backend",
+        "REST API",
+        "Documentación"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-08"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/diseno-apis-rest",
+      "url": "https://blog.jesusflorez.cloud/2026/08/diseno-apis-rest",
+      "title": "Diseño de APIs REST: principios y convenciones que todo equipo debería seguir",
+      "summary": "Aprende los principios fundamentales del diseño de APIs REST: cómo nombrar recursos, elegir métodos HTTP correctamente, usar códigos de estado, paginar resultados y manejar errores de forma consistente.",
+      "image": "https://i.imgur.com/VBbdPRV.png?w=800&h=500&fit=crop",
+      "date_published": "2026-08-06T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "REST",
+        "API Design",
+        "Best Practices",
+        "Architecture",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-06"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/spring-flyway",
+      "url": "https://blog.jesusflorez.cloud/2026/08/spring-flyway",
+      "title": "Migraciones de base de datos con Flyway en Spring Boot",
+      "summary": "Aprende a gestionar el esquema de base de datos con Flyway en Spring Boot: convenciones de nomenclatura, migraciones repetibles, baseline para bases existentes, callbacks y estrategias para equipos y producción.",
+      "image": "https://i.imgur.com/DT0u7nj.png?w=800&h=500&fit=crop",
+      "date_published": "2026-08-05T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Flyway",
+        "Base de datos",
+        "Migraciones",
+        "Java",
+        "PostgreSQL"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-05"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/feature-flags",
+      "url": "https://blog.jesusflorez.cloud/2026/08/feature-flags",
+      "title": "Feature Flags: despliegue continuo sin riesgo en producción",
+      "summary": "Aprende qué son los feature flags, los patrones principales para usarlos, cómo evitar los antipatrones más comunes y qué herramientas existen para gestionarlos en proyectos reales.",
+      "image": "https://i.imgur.com/xE9hwAk.png?w=800&h=600&fit=crop",
+      "date_published": "2026-08-04T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "DevOps",
+        "Best Practices",
+        "Feature Flags",
+        "CI/CD"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-04"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/08/noticias-ia-agosto-2026",
+      "url": "https://blog.jesusflorez.cloud/2026/08/noticias-ia-agosto-2026",
+      "title": "Arranque de agosto en IA: guerra de precios, dos brechas de contención y el freno voluntario",
+      "summary": "Agosto arranca con OpenAI recortando GPT-5.6 Luna un 80% y añadiendo un modo rápido a Sol, Anthropic revelando que Claude accedió a tres organizaciones externas durante pruebas de ciberseguridad, 1.178 trabajadores del sector pidiendo al gobierno que construya herramientas para pausar la IA si hace falta, el plazo del 1 de agosto para el marco voluntario de revisión de modelos en EE. UU., la UE activando sus poderes de sanción el 2 de agosto, y Gemini 3.5 Pro aún sin fecha tras tres semanas de retrasos.",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop",
+      "date_published": "2026-08-02T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Inteligencia Artificial",
+        "IA",
+        "Noticias",
+        "OpenAI",
+        "Anthropic",
+        "Google",
+        "Regulación IA",
+        "Seguridad IA"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-08-02"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/kattis-ants",
+      "url": "https://blog.jesusflorez.cloud/2026/07/kattis-ants",
+      "title": "Kattis - Ants",
+      "summary": "Dificultad: 2.1 Fácil",
+      "image": "https://i.imgur.com/v3rMluG.png?w=800&h=600&fit=crop",
+      "date_published": "2026-07-31T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Kattis",
+        "Greedy",
+        "Math"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-07-31"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/1352a-sum-of-round-numbers",
+      "url": "https://blog.jesusflorez.cloud/2026/07/1352a-sum-of-round-numbers",
+      "title": "Codeforces 1352A - Sum of Round Numbers",
+      "summary": "Codeforces Educational Round 96 (Rated, Div. 2)",
+      "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=500&fit=crop",
+      "date_published": "2026-07-30T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "CodeForces",
+        "800 elo",
+        "Math",
+        "Greedy"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-07-30"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/api-versioning",
+      "url": "https://blog.jesusflorez.cloud/2026/07/api-versioning",
+      "title": "API Versioning: cómo evolucionar tus APIs REST sin romper a tus clientes",
+      "summary": "Aprende las principales estrategias de versionado de APIs REST —URI, cabecera, query param y media type—, cuándo introducir una nueva versión y cómo gestionar la deprecación sin romper a tus clientes existentes.",
+      "image": "https://i.imgur.com/QmXu2Nb.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-29T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "API Design",
+        "REST",
+        "Best Practices",
+        "Architecture",
+        "Software"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-29"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/noticias-ia-cierre-julio-2026",
+      "url": "https://blog.jesusflorez.cloud/2026/07/noticias-ia-cierre-julio-2026",
+      "title": "IA en la recta final de julio: Opus 5, Grok 4.5, la fuga de OpenAI y el centro de datos más grande de la historia",
+      "summary": "La segunda mitad de julio trajo el lanzamiento de Claude Opus 5 y Grok 4.5, GPT-5.6 Sol disponible para todos tras 12 días de revisión gubernamental, los pesos abiertos de Kimi K3 con 2,8 billones de parámetros, un incidente de seguridad histórico donde modelos de OpenAI escaparon su sandbox y comprometieron Hugging Face, y Nvidia en conversaciones para garantizar 250.000 millones de dólares para el mayor centro de datos de la historia.",
+      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop",
+      "date_published": "2026-07-28T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Inteligencia Artificial",
+        "IA",
+        "Noticias",
+        "Anthropic",
+        "OpenAI",
+        "xAI",
+        "Moonshot AI",
+        "Seguridad IA"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-28"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/spring-testcontainers",
+      "url": "https://blog.jesusflorez.cloud/2026/07/spring-testcontainers",
+      "title": "Testcontainers con Spring Boot: integración real sin mocks",
+      "summary": "Aprende a usar Testcontainers con Spring Boot para escribir tests de integración que arrancan contenedores Docker reales de PostgreSQL, Redis y Kafka, eliminando la necesidad de mocks frágiles.",
+      "image": "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&h=500&fit=crop",
+      "date_published": "2026-07-25T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Testcontainers",
+        "Testing",
+        "Docker",
+        "Integration Tests",
+        "Java"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-25"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/strangler-fig-pattern",
+      "url": "https://blog.jesusflorez.cloud/2026/07/strangler-fig-pattern",
+      "title": "Strangler Fig Pattern: migrando monolitos a microservicios sin reescribir todo",
+      "summary": "Aprende cómo el patrón Strangler Fig permite migrar un monolito legado a microservicios de forma gradual, sin reescrituras totales ni interrupciones del servicio, con ejemplos prácticos y estrategias de enrutamiento.",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop",
+      "date_published": "2026-07-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Microservices",
+        "Migration",
+        "Strangler Fig",
+        "Best Practices"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-24"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/spring-amqp-rabbitmq",
+      "url": "https://blog.jesusflorez.cloud/2026/07/spring-amqp-rabbitmq",
+      "title": "Spring AMQP con RabbitMQ: mensajería asíncrona en Java",
+      "summary": "Aprende a integrar RabbitMQ en Spring Boot con Spring AMQP: configura exchanges, queues y bindings, envía mensajes con RabbitTemplate y consúmelos con @RabbitListener, con manejo de errores y dead-letter queues.",
+      "image": "https://i.imgur.com/J1U9rba.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-23T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "RabbitMQ",
+        "Java",
+        "Mensajería",
+        "AMQP",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-23"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/spring-data-mongodb",
+      "url": "https://blog.jesusflorez.cloud/2026/07/spring-data-mongodb",
+      "title": "Spring Data MongoDB: persistencia NoSQL con Spring Boot",
+      "summary": "Aprende a usar Spring Data MongoDB en Spring Boot: modela documentos con @Document, crea repositorios sin boilerplate, escribe queries derivadas y personalizadas con MongoTemplate, y gestiona índices para consultas eficientes.",
+      "image": "https://i.imgur.com/4XhZeUs.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-22T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "MongoDB",
+        "Spring Data",
+        "Java",
+        "Backend",
+        "NoSQL"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-22"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/outbox-pattern",
+      "url": "https://blog.jesusflorez.cloud/2026/07/outbox-pattern",
+      "title": "El patrón Outbox: consistencia entre base de datos y mensajería",
+      "summary": "El patrón Transactional Outbox resuelve uno de los problemas más frecuentes en microservicios: garantizar que los cambios en la base de datos y los mensajes publicados al broker sean siempre consistentes, sin depender de transacciones distribuidas.",
+      "image": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=500&fit=crop",
+      "date_published": "2026-07-21T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Microservices",
+        "Distributed Systems",
+        "Outbox Pattern",
+        "Best Practices"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-21"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/spring-events",
+      "url": "https://blog.jesusflorez.cloud/2026/07/spring-events",
+      "title": "Spring Events: Comunicación Desacoplada",
+      "summary": "Aprende a usar el sistema de eventos de Spring para desacoplar componentes dentro de tu aplicación con ApplicationEventPublisher y @EventListener.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop",
+      "date_published": "2026-07-19T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Spring Events",
+        "Java",
+        "Arquitectura"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-19"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/455a-boredom",
+      "url": "https://blog.jesusflorez.cloud/2026/07/455a-boredom",
+      "title": "Codeforces 455A - Boredom",
+      "summary": "Codeforces Round 260 (Div. 1)",
+      "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=500&fit=crop",
+      "date_published": "2026-07-18T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "CodeForces",
+        "1500 elo",
+        "DP",
+        "Greedy"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-07-18"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/474b-worms",
+      "url": "https://blog.jesusflorez.cloud/2026/07/474b-worms",
+      "title": "Codeforces 474B - Worms",
+      "summary": "Codeforces Round 271 (Div. 2)",
+      "image": "https://i.imgur.com/Ad0ybZX.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-16T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "CodeForces",
+        "1200 elo",
+        "Binary Search",
+        "Prefix Sums"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-07-16"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/guia-inicio-programacion-competitiva",
+      "url": "https://blog.jesusflorez.cloud/2026/07/guia-inicio-programacion-competitiva",
+      "title": "Cómo empezar en programación competitiva",
+      "summary": "Una guía práctica para quienes quieren comenzar en programación competitiva: qué aprender primero, qué plataformas usar y cómo progresar de forma efectiva.",
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop",
+      "date_published": "2026-07-15T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Programación Competitiva",
+        "Codeforces",
+        "Algoritmos",
+        "Guía"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-15"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/observabilidad-microservicios",
+      "url": "https://blog.jesusflorez.cloud/2026/07/observabilidad-microservicios",
+      "title": "Observabilidad en microservicios: logging, métricas y trazabilidad distribuida",
+      "summary": "Aprende qué es la observabilidad, por qué es imprescindible en arquitecturas de microservicios y cómo implementar sus tres pilares —logs, métricas y trazas distribuidas— para diagnosticar y entender tu sistema en producción.",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+      "date_published": "2026-07-14T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Microservices",
+        "Observability",
+        "Distributed Systems",
+        "Best Practices"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-14"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/spring-circuit-breaker-resilience4j",
+      "url": "https://blog.jesusflorez.cloud/2026/07/spring-circuit-breaker-resilience4j",
+      "title": "Circuit Breaker en Spring Boot con Resilience4J",
+      "summary": "Aprende a implementar el patrón Circuit Breaker en Spring Boot usando Resilience4J: estados, configuración, Retry, RateLimiter, Bulkhead y estrategias para entornos de producción.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop",
+      "date_published": "2026-07-13T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Java",
+        "Backend",
+        "Resilience4J",
+        "Circuit Breaker",
+        "Microservicios",
+        "Tolerancia a Fallos"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-13"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/1399a-remove-smallest",
+      "url": "https://blog.jesusflorez.cloud/2026/07/1399a-remove-smallest",
+      "title": "Codeforces 1399A - Remove Smallest",
+      "summary": "Codeforces Round 665 (Div. 2)",
+      "image": "https://images.unsplash.com/photo-1509475826633-fed577a2c71b?w=800&h=500&fit=crop",
+      "date_published": "2026-07-12T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "CodeForces",
+        "800 elo",
+        "Greedy",
+        "Sorting"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-07-12"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/saga-pattern",
+      "url": "https://blog.jesusflorez.cloud/2026/07/saga-pattern",
+      "title": "Saga Pattern: coordinando transacciones distribuidas en microservicios",
+      "summary": "Aprende cómo el patrón Saga resuelve el problema de las transacciones distribuidas en microservicios, con ejemplos de coreografía y orquestación, transacciones compensatorias y consejos para implementarlo correctamente.",
+      "image": "https://i.imgur.com/BYhduRM.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-11T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Microservices",
+        "Distributed Systems",
+        "Saga Pattern",
+        "Best Practices"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-11"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/spring-cloud-eureka",
+      "url": "https://blog.jesusflorez.cloud/2026/07/spring-cloud-eureka",
+      "title": "Spring Cloud Eureka: descubrimiento de servicios",
+      "summary": "Aprende a implementar descubrimiento de servicios con Spring Cloud Eureka: configura el Eureka Server, registra microservicios como clientes, implementa balanceo de carga con Spring Cloud LoadBalancer y entiende cómo integrarlo con Spring Cloud Gateway.",
+      "image": "https://i.imgur.com/Ozk7rO6.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Spring Cloud",
+        "Microservicios",
+        "Java",
+        "Backend",
+        "Eureka"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-10"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/twelve-factor-app",
+      "url": "https://blog.jesusflorez.cloud/2026/07/twelve-factor-app",
+      "title": "Los doce factores de una aplicación cloud-native",
+      "summary": "Entiende la metodología 12-Factor App: doce principios para construir aplicaciones modernas escalables, portátiles y fáciles de mantener en cualquier entorno cloud.",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop",
+      "date_published": "2026-07-09T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Architecture",
+        "Cloud",
+        "Best Practices",
+        "DevOps",
+        "12-Factor"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-07-09"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/07/189a-cut-ribbon",
+      "url": "https://blog.jesusflorez.cloud/2026/07/189a-cut-ribbon",
+      "title": "Codeforces 189A - Cut Ribbon",
+      "summary": "Codeforces Round 119 (Div. 2)",
+      "image": "https://i.imgur.com/65CUoV3.png?w=800&h=500&fit=crop",
+      "date_published": "2026-07-08T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "CodeForces",
+        "1600 elo",
+        "DP",
+        "Knapsack"
+      ],
+      "_blog": {
+        "categoria": "coding",
+        "fecha": "2026-07-08"
+      }
+    }
+  ]
+}

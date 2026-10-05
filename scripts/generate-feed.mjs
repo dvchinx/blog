@@ -8,6 +8,7 @@ const siteDescription = 'Artículos sobre programación competitiva, ICPC, CCPL,
 const repoRoot = process.cwd()
 const postsRoot = path.join(repoRoot, 'src', 'posts')
 const outputPath = path.join(repoRoot, 'public', 'feed.xml')
+const jsonOutputPath = path.join(repoRoot, 'public', 'feed.json')
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -45,6 +46,12 @@ function escapeXml(value) {
     .replace(/'/g, '&apos;')
 }
 
+function absoluteUrl(src) {
+  if (!src) return ''
+  if (/^https?:\/\//.test(src)) return src
+  return `${siteUrl}${src.startsWith('/') ? '' : '/'}${src}`
+}
+
 function toRfc822(dateStr) {
   const date = dateStr ? new Date(dateStr) : new Date()
   return (Number.isNaN(date.getTime()) ? new Date() : date).toUTCString()
@@ -68,7 +75,11 @@ const items = markdownFiles
       pubDate: toRfc822(data.fecha),
       sortDate: data.fecha ? new Date(data.fecha) : new Date(0),
       author: data.nombreAutor || 'Jesús Flórez',
-      category: section
+      category: section,
+      categoria: data.categoria === 'coding' ? 'coding' : 'tech',
+      fecha: data.fecha ? String(data.fecha).slice(0, 10) : '',
+      image: absoluteUrl(data.imagenPortada),
+      tags: Array.isArray(data.etiquetas) ? data.etiquetas : []
     }
   })
   .sort((a, b) => b.sortDate - a.sortDate)
@@ -106,3 +117,30 @@ ${itemsXml}
 
 fs.writeFileSync(outputPath, xml, 'utf8')
 console.log(`✅  feed.xml generated — ${items.length} items`)
+
+// ─── JSON Feed 1.1 ────────────────────────────────────────────────────────────
+// Lo consume el servicio de newsletter (newsletter/src/feed.js) para armar el
+// resumen semanal: trae la portada y el código de categoría que el RSS no tiene.
+
+const jsonFeed = {
+  version: 'https://jsonfeed.org/version/1.1',
+  title: siteName,
+  home_page_url: `${siteUrl}/`,
+  feed_url: `${siteUrl}/feed.json`,
+  description: siteDescription,
+  language: 'es',
+  items: items.map((item) => ({
+    id: item.link,
+    url: item.link,
+    title: item.title,
+    summary: item.description,
+    ...(item.image ? { image: item.image } : {}),
+    date_published: item.sortDate.toISOString(),
+    authors: [{ name: item.author }],
+    tags: item.tags,
+    _blog: { categoria: item.categoria, fecha: item.fecha }
+  }))
+}
+
+fs.writeFileSync(jsonOutputPath, `${JSON.stringify(jsonFeed, null, 2)}\n`, 'utf8')
+console.log(`✅  feed.json generated — ${items.length} items`)

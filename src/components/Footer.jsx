@@ -10,6 +10,7 @@ function Footer() {
         <p>&copy; {currentYear} Jesús Flórez. Todos los derechos reservados.</p>
         <div className="footer-links">
           <Link to="/autor/jesus-florez"><b>Autor</b></Link>
+          <Link to="/privacidad"><b>Privacidad</b></Link>
           <a href="https://github.com/dvchinx/blog" target="_blank" rel="noopener noreferrer"><b>Contribuir</b></a>
           <a href="https://jesusflorez.cloud" target="_blank" rel="noopener noreferrer"><b>Suite</b></a>
         </div>

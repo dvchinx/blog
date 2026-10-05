@@ -1,0 +1,22 @@
+{
+  "name": "blog-newsletter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --env-file-if-exists=.env --watch src/index.js",
+    "cli": "node --env-file-if-exists=.env src/cli.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "node-cron": "^4.6.0"
+  }
+}

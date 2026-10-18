@@ -11,13 +11,12 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="color-scheme" content="light" />
 
-    <!-- Canonical & hreflang -->
+    <!-- Canonical (el prerender la reescribe en cada página) -->
     <link rel="canonical" href="https://blog.jesusflorez.cloud/" />
-    <link rel="alternate" hreflang="es" href="https://blog.jesusflorez.cloud/" />
-    <link rel="alternate" hreflang="x-default" href="https://blog.jesusflorez.cloud/" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/src/resources/icon.png" type="image/png" />
+    <!-- Favicon: URL estable (sin hash) para que Google no tenga que redescubrirlo en cada despliegue -->
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="Blog de Jesús Flórez" href="https://blog.jesusflorez.cloud/feed.xml" />
@@ -25,7 +24,9 @@
     <!-- Preconnect para performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.imgur.com" />
     <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -59,11 +60,6 @@
         "description": "Artículos sobre programación competitiva, ICPC, CCPL, Python, Java y tecnología para LATAM.",
         "url": "https://blog.jesusflorez.cloud/",
         "inLanguage": "es",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://blog.jesusflorez.cloud/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        },
         "publisher": {
           "@type": "Person",
           "name": "Jesús Flórez",

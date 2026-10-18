@@ -10,16 +10,15 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import matter from 'gray-matter'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism.js'
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism/index.js'
-import { detectCodeLanguage } from '../src/utils/detectCodeLanguage.js'
-import { getRelatedPosts } from '../src/utils/postsLoader.js'
+import { SyntaxHighlighter, vscDarkPlus, resolveCodeLanguage } from '../src/utils/codeHighlighter.js'
+import { getRelatedPosts } from '../src/utils/postQueries.js'
+import { optimizeImage } from '../src/utils/images.js'
+import { loadAllPosts } from './lib/posts.mjs'
 import {
   buildPostSeoData,
   CATEGORY_INFO,
@@ -37,33 +36,40 @@ import { PRIVACY_SECTIONS, PRIVACY_UPDATED_AT } from '../src/utils/privacyPolicy
 const e = React.createElement
 const repoRoot = process.cwd()
 const distDir = path.join(repoRoot, 'dist')
-const postsRoot = path.join(repoRoot, 'src', 'posts')
 const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8')
+const manifestDir = path.join(distDir, '.vite')
+const manifest = JSON.parse(fs.readFileSync(path.join(manifestDir, 'manifest.json'), 'utf8'))
 
-// ─── Load all posts (plain fs, no import.meta.glob — that's Vite-only) ───────
+// ─── Load all posts (same parser as the Vite plugin) ─────────────────────────
 
-function collectMarkdownFiles(dirPath, acc = []) {
-  for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
-    const fullPath = path.join(dirPath, entry.name)
-    if (entry.isDirectory()) collectMarkdownFiles(fullPath, acc)
-    else if (entry.name.endsWith('.md')) acc.push(fullPath)
-  }
-  return acc
+const posts = loadAllPosts()
+
+// ─── Chunk preloading ────────────────────────────────────────────────────────
+
+function chunkFiles(key, seen = new Set()) {
+  const chunk = manifest[key]
+  if (!chunk || seen.has(key)) return []
+  seen.add(key)
+  return [chunk.file, ...(chunk.imports || []).flatMap((importKey) => chunkFiles(importKey, seen))]
 }
 
-const posts = collectMarkdownFiles(postsRoot)
-  .map((filePath) => {
-    const raw = fs.readFileSync(filePath, 'utf8')
-    const { data, content } = matter(raw)
-    const rel = path.relative(postsRoot, filePath).split(path.sep)
-    const [year, month, file] = rel
-    const slug = file.replace(/\.md$/i, '')
-    return {
-      metadata: { ...data, year, month, slug, path: `/${year}/${month}/${slug}` },
-      content
-    }
-  })
-  .sort((a, b) => new Date(b.metadata.fecha) - new Date(a.metadata.fecha))
+const initialChunks = new Set(chunkFiles('index.html'))
+
+/**
+ * An article needs the lazy PostView chunk and its own markdown chunk before
+ * React can mount. Without these hints the browser only discovers them after
+ * running the main bundle — one extra round trip on every landing from Google.
+ */
+function articlePreloads(post) {
+  const files = [
+    ...chunkFiles('src/components/PostView.jsx'),
+    ...chunkFiles(`src/posts${post.metadata.path}.md`)
+  ]
+  return [...new Set(files)]
+    .filter((file) => !initialChunks.has(file))
+    .map((file) => `    <link rel="modulepreload" crossorigin href="/${file}">`)
+    .join('\n')
+}
 
 // ─── HTML string helpers ──────────────────────────────────────────────────────
 
@@ -158,8 +164,7 @@ function renderArticleHtml(markdown) {
       if (inline || !hasLineBreaks) {
         return e('code', { className: 'inline-code' }, code)
       }
-      const match = /language-(\w+)/.exec(className || '')
-      const language = match?.[1] || detectCodeLanguage(code)
+      const language = resolveCodeLanguage(className, code)
       return e(
         SyntaxHighlighter,
         { language, style: vscDarkPlus, PreTag: 'div' },
@@ -183,11 +188,15 @@ function formatDate(dateStr) {
 
 // ─── Post cards (reused for home / category listings) ────────────────────────
 
-function renderPostCard(post) {
+// The first row is above the fold: loading it lazily would delay the LCP.
+// Mirrors the `loading`/`fetchPriority` logic in PostList.jsx.
+function renderPostCard(post, index) {
   const { metadata } = post
   const categoria = metadata.categoria || 'tech'
+  const loading = index < 3 ? 'eager' : 'lazy'
+  const priority = index === 0 ? ' fetchpriority="high"' : ''
   const image = metadata.imagenPortada
-    ? `<div class="post-card-image"><img src="${escapeAttr(metadata.imagenPortada)}" alt="${escapeAttr(metadata.titulo)}" loading="lazy" width="400" height="200" /></div>`
+    ? `<div class="post-card-image"><img src="${escapeAttr(optimizeImage(metadata.imagenPortada))}" alt="${escapeAttr(metadata.titulo)}" loading="${loading}"${priority} width="400" height="200" /></div>`
     : ''
   const tags = Array.isArray(metadata.etiquetas) && metadata.etiquetas.length
     ? `<div class="post-tags">${metadata.etiquetas.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`
@@ -234,11 +243,6 @@ function buildHomePage() {
       description,
       url: canonical,
       inLanguage: 'es',
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: `${SITE_URL}/?q={search_term_string}`,
-        'query-input': 'required name=search_term_string'
-      },
       publisher: { '@type': 'Person', name: 'Jesús Flórez', url: AUTHOR_URL }
     }
   }
@@ -443,7 +447,7 @@ function buildPostPage(post) {
   }
 
   const cover = metadata.imagenPortada
-    ? `<div class="post-cover-image"><img src="${escapeAttr(metadata.imagenPortada)}" alt="${escapeAttr(metadata.titulo)}" width="1200" height="360" /></div>`
+    ? `<div class="post-cover-image"><img src="${escapeAttr(optimizeImage(metadata.imagenPortada))}" alt="${escapeAttr(metadata.titulo)}" width="1200" height="360" fetchpriority="high" /></div>`
     : ''
 
   const tags = Array.isArray(metadata.etiquetas) && metadata.etiquetas.length
@@ -460,6 +464,7 @@ function buildPostPage(post) {
         <h2 class="related-posts-title">Articulos relacionados</h2>
         <div class="related-posts-grid">
           ${related.map((r) => `<a href="${r.metadata.path}" class="related-post-card">
+            ${r.metadata.imagenPortada ? `<img src="${escapeAttr(optimizeImage(r.metadata.imagenPortada))}" alt="${escapeAttr(r.metadata.titulo)}" class="related-post-image" loading="lazy" width="300" height="120" />` : ''}
             <div class="related-post-body">
               <h3>${escapeHtml(r.metadata.titulo)}</h3>
               ${r.metadata.descripcion ? `<p>${escapeHtml(r.metadata.descripcion)}</p>` : ''}
@@ -494,7 +499,8 @@ function buildPostPage(post) {
     ${relatedHtml}
   </article>`
 
-  const html = setRootContent(applyHead(template, seo), body)
+  const head = applyHead(template, seo).replace('</head>', `${articlePreloads(post)}\n  </head>`)
+  const html = setRootContent(head, body)
   writePage(metadata.path, html)
 }
 
@@ -509,5 +515,7 @@ buildPrivacyPage()
 buildNewsletterPage('/newsletter/confirmar', 'Confirmar suscripción', 'Confirma tu suscripción al resumen semanal del blog.')
 buildNewsletterPage('/newsletter/preferencias', 'Preferencias del newsletter', 'Cambia las categorías de tu suscripción o date de baja.')
 for (const post of posts) buildPostPage(post)
+
+fs.rmSync(manifestDir, { recursive: true, force: true })
 
 console.log(`✅  prerendered ${posts.length} posts + home + 2 category pages + author page + privacy + 2 newsletter pages + 404`)

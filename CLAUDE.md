@@ -9,8 +9,8 @@ A static blog platform built with React + Vite that serves Markdown-based posts 
 ## Tech Stack
 
 - **Frontend**: React 19, Vite 7.2, React Router 7.12
-- **Content Processing**: gray-matter (frontmatter parsing), react-markdown, remark-gfm, rehype-raw
-- **Code Highlighting**: react-syntax-highlighter (auto-detects: JavaScript, Python, Java, C++, YAML, Bash)
+- **Content Processing**: gray-matter (frontmatter parsing, build time only), react-markdown, remark-gfm, rehype-raw
+- **Code Highlighting**: react-syntax-highlighter PrismLight with only the languages posts use (`src/utils/codeHighlighter.js`)
 - **Deployment**: Docker multistage build (Node 20 → Nginx Alpine), containerized with gzip compression and security headers
 - **Linting**: ESLint 9.39 with React hooks and refresh rules
 
@@ -46,11 +46,15 @@ keywords: "..."  # optional (used in metadata, not displayed)
 ---
 ```
 
+**Build-time parsing**: the `blog-posts` plugin in `vite.config.js` turns each `.md` into JS using `scripts/lib/posts.mjs` (also used by the prerender). `slug.md?meta` exports only the frontmatter (+ year/month/slug/path); plain `slug.md` exports only the markdown body as its own lazy chunk. The browser never ships gray-matter or a Buffer polyfill.
+
 **Load mechanism** (`src/utils/postsLoader.js`):
-- `loadPosts()` – loads all posts via Vite's `import.meta.glob()`, parses frontmatter, extracts year/month/slug from file path, sorts by date (newest first)
-- `loadPost(year, month, slug)` – loads single post by URL params
-- `searchPosts(posts, searchTerm)` – filters by title, description, or content (case-insensitive substring match)
-- `getRelatedPosts(posts, currentPost, limit)` – ranks by category match (+3), shared tags (+2), author match (+1), then by date
+- `getAllPosts()` – synchronous metadata catalog (eager `?meta` glob), newest first; listing pages download no article bodies
+- `findPost(year, month, slug)` / `getLoadedPost(path)` – sync lookups (catalog / already-loaded post)
+- `loadPost(year, month, slug)` – loads one article's markdown chunk (cached); resolves `null` for unknown posts
+- `loadSearchContents()` – downloads every body for full-text search, only when there is a `?q=`
+
+Pure helpers in `src/utils/postQueries.js` (importable from Node): `searchPosts(posts, term, contents?)` and `getRelatedPosts(posts, currentPost, limit)` – ranks by category match (+3), shared tags (+2), author match (+1), then by date.
 
 ### Route Structure
 
@@ -61,13 +65,13 @@ Posts render via React Router params; routes are generated from the file system,
 
 ### Rendering Pipeline
 
-**PostView.jsx**:
+**PostView.jsx** (lazy route chunk, see `src/routes.js`; `main.jsx` preloads it and the article's markdown before the first render so React replaces the prerendered HTML with identical content — no loading flash, no layout shift):
 - Loads post markdown + all posts for related posts
 - Passes markdown to `<ReactMarkdown>` with:
   - `remarkGfm` (tables, strikethrough, tasklists)
   - `rehypeRaw` (allows raw HTML in markdown)
   - Custom code block renderer that:
-    - Detects language via regex patterns in `detectCodeLanguage()`
+    - Uses the ```lang hint, else regex heuristics in `detectCodeLanguage()` (`resolveCodeLanguage()` in `codeHighlighter.js`)
     - Falls back to 'text' if unrecognized
     - Uses `react-syntax-highlighter` (vscDarkPlus theme)
 - Generates dynamic SEO meta tags via `setPostSeo()` before rendering
@@ -102,12 +106,14 @@ src/
 │   └── PostView.jsx      (single post, markdown rendering, related posts)
 ├── posts/                (content directory - YYYY/MM/slug.md structure)
 ├── utils/
-│   ├── postsLoader.js    (glob-based loading, parsing, filtering, related posts)
+│   ├── postsLoader.js    (metadata catalog + lazy article bodies)
+│   ├── postQueries.js    (search, related posts — pure)
+│   ├── codeHighlighter.js (PrismLight + registered languages, shared with prerender)
 │   └── seo.js            (dynamic meta tag management)
 ├── styles/               (per-component CSS: App.css, Header.css, PostList.css, PostView.css, Footer.css, index.css)
-├── resources/            (logo/favicon)
 ├── App.jsx              (Routes wrapper)
-└── main.jsx             (entry point - sets up Buffer polyfill for gray-matter, wraps with BrowserRouter)
+├── routes.js            (lazy PostView with preload)
+└── main.jsx             (entry point - preloads the article route, then renders BrowserRouter)
 
 public/
 ├── authors/             (author photos)
@@ -117,20 +123,20 @@ scripts/
 └── generate-sitemap.mjs (reads posts, generates XML with lastmod from fecha)
 
 Dockerfile              (multistage: Node 20 build → Nginx Alpine)
-nginx.conf              (handles React Router with try_files, gzip, caching, security headers)
+nginx.conf              (prerendered routes, real 404s, 301s for renamed posts/legacy URLs, caching, security headers)
 ```
 
 ## Development Patterns
 
-**Frontmatter Parsing**: `gray-matter` parses YAML frontmatter; all metadata fields are typed as strings in the output and must be cast if needed (e.g., arrays in YAML remain as JS arrays, dates remain strings).
+**Frontmatter Parsing**: `gray-matter` parses YAML frontmatter at build time and the result is serialized to JSON, so quote dates (`fecha: "2026-02-20"`) to keep them as strings.
 
 **Dynamic Imports**: Posts are loaded at runtime via Vite's `import.meta.glob()` with `query: '?raw'` to import raw markdown files. This enables dynamic post addition without rebuild (though sidebar caches on first visit).
 
-**Code Language Detection**: `detectCodeLanguage()` uses regex heuristics to guess language from code syntax; no hint syntax is required (though markdown backtick hints are ignored). Add new language patterns here if needed.
+**Code Language Detection**: a ```lang hint wins; otherwise `detectCodeLanguage()` guesses from regex heuristics. A language not registered in `codeHighlighter.js` renders as plain text.
 
-**Routing**: React Router handles client-side navigation. Nginx is configured with `try_files $uri $uri/ /index.html` to fall back to index.html for SPA routing.
+**Routing**: React Router handles client-side navigation. Every route is prerendered to a flat `<ruta>.html`; nginx serves it with `try_files $uri $uri.html =404`, so unknown URLs get a real 404 (never a soft 404). **Renaming or moving a post** breaks its indexed URL: add the old → new path to the `$renamed_post` map in `nginx.conf`.
 
-**Image Handling**: Frontmatter `imagenPortada` expects full URLs (e.g., Unsplash links). Author photos are stored in `public/authors/` with path like `/authors/jesus-florez.jpeg`. The favicon path in HTML points to `/src/resources/icon.png` (note: this path works in dev but may need adjustment for production static serving).
+**Image Handling**: Frontmatter `imagenPortada` expects full URLs (e.g., Unsplash links). Author photos are stored in `public/authors/` with path like `/authors/jesus-florez.jpeg`. The favicon is `public/favicon.png` (stable URL; nginx also answers `/favicon.ico` with it). Unsplash covers are requested with `auto=format` via `optimizeImage()` (`src/utils/images.js`).
 
 **Caching & Performance**:
 - Static assets (.js, .css, etc.) cached for 1 year (Nginx: `Cache-Control: public, immutable`)
@@ -165,7 +171,7 @@ The build process automatically generates `public/sitemap.xml` before creating t
 
 **Adjust post pagination**: Change `POSTS_PER_PAGE` constant in `src/components/PostList.jsx`.
 
-**Add syntax highlighting language**: Add regex pattern to `detectCodeLanguage()` in `src/components/PostView.jsx`.
+**Add syntax highlighting language**: Import and register it in `src/utils/codeHighlighter.js` (plus an alias if the ``` name differs); optionally add a heuristic to `src/utils/detectCodeLanguage.js`.
 
 **Modify category labels**: Update mapping in `src/components/PostList.jsx` `mapSlugToCode()` function and corresponding UI labels.
 

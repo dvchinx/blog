@@ -4,27 +4,32 @@
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://blog.jesusflorez.cloud/</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/autor/jesus-florez</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/categoria/tecnologia</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/categoria/programacion-competitiva</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/privacidad</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://blog.jesusflorez.cloud/2026/01/introduccion-tdd</loc>
@@ -214,39 +219,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://blog.jesusflorez.cloud/2026/05/arquitectura-componentes</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?w=800&amp;h=500&amp;fit=crop)</image:loc>
-      <image:title>Arquitectura por Componentes</image:title>
-      <image:caption>Una introducción a los principios, ventajas y buenas prácticas de la arquitectura por componentes aplicada al desarrollo de software.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://blog.jesusflorez.cloud/2026/05/arquitectura-eventos</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&amp;h=500&amp;fit=crop</image:loc>
-      <image:title>Arquitectura Orientada a Eventos (EDA)</image:title>
-      <image:caption>Aprende qué es la arquitectura orientada a eventos, cómo funciona y cuándo es la mejor opción para sistemas que necesitan responder a cambios en tiempo real.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://blog.jesusflorez.cloud/2026/05/arquitectura-mvc</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://images.unsplash.com/photo-1570215171323-4ec328f3f5fa?w=800&amp;h=500&amp;fit=crop</image:loc>
-      <image:title>Arquitectura MVC</image:title>
-      <image:caption>Comprende cómo funciona la arquitectura MVC, sus ventajas, limitaciones y buenas prácticas para aplicarla en aplicaciones mantenibles.</image:caption>
-    </image:image>
-  </url>
-  <url>
     <loc>https://blog.jesusflorez.cloud/2026/05/B-R11-cordon-bleu</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -288,6 +260,39 @@
       <image:loc>https://i.imgur.com/aa8uVzn.png?w=1000&amp;h=500&amp;fit=crop</image:loc>
       <image:title>CCPL R11 - D. Dominoes Magic Squares</image:title>
       <image:caption>Ejercicio D - CCPL R11 2025</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/05/arquitectura-componentes</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?w=800&amp;h=500&amp;fit=crop)</image:loc>
+      <image:title>Arquitectura por Componentes</image:title>
+      <image:caption>Una introducción a los principios, ventajas y buenas prácticas de la arquitectura por componentes aplicada al desarrollo de software.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/05/arquitectura-eventos</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arquitectura Orientada a Eventos (EDA)</image:title>
+      <image:caption>Aprende qué es la arquitectura orientada a eventos, cómo funciona y cuándo es la mejor opción para sistemas que necesitan responder a cambios en tiempo real.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/05/arquitectura-mvc</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1570215171323-4ec328f3f5fa?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arquitectura MVC</image:title>
+      <image:caption>Comprende cómo funciona la arquitectura MVC, sus ventajas, limitaciones y buenas prácticas para aplicarla en aplicaciones mantenibles.</image:caption>
     </image:image>
   </url>
   <url>
@@ -962,6 +967,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/kattis-bela</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1607637508975-bf0090d7a0b4?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Kattis - Bela</image:title>
+      <image:caption>Dificultad: 1.9 · Fácil</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://blog.jesusflorez.cloud/2026/08/kattis-jolly-jumpers</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1058,6 +1074,226 @@
       <image:loc>https://i.imgur.com/q58nOu9.png?w=800&amp;h=500&amp;fit=crop</image:loc>
       <image:title>Reintentos declarativos en Spring Boot con Spring Retry</image:title>
       <image:caption>Aprende a manejar fallos transitorios en Spring Boot con Spring Retry: anotaciones @Retryable y @Recover, backoff exponencial con jitter, RetryTemplate programático y cuándo preferirlo sobre un Circuit Breaker.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/08/spring-session</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/c8xZ3zy.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Sesiones distribuidas en Spring Boot con Spring Session</image:title>
+      <image:caption>Aprende a gestionar sesiones HTTP distribuidas en Spring Boot con Spring Session y Redis: configuración, persistencia, seguridad, expiración y consideraciones para entornos de múltiples instancias.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/263a-beautiful-matrix</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/dJvgH6b.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 263A - Beautiful Matrix</image:title>
+      <image:caption>Codeforces Round 161 (Div. 2)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/4c-registration-system</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/szwOx0d.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Codeforces 4C - Registration System</image:title>
+      <image:caption>Dificultad: 1300 Media</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/backend-for-frontend-bff</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Backend for Frontend (BFF): un backend a la medida de cada cliente</image:title>
+      <image:caption>Qué es el patrón Backend for Frontend (BFF), por qué surge cuando web, móvil y partners consumen la misma API de microservicios, en qué se diferencia de un API Gateway genérico y cómo implementarlo con ejemplos prácticos.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/contract-testing-spring-boot</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/GIwZZEc.png</image:loc>
+      <image:title>Contract Testing en Spring Boot: pruebas de contrato entre microservicios</image:title>
+      <image:caption>Qué es el contract testing, cómo funcionan los contratos consumer-driven y cómo implementarlos en Spring Boot con Spring Cloud Contract y Pact, paso a paso.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/estrategias-despliegue</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/aT6bEUW.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Estrategias de despliegue: Blue-Green, Canary y Rolling Releases</image:title>
+      <image:caption>Aprende las tres estrategias de despliegue más usadas en producción: Blue-Green, Canary Release y Rolling Update. Cuándo usar cada una, sus ventajas, riesgos y cómo se implementan en la práctica.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/grpc-protocol-buffers</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/0gGKtzp.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>gRPC y Protocol Buffers: comunicación eficiente entre microservicios</image:title>
+      <image:caption>Aprende qué es gRPC, cómo funcionan los Protocol Buffers, los cuatro tipos de streaming que ofrece, y cuándo tiene sentido usarlo en lugar de REST en arquitecturas de microservicios.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/kattis-quadrant-selection</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/qVt4pWP.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Kattis - Quadrant Selection</image:title>
+      <image:caption>Dificultad: 1.1 Fácil</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/noticias-ia-cierre-septiembre-2026</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/mrND9GN.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>IA en la recta final de septiembre: la carrera de la ciberseguridad, Opus 5.5 y Claude construyendo a Claude</image:title>
+      <image:caption>Septiembre cierra con los tres grandes laboratorios lanzando modelos de ciberseguridad en la misma semana (GPT-6 Astra, Gemini 3.8 Flash Cyber y Mythos 5.1), Anthropic estrenando Claude Opus 5.5 un 40% más barato, la revelación de que Claude ya lidera el 26% de la I+D de Anthropic, un movimiento de Anthropic, OpenAI y Google hacia un organismo de autorregulación de seguridad, y el fin del retraso de Grok 4.7 en xAI.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/noticias-ia-septiembre-2026</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Arranque de septiembre en IA: Fable 5.1, Astra con freno y el Pentágono abre sus puertas</image:title>
+      <image:caption>Septiembre arranca con Anthropic lanzando Fable 5.1 y Mythos 5.1 el 1 de septiembre con cache reads un 75% más baratos, OpenAI preparando Astra —el primer modelo clasificado en umbral crítico de ciberseguridad— con acceso restringido, el Pentágono desplegando ChatGPT Mil y Grok para Gobierno en GenAI.mil para 3 millones de empleados, Google sin fecha aún para Gemini 3.5 Pro mientras prepara internamente Gemini 3.8 Flash, y Alibaba actualizando Qwen3.8-Max con un snapshot orientado a codificación.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/service-mesh</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/VB1sMdn.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Service Mesh: gestionando la comunicación entre microservicios con Istio</image:title>
+      <image:caption>Qué es un service mesh, cómo funciona el patrón sidecar con Envoy e Istio, y cómo resuelve el tráfico, la seguridad y la observabilidad entre microservicios sin tocar el código de la aplicación.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/spring-graphql</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/UktyzLI.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>APIs GraphQL con Spring Boot y Spring GraphQL</image:title>
+      <image:caption>Aprende a construir APIs GraphQL con Spring Boot y Spring GraphQL: definición de esquema SDL, anotaciones de mapeo, resolución de relaciones, el problema N+1 con DataLoaders, manejo de errores y testing.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/spring-modulith</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/EsMz4Hg.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Monolitos modulares con Spring Modulith</image:title>
+      <image:caption>Aprende a estructurar aplicaciones Spring Boot como monolitos modulares con Spring Modulith: definición de módulos, comunicación mediante eventos, enforcement de dependencias y tests de arquitectura automatizados.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/09/spring-virtual-threads</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/pNfhKCT.png?w=800&amp;h=500&amp;fit=crop</image:loc>
+      <image:title>Virtual Threads en Spring Boot: concurrencia sin el coste de los hilos de plataforma</image:title>
+      <image:caption>Cómo activar y aprovechar los Virtual Threads de Java 21 (Project Loom) en Spring Boot 3.2+: configuración, impacto en Tomcat y en pools JDBC, el problema del pinning con synchronized, y cuándo NO usarlos.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/10/dockerizar-spring-boot</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/iLKKeQv.png</image:loc>
+      <image:title>Dockerizar Spring Boot: imágenes pequeñas, rápidas y listas para producción</image:title>
+      <image:caption>Cómo dockerizar Spring Boot para producción: Dockerfile multietapa, layered jars, Buildpacks, caché AOT de Java 25, memoria de la JVM y usuario no root.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/10/noticias-ia-octubre-2026</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/ZIkEJCs.png</image:loc>
+      <image:title>Arranque de octubre en IA: Gemini 4 Argon, Dots de OpenAI, Sonnet 5.5 y la factura de los agentes rebeldes</image:title>
+      <image:caption>Noticias de IA de octubre 2026: Gemini 4 Argon, Dots y GPT-6.1 Sol en el DevDay, Claude Sonnet 5.5, el pacto de la Casa Blanca y la investigación de la FTC.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/10/opentelemetry-spring-boot</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/Gy4Qqu9.png</image:loc>
+      <image:title>OpenTelemetry con Spring Boot: trazas, métricas y logs de tus microservicios en un solo lugar</image:title>
+      <image:caption>Cómo usar OpenTelemetry con Spring Boot 4: starter oficial, trazas distribuidas, métricas y logs por OTLP, Collector, Grafana, sampling y Kubernetes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/10/spring-boot-kubernetes</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/Ndnklu7.png</image:loc>
+      <image:title>Spring Boot en Kubernetes: guía para desplegar microservicios listos para producción</image:title>
+      <image:caption>Cómo desplegar Spring Boot en Kubernetes para producción: Deployment, probes con Actuator, memoria y CPU de la JVM, ConfigMaps, apagado ordenado, HPA y PDB.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/10/spring-boot-native-image-graalvm</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/XeeHTZh.png</image:loc>
+      <image:title>Spring Boot native image con GraalVM: arranque en milisegundos sin sorpresas en producción</image:title>
+      <image:caption>Qué es una Spring Boot native image, cómo compilarla con GraalVM 25 y Buildpacks, cómo resolver reflexión y perfiles, y cuándo conviene frente a la caché AOT.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://blog.jesusflorez.cloud/2026/10/tesla-roadster-volador</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://i.imgur.com/J0Ydwkt.png</image:loc>
+      <image:title>Tesla Roadster volador: el auto volador de Elon Musk, explicado sin humo</image:title>
+      <image:caption>Tesla Roadster volador: qué mostró Elon Musk el 15 de octubre, cómo funcionan sus propulsores de SpaceX, versiones, precio, física del salto y por qué aún no vuela.</image:caption>
     </image:image>
   </url>
 </urlset>

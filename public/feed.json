@@ -7,6 +7,109 @@
   "language": "es",
   "items": [
     {
+      "id": "https://blog.jesusflorez.cloud/2026/10/tesla-roadster-volador",
+      "url": "https://blog.jesusflorez.cloud/2026/10/tesla-roadster-volador",
+      "title": "Tesla Roadster volador: el auto volador de Elon Musk, explicado sin humo",
+      "summary": "Tesla Roadster volador: qué mostró Elon Musk el 15 de octubre, cómo funcionan sus propulsores de SpaceX, versiones, precio, física del salto y por qué aún no vuela.",
+      "image": "https://i.imgur.com/J0Ydwkt.png",
+      "date_published": "2026-10-17T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Tesla",
+        "Elon Musk",
+        "SpaceX",
+        "Autos voladores",
+        "Vehículos eléctricos",
+        "Noticias"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-10-17"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/10/opentelemetry-spring-boot",
+      "url": "https://blog.jesusflorez.cloud/2026/10/opentelemetry-spring-boot",
+      "title": "OpenTelemetry con Spring Boot: trazas, métricas y logs de tus microservicios en un solo lugar",
+      "summary": "Cómo usar OpenTelemetry con Spring Boot 4: starter oficial, trazas distribuidas, métricas y logs por OTLP, Collector, Grafana, sampling y Kubernetes.",
+      "image": "https://i.imgur.com/Gy4Qqu9.png",
+      "date_published": "2026-10-15T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "OpenTelemetry",
+        "Observability",
+        "Microservicios",
+        "Java",
+        "DevOps",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-10-15"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/10/spring-boot-native-image-graalvm",
+      "url": "https://blog.jesusflorez.cloud/2026/10/spring-boot-native-image-graalvm",
+      "title": "Spring Boot native image con GraalVM: arranque en milisegundos sin sorpresas en producción",
+      "summary": "Qué es una Spring Boot native image, cómo compilarla con GraalVM 25 y Buildpacks, cómo resolver reflexión y perfiles, y cuándo conviene frente a la caché AOT.",
+      "image": "https://i.imgur.com/XeeHTZh.png",
+      "date_published": "2026-10-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "GraalVM",
+        "Java",
+        "DevOps",
+        "Contenedores",
+        "Performance",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-10-10"
+      }
+    },
+    {
+      "id": "https://blog.jesusflorez.cloud/2026/10/spring-boot-kubernetes",
+      "url": "https://blog.jesusflorez.cloud/2026/10/spring-boot-kubernetes",
+      "title": "Spring Boot en Kubernetes: guía para desplegar microservicios listos para producción",
+      "summary": "Cómo desplegar Spring Boot en Kubernetes para producción: Deployment, probes con Actuator, memoria y CPU de la JVM, ConfigMaps, apagado ordenado, HPA y PDB.",
+      "image": "https://i.imgur.com/Ndnklu7.png",
+      "date_published": "2026-10-08T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "Jesús Flórez"
+        }
+      ],
+      "tags": [
+        "Spring Boot",
+        "Kubernetes",
+        "DevOps",
+        "Java",
+        "Microservicios",
+        "Contenedores",
+        "Backend"
+      ],
+      "_blog": {
+        "categoria": "tech",
+        "fecha": "2026-10-08"
+      }
+    },
+    {
       "id": "https://blog.jesusflorez.cloud/2026/10/dockerizar-spring-boot",
       "url": "https://blog.jesusflorez.cloud/2026/10/dockerizar-spring-boot",
       "title": "Dockerizar Spring Boot: imágenes pequeñas, rápidas y listas para producción",
@@ -1136,102 +1239,6 @@
       "_blog": {
         "categoria": "coding",
         "fecha": "2026-07-12"
-      }
-    },
-    {
-      "id": "https://blog.jesusflorez.cloud/2026/07/saga-pattern",
-      "url": "https://blog.jesusflorez.cloud/2026/07/saga-pattern",
-      "title": "Saga Pattern: coordinando transacciones distribuidas en microservicios",
-      "summary": "Aprende cómo el patrón Saga resuelve el problema de las transacciones distribuidas en microservicios, con ejemplos de coreografía y orquestación, transacciones compensatorias y consejos para implementarlo correctamente.",
-      "image": "https://i.imgur.com/BYhduRM.png?w=800&h=500&fit=crop",
-      "date_published": "2026-07-11T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "Jesús Flórez"
-        }
-      ],
-      "tags": [
-        "Architecture",
-        "Microservices",
-        "Distributed Systems",
-        "Saga Pattern",
-        "Best Practices"
-      ],
-      "_blog": {
-        "categoria": "tech",
-        "fecha": "2026-07-11"
-      }
-    },
-    {
-      "id": "https://blog.jesusflorez.cloud/2026/07/spring-cloud-eureka",
-      "url": "https://blog.jesusflorez.cloud/2026/07/spring-cloud-eureka",
-      "title": "Spring Cloud Eureka: descubrimiento de servicios",
-      "summary": "Aprende a implementar descubrimiento de servicios con Spring Cloud Eureka: configura el Eureka Server, registra microservicios como clientes, implementa balanceo de carga con Spring Cloud LoadBalancer y entiende cómo integrarlo con Spring Cloud Gateway.",
-      "image": "https://i.imgur.com/Ozk7rO6.png?w=800&h=500&fit=crop",
-      "date_published": "2026-07-10T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "Jesús Flórez"
-        }
-      ],
-      "tags": [
-        "Spring Boot",
-        "Spring Cloud",
-        "Microservicios",
-        "Java",
-        "Backend",
-        "Eureka"
-      ],
-      "_blog": {
-        "categoria": "tech",
-        "fecha": "2026-07-10"
-      }
-    },
-    {
-      "id": "https://blog.jesusflorez.cloud/2026/07/twelve-factor-app",
-      "url": "https://blog.jesusflorez.cloud/2026/07/twelve-factor-app",
-      "title": "Los doce factores de una aplicación cloud-native",
-      "summary": "Entiende la metodología 12-Factor App: doce principios para construir aplicaciones modernas escalables, portátiles y fáciles de mantener en cualquier entorno cloud.",
-      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop",
-      "date_published": "2026-07-09T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "Jesús Flórez"
-        }
-      ],
-      "tags": [
-        "Architecture",
-        "Cloud",
-        "Best Practices",
-        "DevOps",
-        "12-Factor"
-      ],
-      "_blog": {
-        "categoria": "tech",
-        "fecha": "2026-07-09"
-      }
-    },
-    {
-      "id": "https://blog.jesusflorez.cloud/2026/07/189a-cut-ribbon",
-      "url": "https://blog.jesusflorez.cloud/2026/07/189a-cut-ribbon",
-      "title": "Codeforces 189A - Cut Ribbon",
-      "summary": "Codeforces Round 119 (Div. 2)",
-      "image": "https://i.imgur.com/65CUoV3.png?w=800&h=500&fit=crop",
-      "date_published": "2026-07-08T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "Jesús Flórez"
-        }
-      ],
-      "tags": [
-        "CodeForces",
-        "1600 elo",
-        "DP",
-        "Knapsack"
-      ],
-      "_blog": {
-        "categoria": "coding",
-        "fecha": "2026-07-08"
       }
     }
   ]

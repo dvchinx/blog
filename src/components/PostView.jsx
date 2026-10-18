@@ -1,47 +1,41 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism'
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { loadPost, loadPosts, getRelatedPosts } from '../utils/postsLoader'
+import { getAllPosts, findPost, getLoadedPost, loadPost } from '../utils/postsLoader'
+import { getRelatedPosts } from '../utils/postQueries'
 import { setPostSeo } from '../utils/seo'
-import { detectCodeLanguage } from '../utils/detectCodeLanguage'
+import { SyntaxHighlighter, vscDarkPlus, resolveCodeLanguage } from '../utils/codeHighlighter'
+import { optimizeImage } from '../utils/images'
 import NewsletterForm from './NewsletterForm'
-import '../styles/PostView.css'
+import NotFound from './NotFound'
 
 function PostView() {
   const { year, month, slug } = useParams()
-  const [post, setPost] = useState(null)
-  const [relatedPosts, setRelatedPosts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const entry = findPost(year, month, slug)
+  const path = entry?.metadata.path
+  // main.jsx precarga el markdown en la primera visita, así que normalmente
+  // el post ya está en caché y el primer render es el artículo completo.
+  const post = path ? getLoadedPost(path) : null
+  const [failedPath, setFailedPath] = useState(null)
+  const [, setLoadedPath] = useState(null)
 
   useEffect(() => {
-    async function fetchPost() {
-      try {
-        const [postData, postsCatalog] = await Promise.all([
-          loadPost(year, month, slug),
-          loadPosts()
-        ])
+    if (!path || getLoadedPost(path)) return
 
-        if (postData) {
-          setPost(postData)
-          setRelatedPosts(getRelatedPosts(postsCatalog, postData, 3))
-        } else {
-          setError(true)
-        }
-      } catch (err) {
+    let active = true
+    loadPost(year, month, slug)
+      .then(() => active && setLoadedPath(path))
+      .catch((err) => {
         console.error('Error loading post:', err)
-        setError(true)
-      } finally {
-        setLoading(false)
-      }
-    }
+        if (active) setFailedPath(path)
+      })
 
-    fetchPost()
-  }, [year, month, slug])
+    return () => {
+      active = false
+    }
+  }, [path, year, month, slug])
 
   useEffect(() => {
     if (post) {
@@ -49,18 +43,28 @@ function PostView() {
     }
   }, [post])
 
-  if (loading) {
-    return <div className="loading">Cargando post...</div>
+  const relatedPosts = useMemo(
+    () => (entry ? getRelatedPosts(getAllPosts(), entry, 3) : []),
+    [entry]
+  )
+
+  // URL sin post: nginx ya respondió 404; NotFound marca la página noindex
+  if (!entry) {
+    return <NotFound />
   }
 
-  if (error || !post) {
+  if (failedPath === path) {
     return (
       <div className="error-container">
-        <h2>Post no encontrado</h2>
-        <p>El post que buscas no existe.</p>
+        <h2>No se pudo cargar el artículo</h2>
+        <p>Revisa tu conexión y recarga la página.</p>
         <Link to="/" className="back-link">← Volver al blog</Link>
       </div>
     )
+  }
+
+  if (!post) {
+    return <div className="loading">Cargando post...</div>
   }
 
   const categoriaSlug = post.metadata.categoria === 'coding' ? 'programacion-competitiva' : 'tecnologia'
@@ -71,7 +75,7 @@ function PostView() {
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <ol>
           <li><Link to="/">Blog</Link></li>
-          <li><Link to={`/?categoria=${categoriaSlug}`}>{categoriaLabel}</Link></li>
+          <li><Link to={`/categoria/${categoriaSlug}`}>{categoriaLabel}</Link></li>
           <li aria-current="page">{post.metadata.titulo}</li>
         </ol>
       </nav>
@@ -79,7 +83,13 @@ function PostView() {
 
       {post.metadata.imagenPortada && (
         <div className="post-cover-image">
-          <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} width="1200" height="360" />
+          <img
+            src={optimizeImage(post.metadata.imagenPortada)}
+            alt={post.metadata.titulo}
+            width="1200"
+            height="360"
+            fetchPriority="high"
+          />
         </div>
       )}
       
@@ -127,7 +137,6 @@ function PostView() {
             h2: ({...props}) => <h3 {...props} />,
             h3: ({...props}) => <h4 {...props} />,
             code: ({inline, className, children, ...props}) => {
-              const match = /language-(\w+)/.exec(className || '')
               const code = String(children).replace(/\n$/, '')
               const hasLineBreaks = code.includes('\n')
               
@@ -137,7 +146,7 @@ function PostView() {
               }
 
               // Si es bloque de código con saltos de línea, usar SyntaxHighlighter
-              const language = match?.[1] || detectCodeLanguage(code)
+              const language = resolveCodeLanguage(className, code)
               return (
                 <SyntaxHighlighter
                   language={language}
@@ -190,7 +199,7 @@ function PostView() {
               >
                 {relatedPost.metadata.imagenPortada && (
                   <img
-                    src={relatedPost.metadata.imagenPortada}
+                    src={optimizeImage(relatedPost.metadata.imagenPortada)}
                     alt={relatedPost.metadata.titulo}
                     className="related-post-image"
                     loading="lazy"

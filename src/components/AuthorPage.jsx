@@ -1,30 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { loadPosts } from '../utils/postsLoader'
+import { getAllPosts } from '../utils/postsLoader'
 import { setAuthorSeo } from '../utils/seo'
 import '../styles/AuthorPage.css'
 
 const AUTHOR_NAME = 'Jesús Flórez'
 
 function AuthorPage() {
-  const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(true)
+  const posts = getAllPosts().filter((post) => post.metadata.nombreAutor === AUTHOR_NAME)
 
   useEffect(() => {
     setAuthorSeo()
-
-    async function fetchPosts() {
-      try {
-        const allPosts = await loadPosts()
-        setPosts(allPosts.filter((post) => post.metadata.nombreAutor === AUTHOR_NAME))
-      } catch (error) {
-        console.error('Error loading posts:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchPosts()
   }, [])
 
   return (
@@ -56,17 +42,13 @@ function AuthorPage() {
 
       <section className="author-posts">
         <h2>Artículos publicados</h2>
-        {loading ? (
-          <p>Cargando artículos...</p>
-        ) : (
-          <ul className="author-posts-list">
-            {posts.map((post) => (
-              <li key={post.metadata.path}>
-                <Link to={post.metadata.path}>{post.metadata.titulo}</Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul className="author-posts-list">
+          {posts.map((post) => (
+            <li key={post.metadata.path}>
+              <Link to={post.metadata.path}>{post.metadata.titulo}</Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   )

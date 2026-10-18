@@ -1,120 +1,65 @@
-import matter from 'gray-matter'
+import { reloadOnStaleChunk } from './staleChunk'
 
-// Esta función carga todos los posts desde la carpeta posts
-export async function loadPosts() {
-  const postFiles = import.meta.glob('/src/posts/**/*.md', { query: '?raw', import: 'default' })
-  const posts = []
+// El plugin blog-posts (vite.config.js) convierte cada .md en JS en build:
+// `?meta` exporta solo el frontmatter, el módulo plano solo el cuerpo.
+const metadataModules = import.meta.glob('/src/posts/**/*.md', {
+  query: '?meta',
+  import: 'metadata',
+  eager: true
+})
+const contentModules = import.meta.glob('/src/posts/**/*.md', { import: 'content' })
 
-  for (const path in postFiles) {
-    const content = await postFiles[path]()
-    const { data, content: markdown } = matter(content)
-    
-    // Extraer año, mes y slug del path: /src/posts/2026/01/nombre-post.md
-    const pathParts = path.split('/')
-    const year = pathParts[3]
-    const month = pathParts[4]
-    const slug = pathParts[5].replace('.md', '')
-    
-    posts.push({
-      metadata: {
-        ...data,
-        year,
-        month,
-        slug,
-        path: `/${year}/${month}/${slug}`
-      },
-      content: markdown
-    })
-  }
+// Catálogo completo (solo metadatos), ordenado por fecha (más reciente primero).
+// Es síncrono: listar posts no descarga ningún artículo.
+const catalog = Object.values(metadataModules)
+  .map((metadata) => ({ metadata }))
+  .sort((a, b) => new Date(b.metadata.fecha) - new Date(a.metadata.fecha))
 
-  // Ordenar por fecha (más reciente primero)
-  return posts.sort((a, b) => {
-    const dateA = new Date(a.metadata.fecha)
-    const dateB = new Date(b.metadata.fecha)
-    return dateB - dateA
-  })
+const catalogByPath = new Map(catalog.map((post) => [post.metadata.path, post]))
+const loadedPosts = new Map()
+let searchContents = null
+
+export function getAllPosts() {
+  return catalog
 }
 
-// Buscar un post específico por year/month/slug
+export function findPost(year, month, slug) {
+  return catalogByPath.get(`/${year}/${month}/${slug}`) || null
+}
+
+// Post completo (metadatos + markdown) si ya se cargó; si no, null.
+export function getLoadedPost(path) {
+  return loadedPosts.get(path) || null
+}
+
+// Carga el markdown de un post. Resuelve a null si el post no existe.
 export async function loadPost(year, month, slug) {
-  try {
-    const path = `/src/posts/${year}/${month}/${slug}.md`
-    const postFiles = import.meta.glob('/src/posts/**/*.md', { query: '?raw', import: 'default' })
-    
-    if (postFiles[path]) {
-      const content = await postFiles[path]()
-      const { data, content: markdown } = matter(content)
-      
-      return {
-        metadata: {
-          ...data,
-          year,
-          month,
-          slug,
-          path: `/${year}/${month}/${slug}`
-        },
-        content: markdown
-      }
-    }
-  } catch (error) {
-    console.error('Error loading post:', error)
+  const entry = findPost(year, month, slug)
+  if (!entry) return null
+
+  const { path } = entry.metadata
+  if (!loadedPosts.has(path)) {
+    const content = await reloadOnStaleChunk(contentModules[`/src/posts${path}.md`], path)
+    loadedPosts.set(path, { metadata: entry.metadata, content })
   }
-  
-  return null
+  return loadedPosts.get(path)
 }
 
-// Filtrar posts por búsqueda
-export function searchPosts(posts, searchTerm) {
-  if (!searchTerm) return posts
-  
-  const term = searchTerm.toLowerCase()
-  return posts.filter(post => 
-    post.metadata.titulo?.toLowerCase().includes(term) ||
-    post.metadata.descripcion?.toLowerCase().includes(term) ||
-    post.content.toLowerCase().includes(term)
-  )
-}
-
-// Obtener posts relacionados por categoria y etiquetas compartidas
-export function getRelatedPosts(posts, currentPost, limit = 3) {
-  if (!currentPost || !Array.isArray(posts)) return []
-
-  const currentPath = currentPost.metadata.path
-  const currentCategory = currentPost.metadata.categoria
-  const currentTags = new Set(
-    (currentPost.metadata.etiquetas || []).map((tag) => String(tag).toLowerCase())
-  )
-
-  const scored = posts
-    .filter((post) => post.metadata.path !== currentPath)
-    .map((post) => {
-      let score = 0
-      const postTags = (post.metadata.etiquetas || []).map((tag) => String(tag).toLowerCase())
-
-      if (currentCategory && post.metadata.categoria === currentCategory) {
-        score += 3
-      }
-
-      for (const tag of postTags) {
-        if (currentTags.has(tag)) {
-          score += 2
-        }
-      }
-
-      if (post.metadata.nombreAutor && post.metadata.nombreAutor === currentPost.metadata.nombreAutor) {
-        score += 1
-      }
-
-      return { post, score }
-    })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score
-
-      const dateA = new Date(a.post.metadata.fecha)
-      const dateB = new Date(b.post.metadata.fecha)
-      return dateB - dateA
-    })
-
-  return scored.slice(0, limit).map((item) => item.post)
+// Markdown de todos los posts para la búsqueda de texto completo. Solo se
+// descarga cuando alguien busca algo.
+export function loadSearchContents() {
+  if (!searchContents) {
+    searchContents = Promise.all(
+      catalog.map(async ({ metadata }) => [
+        metadata.path,
+        await contentModules[`/src/posts${metadata.path}.md`]()
+      ])
+    )
+      .then((entries) => new Map(entries))
+      .catch((error) => {
+        searchContents = null
+        throw error
+      })
+  }
+  return searchContents
 }

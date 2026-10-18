@@ -79,7 +79,7 @@ const postEntries = markdownFiles.map((filePath) => {
     stat,
     data,
     loc: `${siteUrl}${toSitePath(filePath)}`,
-    lastmod: resolveLastMod(data.fecha, stat.mtime),
+    lastmod: resolveLastMod(data.fechaActualizacion || data.fecha, stat.mtime),
     priority: data.categoria === 'tech' ? '0.9' : '0.8'
   }
 })
@@ -116,6 +116,12 @@ const authorEntry = `  <url>
     <priority>0.6</priority>
   </url>`
 
+const privacyEntry = `  <url>
+    <loc>${escapeXml(`${siteUrl}/privacidad`)}</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>`
+
 const postXmlEntries = postEntries.map(({ data, loc, lastmod, priority }) => {
   const image = absoluteImage(data.imagenPortada)
   const title = data.titulo ? escapeXml(data.titulo) : null
@@ -138,8 +144,8 @@ const xml =
   `<urlset\n` +
   `  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
   `  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
-  [homeEntry, authorEntry, ...categoryEntries, ...postXmlEntries].join('\n') +
+  [homeEntry, authorEntry, ...categoryEntries, privacyEntry, ...postXmlEntries].join('\n') +
   `\n</urlset>\n`
 
 fs.writeFileSync(outputPath, xml, 'utf8')
-console.log(`✅  sitemap.xml generated — ${1 + postEntries.length} URLs (${postEntries.length} posts)`)
+console.log(`✅  sitemap.xml generated — ${5 + postEntries.length} URLs (${postEntries.length} posts)`)

@@ -76,6 +76,9 @@ function absoluteImage(src) {
   return `${SITE_URL}${src.startsWith('/') ? '' : '/'}${src}`
 }
 
+const INDEX_ROBOTS = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+const NOINDEX_ROBOTS = 'noindex, follow'
+
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 export function getPostUrl(path) {
@@ -84,7 +87,7 @@ export function getPostUrl(path) {
 
 // ─── Home page SEO ────────────────────────────────────────────────────────────
 
-export function setHomeSeo() {
+export function setHomeSeo({ noindex = false } = {}) {
   const title = `${SITE_NAME} | Programación competitiva y tecnología`
   const description =
     'Artículos sobre programación competitiva, ICPC, CCPL, Python, Java y tecnología para LATAM.'
@@ -97,10 +100,7 @@ export function setHomeSeo() {
 
   upsertMeta('meta[name="description"]', { name: 'description', content: description })
   upsertMeta('meta[name="keywords"]', { name: 'keywords', content: keywords })
-  upsertMeta('meta[name="robots"]', {
-    name: 'robots',
-    content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
-  })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: noindex ? NOINDEX_ROBOTS : INDEX_ROBOTS })
 
   // Open Graph
   upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
@@ -131,11 +131,6 @@ export function setHomeSeo() {
     description,
     url: canonical,
     inLanguage: 'es',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string'
-    },
     publisher: {
       '@type': 'Person',
       name: 'Jesús Flórez',
@@ -156,10 +151,7 @@ export function setAuthorSeo() {
   setCanonical(canonical)
 
   upsertMeta('meta[name="description"]', { name: 'description', content: description })
-  upsertMeta('meta[name="robots"]', {
-    name: 'robots',
-    content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
-  })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: INDEX_ROBOTS })
 
   upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'profile' })
   upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: SITE_NAME })
@@ -210,7 +202,7 @@ export function setNotFoundSeo() {
   document.title = NOT_FOUND_TITLE
 
   upsertMeta('meta[name="description"]', { name: 'description', content: NOT_FOUND_DESCRIPTION })
-  upsertMeta('meta[name="robots"]', { name: 'robots', content: 'noindex, follow' })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: NOINDEX_ROBOTS })
 
   // A 404 has no canonical URL of its own — leaving a stale one would tell
   // Google this is a duplicate of whatever page was rendered before.
@@ -291,9 +283,9 @@ export const CATEGORY_INFO = {
   }
 }
 
-export function setCategorySeo(categoriaCode) {
+export function setCategorySeo(categoriaCode, { noindex = false } = {}) {
   const info = CATEGORY_INFO[categoriaCode]
-  if (!info) return setHomeSeo()
+  if (!info) return setHomeSeo({ noindex })
 
   const canonical = `${SITE_URL}/categoria/${info.slug}`
 
@@ -301,10 +293,7 @@ export function setCategorySeo(categoriaCode) {
   setCanonical(canonical)
 
   upsertMeta('meta[name="description"]', { name: 'description', content: info.description })
-  upsertMeta('meta[name="robots"]', {
-    name: 'robots',
-    content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
-  })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: noindex ? NOINDEX_ROBOTS : INDEX_ROBOTS })
 
   upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
   upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: SITE_NAME })
@@ -466,10 +455,7 @@ export function setPostSeo(post) {
   upsertMeta('meta[name="description"]', { name: 'description', content: description })
   upsertMeta('meta[name="keywords"]', { name: 'keywords', content: keywords })
   upsertMeta('meta[name="author"]', { name: 'author', content: author })
-  upsertMeta('meta[name="robots"]', {
-    name: 'robots',
-    content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
-  })
+  upsertMeta('meta[name="robots"]', { name: 'robots', content: INDEX_ROBOTS })
 
   // Open Graph — article
   upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'article' })

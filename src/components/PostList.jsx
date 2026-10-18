@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom'
-import { loadPosts, searchPosts } from '../utils/postsLoader'
+import { getAllPosts, loadSearchContents } from '../utils/postsLoader'
+import { searchPosts } from '../utils/postQueries'
 import { setHomeSeo, setCategorySeo } from '../utils/seo'
+import { optimizeImage } from '../utils/images'
 import NewsletterForm from './NewsletterForm'
+import NotFound from './NotFound'
 import '../styles/PostList.css'
 
 const CATEGORY_LABELS = {
@@ -11,90 +14,78 @@ const CATEGORY_LABELS = {
   coding: 'Programación Competitiva'
 }
 
+const CATEGORY_SLUGS = {
+  tech: 'tecnologia',
+  coding: 'programacion-competitiva'
+}
+
+const POSTS_PER_PAGE = 9
+
 function mapSlugToCode(slug) {
   if (!slug) return 'all'
   if (slug === 'tecnologia') return 'tech'
   if (slug === 'programacion-competitiva') return 'coding'
-  return 'all'
+  return null
 }
+
+const pathFor = (code) => (code === 'all' ? '/' : `/categoria/${CATEGORY_SLUGS[code]}`)
 
 function PostList() {
   const [searchParams] = useSearchParams()
   const { categoriaSlug } = useParams()
   const navigate = useNavigate()
-  const [allPosts, setAllPosts] = useState([])
-  const [displayedPosts, setDisplayedPosts] = useState([])
-  const [searchInput, setSearchInput] = useState('')
-  const [searchTerm, setSearchTerm] = useState('')
-  const [currentPage, setCurrentPage] = useState(1)
-  const [loading, setLoading] = useState(true)
-  const [selectedCategory, setSelectedCategory] = useState('all')
 
-  const POSTS_PER_PAGE = 9
+  // La URL es la única fuente de verdad: /categoria/:slug y ?q=
+  const searchTerm = searchParams.get('q')?.trim() || ''
+  const legacyCategory = categoriaSlug ? null : searchParams.get('categoria')
+  const selectedCategory = mapSlugToCode(categoriaSlug || legacyCategory) || 'all'
+  const unknownCategory = Boolean(categoriaSlug) && !mapSlugToCode(categoriaSlug)
 
-  useEffect(() => {
-    // Leer parámetro ?q= de la URL
-    const queryParam = searchParams.get('q')
-    if (queryParam) {
-      setSearchInput(queryParam)
-      setSearchTerm(queryParam)
-    } else {
-      setSearchInput('')
-      setSearchTerm('')
-    }
+  const [searchInput, setSearchInput] = useState(searchTerm)
+  const [syncedTerm, setSyncedTerm] = useState(searchTerm)
+  const [pagination, setPagination] = useState({ key: '', number: 1 })
+  const [searchContents, setSearchContents] = useState(null)
 
-    // La categoría puede venir de la ruta /categoria/:slug (preferida, indexable)
-    // o del parámetro legacy ?categoria= (compatibilidad con enlaces antiguos)
-    const categoriaParam = categoriaSlug || searchParams.get('categoria')
-    const category = mapSlugToCode(categoriaParam)
-    setSelectedCategory(category)
-
-    // Canonicalizar enlaces antiguos ?categoria=... hacia la nueva ruta /categoria/:slug
-    if (!categoriaSlug && searchParams.get('categoria') && category !== 'all') {
-      const slug = category === 'tech' ? 'tecnologia' : 'programacion-competitiva'
-      const q = searchParams.get('q')
-      navigate(`/categoria/${slug}${q ? `?q=${encodeURIComponent(q)}` : ''}`, { replace: true })
-      return
-    }
-
-    if (category === 'all') {
-      setHomeSeo()
-    } else {
-      setCategorySeo(category)
-    }
-
-    async function fetchPosts() {
-      try {
-        const posts = await loadPosts()
-        setAllPosts(posts)
-        setDisplayedPosts(posts)
-      } catch (error) {
-        console.error('Error loading posts:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchPosts()
-  }, [searchParams, categoriaSlug, navigate])
-
-  const handleSearch = () => {
-    const trimmedQuery = searchInput.trim()
-    const basePath = selectedCategory === 'all'
-      ? '/'
-      : `/categoria/${selectedCategory === 'tech' ? 'tecnologia' : 'programacion-competitiva'}`
-
-    navigate(trimmedQuery ? `${basePath}?q=${encodeURIComponent(trimmedQuery)}` : basePath)
+  // Mantener el input alineado con la URL (atrás/adelante del navegador)
+  if (syncedTerm !== searchTerm) {
+    setSyncedTerm(searchTerm)
+    setSearchInput(searchTerm)
   }
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch()
-    }
-  }
+  // Enlaces antiguos ?categoria=... → /categoria/:slug (nginx ya hace el 301;
+  // esto cubre la navegación dentro de la app y el servidor de desarrollo)
+  useEffect(() => {
+    if (!legacyCategory || selectedCategory === 'all') return
+    const qPart = searchTerm ? `?q=${encodeURIComponent(searchTerm)}` : ''
+    navigate(`${pathFor(selectedCategory)}${qPart}`, { replace: true })
+  }, [legacyCategory, selectedCategory, searchTerm, navigate])
 
   useEffect(() => {
-    let filtered = allPosts
+    if (unknownCategory) return
+    // Una página de resultados de búsqueda no se indexa: suele ser contenido
+    // duplicado y, sin resultados, Google la marca como soft 404
+    const options = { noindex: Boolean(searchTerm) }
+    if (selectedCategory === 'all') {
+      setHomeSeo(options)
+    } else {
+      setCategorySeo(selectedCategory, options)
+    }
+  }, [selectedCategory, searchTerm, unknownCategory])
+
+  // El texto completo de los artículos solo se descarga cuando hay una búsqueda
+  useEffect(() => {
+    if (!searchTerm || searchContents) return
+    let active = true
+    loadSearchContents()
+      .then((contents) => active && setSearchContents(contents))
+      .catch((error) => console.error('Error loading search index:', error))
+    return () => {
+      active = false
+    }
+  }, [searchTerm, searchContents])
+
+  const displayedPosts = useMemo(() => {
+    let filtered = getAllPosts()
 
     // Filtrar por categoría
     if (selectedCategory !== 'all') {
@@ -102,21 +93,37 @@ function PostList() {
     }
 
     // Aplicar búsqueda
-    if (searchTerm) {
-      filtered = searchPosts(filtered, searchTerm)
-    }
+    return searchPosts(filtered, searchTerm, searchContents)
+  }, [selectedCategory, searchTerm, searchContents])
 
-    setDisplayedPosts(filtered)
-    setCurrentPage(1)
-  }, [searchTerm, allPosts, selectedCategory])
+  if (unknownCategory) {
+    return <NotFound />
+  }
+
+  const handleSearch = () => {
+    const trimmedQuery = searchInput.trim()
+    const basePath = pathFor(selectedCategory)
+
+    navigate(trimmedQuery ? `${basePath}?q=${encodeURIComponent(trimmedQuery)}` : basePath)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
+
+  // Volver a la página 1 cuando cambian los filtros
+  const filterKey = `${selectedCategory}|${searchTerm}`
+  const currentPage = pagination.key === filterKey ? pagination.number : 1
 
   const totalPages = Math.ceil(displayedPosts.length / POSTS_PER_PAGE)
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE
   const endIndex = startIndex + POSTS_PER_PAGE
   const currentPosts = displayedPosts.slice(startIndex, endIndex)
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page)
+  const handlePageChange = (number) => {
+    setPagination({ key: filterKey, number })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -149,8 +156,9 @@ function PostList() {
     return pages
   }
 
-  if (loading) {
-    return <div className="loading">Cargando posts...</div>
+  const categoryLink = (code) => {
+    const qPart = searchTerm ? `?q=${encodeURIComponent(searchTerm)}` : ''
+    return `${pathFor(code)}${qPart}`
   }
 
   return (
@@ -163,7 +171,7 @@ function PostList() {
             placeholder="Buscar posts..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyDown}
             className="search-input"
           />
           <button onClick={handleSearch} className="search-btn">
@@ -172,76 +180,47 @@ function PostList() {
         </div>
 
         <div className="category-filters">
-          {(() => {
-            const slugFor = (code) => {
-              if (code === 'tech') return 'tecnologia'
-              if (code === 'coding') return 'programacion-competitiva'
-              return ''
-            }
-
-            const pathFor = (code) => (code === 'all' ? '/' : `/categoria/${slugFor(code)}`)
-
-            const handleCategoryClick = (code) => {
-              const currentQ = searchParams.get('q')
-              const qPart = currentQ ? `?q=${encodeURIComponent(currentQ)}` : ''
-              navigate(`${pathFor(code)}${qPart}`)
-            }
-
-            const hrefFor = (code) => {
-              const currentQ = searchParams.get('q')
-              const qPart = currentQ ? `?q=${encodeURIComponent(currentQ)}` : ''
-              return `https://blog.jesusflorez.cloud${pathFor(code)}${qPart}`
-            }
-
-            return (
-              <>
-                <a
-                  className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
-                  href={hrefFor('all')}
-                  onClick={(e) => { e.preventDefault(); handleCategoryClick('all') }}
-                >
-                  <span className="category-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                    </svg>
-                  </span>
-                  Todos
-                </a>
-                <a
-                  className={`category-button ${selectedCategory === 'tech' ? 'active' : ''}`}
-                  href={hrefFor('tech')}
-                  onClick={(e) => { e.preventDefault(); handleCategoryClick('tech') }}
-                >
-                  <span className="category-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
-                      <path d="M9 18h6"/>
-                      <path d="M10 22h4"/>
-                    </svg>
-                  </span>
-                  Artículos de Tecnología
-                </a>
-                <a
-                  className={`category-button ${selectedCategory === 'coding' ? 'active' : ''}`}
-                  href={hrefFor('coding')}
-                  onClick={(e) => { e.preventDefault(); handleCategoryClick('coding') }}
-                >
-                  <span className="category-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                      <path d="M4 22h16"/>
-                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-                    </svg>
-                  </span>
-                  Ejercicios de Programación
-                </a>
-              </>
-            )
-          })()}
+          <Link
+            className={`category-button ${selectedCategory === 'all' ? 'active' : ''}`}
+            to={categoryLink('all')}
+          >
+            <span className="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </span>
+            Todos
+          </Link>
+          <Link
+            className={`category-button ${selectedCategory === 'tech' ? 'active' : ''}`}
+            to={categoryLink('tech')}
+          >
+            <span className="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+              </svg>
+            </span>
+            Artículos de Tecnología
+          </Link>
+          <Link
+            className={`category-button ${selectedCategory === 'coding' ? 'active' : ''}`}
+            to={categoryLink('coding')}
+          >
+            <span className="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+            </span>
+            Ejercicios de Programación
+          </Link>
         </div>
       </div>
 
@@ -252,7 +231,7 @@ function PostList() {
       ) : (
         <>
           <div className="posts-grid">
-            {currentPosts.map((post) => (
+            {currentPosts.map((post, index) => (
               <Link
                 key={post.metadata.path}
                 to={post.metadata.path}
@@ -288,14 +267,21 @@ function PostList() {
                 </div>
                 {post.metadata.imagenPortada && (
                   <div className="post-card-image">
-                    <img src={post.metadata.imagenPortada} alt={post.metadata.titulo} loading="lazy" width="400" height="200" />
+                    <img
+                      src={optimizeImage(post.metadata.imagenPortada)}
+                      alt={post.metadata.titulo}
+                      loading={index < 3 ? 'eager' : 'lazy'}
+                      fetchPriority={index === 0 ? 'high' : undefined}
+                      width="400"
+                      height="200"
+                    />
                   </div>
                 )}
                 <div className="post-card-content">
                   {post.metadata.etiquetas && post.metadata.etiquetas.length > 0 && (
                     <div className="post-tags">
-                      {post.metadata.etiquetas.map((tag, index) => (
-                        <span key={index} className="tag">{tag}</span>
+                      {post.metadata.etiquetas.map((tag) => (
+                        <span key={tag} className="tag">{tag}</span>
                       ))}
                     </div>
                   )}

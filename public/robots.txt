@@ -1,8 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /src/
-Disallow: /.git/
-Disallow: /node_modules/
+# Newsletter API (POST endpoints and personal token links): nothing to index
+Disallow: /api/
 
-# Main sitemap
 Sitemap: https://blog.jesusflorez.cloud/sitemap.xml

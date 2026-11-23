@@ -5,7 +5,7 @@ fecha: "2026-11-24"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Bloqueo optimista y pesimista en JPA con Spring Boot: @Version, @Lock, reintentos, HTTP 409, SKIP LOCKED, deadlocks y cómo probar la concurrencia de verdad."
-imagenPortada: ""
+imagenPortada: "https://i.imgur.com/pcDLNkk.png"
 etiquetas: ["Spring Boot", "Spring Data JPA", "Hibernate", "Base de datos", "Concurrencia", "Java", "Backend"]
 categoria: "tech"
 keywords: "bloqueo optimista y pesimista, bloqueo optimista jpa, bloqueo pesimista jpa, bloqueo optimista spring boot, optimistic locking spring boot, pessimistic locking jpa, @version jpa, optimisticlockexception, objectoptimisticlockingfailureexception, @lock pessimistic_write, lockmodetype jpa, select for update spring data jpa, skip locked spring boot, lost update actualización perdida, concurrencia spring data jpa, control de concurrencia base de datos, reintentar optimisticlockexception, http 409 conflict spring boot, etag if-match spring boot, deadlock jpa"

@@ -5,7 +5,7 @@ fecha: "2026-10-29"
 nombreAutor: "Jesús Flórez"
 fotoAutor: "/authors/jesus-florez.jpeg"
 descripcion: "Noticias de IA de octubre 2026: el S-1 de Anthropic en Nasdaq, la FTC y Bruselas contra los agentes, el informe de Mythos 5, Haiku 5.5, Duet y Gemini 4 Argon."
-imagenPortada: "https://i.imgur.com/UTCTKw9.pngj"
+imagenPortada: "https://i.imgur.com/UTCTKw9.png"
 etiquetas: ["Inteligencia Artificial", "IA", "Noticias", "Anthropic", "OpenAI", "Google", "Meta", "Seguridad IA", "Regulación IA"]
 categoria: "tech"
 keywords: "noticias inteligencia artificial octubre 2026, noticias ia octubre 2026, cierre octubre 2026 ia, anthropic ipo s-1 nasdaq ant, anthropic salida a bolsa ingresos perdidas, ftc civil investigative demands openai anthropic, ai act investigacion openai anthropic oficina de ia, demanda ocho estados openai chatgpt menores, aisi mythos 5 github informe, claude haiku 5.5 precio, claude duet agente proactivo, gemini 4 argon disponibilidad general, gemini for government, meta oferta acciones 35000 millones, openai ronda 30000 millones, grok voice 3.0, deepseek v4.1 flash, kimi k3.1 pro"
